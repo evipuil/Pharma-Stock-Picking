@@ -1,0 +1,58 @@
+# Point-in-time ticker mappings for price fetches.
+# When announcement_date is before a spinoff/M&A, fetch the predecessor ticker.
+
+mappings:
+  - current_ticker: ABBV
+    before_date: "2013-01-02"
+    use_ticker: PCYC
+    reason: "AbbVie spun off from Abbott; Pharmacyclics held ibrutinib pre-acquisition"
+
+  - current_ticker: BMY
+    before_date: "2019-11-21"
+    use_ticker: CELG
+    reason: "Celgene acquired by BMS"
+
+  - current_ticker: LLY
+    before_date: "2019-02-08"
+    use_ticker: LOXO
+    reason: "Loxo Oncology acquired by Lilly"
+
+  - current_ticker: GILD
+    before_date: "2020-10-23"
+    use_ticker: IMMU
+    reason: "Immunomedics acquired by Gilead"
+
+  - current_ticker: BMRN
+    before_date: "2024-01-23"
+    use_ticker: MRTX
+    reason: "Mirati acquired by BioMarin"
+
+  - current_ticker: PFE
+    before_date: "2023-12-14"
+    use_ticker: SGEN
+    reason: "Seagen acquired by Pfizer"
+
+  - current_ticker: PLYX
+    before_date: "9999-12-31"
+    use_ticker: PHM.MC
+    reason: "PharmaMar (Madrid listed); PLYX is stale/incorrect symbol for plitidepsin"
+
+  - current_ticker: QED
+    before_date: "9999-12-31"
+    use_ticker: BBIO
+    reason: "QED Therapeutics merged into BridgeBio (infigratinib)"
+
+  - current_ticker: PTLA
+    before_date: "9999-12-31"
+    use_ticker: PPHM
+    reason: "Peregrine Pharmaceuticals traded as PPHM (bavituximab); PTLA is incorrect"
+
+  - current_ticker: SGMO
+    before_date: "9999-12-31"
+    use_ticker: STML
+    reason: "Tagraxofusp was Stemline (STML); SGMO is Sangamo"
+
+  - current_ticker: OCN
+    before_date: "9999-12-31"
+    use_ticker: OMED
+    reason: "Demcizumab was OncoMed (OMED); OCN is Ocwen Financial"

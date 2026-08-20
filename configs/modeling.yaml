@@ -1,0 +1,58 @@
+random_seed: 42
+
+temporal_splits:
+  train_t0_year_max: 2016
+  validation_t0_year_min: 2017
+  validation_t0_year_max: 2018
+  test_t0_year_min: 2019
+
+models:
+  logistic:
+    penalty: l2
+    C: 1.0
+    max_iter: 1000
+
+  logistic_cv:
+    penalty: l2
+    Cs: [0.01, 0.1, 1.0, 10.0]
+    cv_folds: 3
+
+  random_forest:
+    n_estimators: 500
+    max_depth: 4
+    min_samples_leaf: 3
+    class_weight: balanced
+
+  xgboost:
+    enabled: false  # enable when N >= 50
+    n_estimators: 200
+    max_depth: 3
+    learning_rate: 0.05
+
+calibration:
+  method: isotonic  # platt | isotonic
+  fit_on: validation
+
+evaluation:
+  primary_metric: brier_score
+  bootstrap_n: 1000
+  bootstrap_cluster: company_id
+  calibration_bins: 10
+
+event_study:
+  estimation_window:
+    start_offset_days: -252
+    end_offset_days: -30
+  event_windows:
+    - "[-1,+1]"
+    - "[0,+1]"
+    - "[0,+5]"
+  benchmark_models:
+    - MARKET
+    - XBI
+  winsorize_car:
+    lower: 0.01
+    upper: 0.99
+
+primary_label: clinical_success
+labeling_rule_version: v1.0

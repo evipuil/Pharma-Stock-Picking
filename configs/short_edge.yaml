@@ -1,0 +1,59 @@
+# Short-edge validation configuration (frozen criteria — do not tune on test outcomes)
+
+random_seed: 42
+
+baseline:
+  id: baseline_2026_08_19
+  frozen_at: "2026-08-19"
+
+holdout:
+  final_locked_start: "2022-01-01"
+  description: "Catalysts on/after this date are final holdout; no model selection using them"
+
+walk_forward:
+  initial_train_end_year: 2014
+  step_years: 1
+
+event_study:
+  primary_window: "[-1,+1]"
+  benchmark: MARKET_MODEL
+
+costs:
+  default_slippage_bps: 25
+  slippage_stress_bps: [25, 50, 100, 200]
+  borrow_cost_bps_annual: 300
+  hold_days: 3  # approximate catalyst window hold
+
+liquidity:
+  min_adv_usd: 5_000_000
+  strict_min_adv_usd: 10_000_000
+
+strategies:
+  # Predefined short-only family — do NOT expand grid
+  short_top_pct: [0.10, 0.20]
+  min_net_expected_short_return: [0.10, 0.20]
+  major_drop_threshold: 0.50  # chosen via nested CV on training data only
+
+tail_risk:
+  major_drop_car: -0.20
+  catastrophic_drop_car: -0.40
+
+success_criteria:
+  min_oos_short_trades: 50
+  require_positive_mean: true
+  require_ci_above_zero: false  # preferred but not mandatory at n~50
+  require_multi_era_positive: true
+  require_beats_short_all: true
+  require_beats_dependency_heuristic: true
+  require_survives_100bps_slippage: true
+  require_survives_remove_largest_winner: true
+  min_precision_lift_top_quartile: 1.25  # vs random baseline
+
+feature_ablations:
+  - company_only
+  - market_only
+  - clinical_only
+  - preclinical_only
+  - market_plus_company
+  - clinical_plus_market
+  - everything

@@ -1,0 +1,37 @@
+clinical_trials:
+  base_url: https://clinicaltrials.gov/api/v2/studies
+  rate_limit_per_second: 1
+  timeout_seconds: 30
+
+pubmed:
+  esearch_url: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi
+  efetch_url: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi
+  elink_url: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi
+  db: pubmed
+  rate_limit_per_second: 3
+  # Set NCBI_API_KEY in environment for higher limits
+
+crossref:
+  base_url: https://api.crossref.org/works
+  mailto: user@example.com  # replace for polite pool
+
+europe_pmc:
+  search_url: https://www.ebi.ac.uk/europepmc/webservices/rest/search
+
+sec_edgar:
+  search_url: https://efts.sec.gov/LATEST/search-index
+  user_agent: StockPickingResearch user@example.com
+
+market_data:
+  provider: yfinance
+  sector_etfs:
+    - XBI
+    - IBB
+  market_benchmark: SPY
+  ff_factors_url: https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/F-F_Research_Data_Factors_daily_CSV.zip
+
+benchmark_pos:
+  wong2019_csv: data/external/wong2019_pos_rates.csv
+  bio_informa:
+    available: false
+    note: "Paid report — transcribe published summary tables only"

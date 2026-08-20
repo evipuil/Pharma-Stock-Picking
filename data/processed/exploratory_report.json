@@ -1,0 +1,9 @@
+{
+  "n_programs": 5,
+  "n_success": 5,
+  "success_rate": 1.0,
+  "brier_marginal": 0.0,
+  "brier_wong_baseline": 0.5127200000000001,
+  "mean_pre_t0_publications": 2.6,
+  "note": "Too few programs for stable logistic fit; descriptive only"
+}

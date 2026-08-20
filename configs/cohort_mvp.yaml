@@ -1,0 +1,118 @@
+# MVP cohort configuration
+# Set cohort_status to 'included' only after verification (see docs/mvp_cohort.md)
+
+cohort:
+  name: mvp_oncology_phase2_v1
+  indication: oncology
+  development_stage: PHASE2
+  t0_year_min: 2010
+  t0_year_max: 2020
+  target_n: 30
+
+temporal_splits:
+  train:
+    t0_year_min: 2010
+    t0_year_max: 2016
+  validation:
+    t0_year_min: 2017
+    t0_year_max: 2018
+  test:
+    t0_year_min: 2019
+    t0_year_max: 2020
+
+# Candidates — NCT IDs must be verified before inclusion
+candidates:
+  - candidate_id: C014
+    drug_name: epacadostat
+    indication: melanoma
+    ticker: INCY
+    company_name: Incyte Corporation
+    modality: small_molecule
+    combination: pembrolizumab
+    primary_nct_id: NCT02178722
+    t0_date: "2014-07-17"
+    cohort_status: included
+    mvp_wave: wave_1
+    notes: "ECHO-301 Phase III failure; Phase II combo data pre-t0 for epacadostat"
+
+  - candidate_id: C009
+    drug_name: sacituzumab govitecan
+    indication: TNBC
+    ticker: IMMU
+    company_name: Immunomedics
+    modality: ADC
+    primary_nct_id: NCT01631552
+    t0_date: "2012-12-17"
+    cohort_status: included
+    mvp_wave: wave_1
+
+  - candidate_id: C011
+    drug_name: tivozanib
+    indication: RCC
+    ticker: AVEO
+    company_name: AVEO Pharmaceuticals
+    modality: small_molecule
+    primary_nct_id: NCT01297244
+    t0_date: "2011-01-01"
+    cohort_status: included
+    mvp_wave: wave_1
+
+  - candidate_id: C007
+    drug_name: neratinib
+    indication: HER2_positive_breast
+    ticker: PBYI
+    company_name: Puma Biotechnology
+    modality: small_molecule
+    primary_nct_id: NCT01008150
+    t0_date: "2010-10-01"
+    cohort_status: included
+    mvp_wave: wave_1
+
+  - candidate_id: C005
+    drug_name: rucaparib
+    indication: ovarian_cancer
+    ticker: CLVS
+    company_name: Clovis Oncology
+    modality: small_molecule
+    primary_nct_id: NCT01891344
+    t0_date: "2013-10-30"
+    cohort_status: included
+    mvp_wave: wave_1
+
+  - candidate_id: C029
+    drug_name: sotorasib
+    indication: NSCLC_KRAS_G12C
+    ticker: AMGN
+    company_name: Amgen
+    modality: small_molecule
+    primary_nct_id: null
+    t0_date: null
+    cohort_status: pending
+    mvp_wave: wave_3_holdout
+    notes: temporal test cohort only
+
+  - candidate_id: C030
+    drug_name: adagrasib
+    indication: NSCLC_KRAS_G12C
+    ticker: MRTX
+    company_name: Mirati Therapeutics
+    modality: small_molecule
+    primary_nct_id: null
+    t0_date: null
+    cohort_status: pending
+    mvp_wave: wave_3_holdout
+
+search_protocol:
+  databases:
+    - pubmed
+    - pmc
+    - crossref
+  date_filter: effective_public_date_lte_t0
+  animal_keywords:
+    - "mice"
+    - "mouse"
+    - "murine"
+    - "xenograft"
+    - "syngeneic"
+    - "rat"
+    - "animal model"

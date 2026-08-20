@@ -1,0 +1,88 @@
+# Manual adjudication overrides for Wave 1 MVP
+# NCT IDs verified via ClinicalTrials.gov API v2 (2026-08-19)
+
+C014:
+  primary_nct_id: NCT02178722
+  notes: "Phase 1 basket MK-3475 (pembrolizumab) + INCB024360 (epacadostat); melanoma cohort — led to ECHO-301 (later Phase III failure)"
+  outcome:
+    clinical_success: 1
+    met_primary_endpoint: 1
+    advanced_to_phase3: 1
+    technical_failure: 0
+    safety_failure: 0
+    commercial_discontinuation: 0
+    outcome_unknown: 0
+    notes: "Encouraging melanoma combo data; advanced to ECHO-301"
+  financial_event:
+    event_type: PHASE2_READOUT
+    event_date: "2016-06-01"
+    source: ASCO 2016 combo data disclosure (approximate)
+    direction: positive
+
+C009:
+  primary_nct_id: NCT01631552
+  notes: "Phase 1 IMMU-132 basket incl. TNBC; TNBC expansion cohort provided registrational Phase II data before ASCENT NCT02574455"
+  outcome:
+    clinical_success: 1
+    met_primary_endpoint: 1
+    advanced_to_phase3: 1
+    technical_failure: 0
+    safety_failure: 0
+    commercial_discontinuation: 0
+    outcome_unknown: 0
+    notes: "Positive TNBC ORR from expansion cohort; advanced to ASCENT Phase III"
+  financial_event:
+    event_date: "2016-06-06"
+    source: ASCO 2016 IMMU-132 TNBC data
+    direction: positive
+
+C011:
+  primary_nct_id: NCT01297244
+  notes: "Phase II biomarker study tivozanib RCC; program advanced to TIVO-1 NCT01030783 which failed primary PFS"
+  outcome:
+    clinical_success: 1
+    met_primary_endpoint: 1
+    advanced_to_phase3: 1
+    technical_failure: 0
+    safety_failure: 0
+    commercial_discontinuation: 0
+    outcome_unknown: 0
+    notes: "Phase II supported Phase III initiation; TIVO-1 ultimately failed — label Phase II success for advancement"
+  financial_event:
+    event_date: "2013-06-03"
+    source: ASCO 2013 TIVO-1 topline (Phase III failure event for stock)
+    direction: negative
+
+C007:
+  primary_nct_id: NCT01008150
+  notes: "Phase II neoadjuvant neratinib + paclitaxel vs trastuzumab + paclitaxel (NEfERT-T)"
+  outcome:
+    clinical_success: 1
+    met_primary_endpoint: 1
+    advanced_to_phase3: 1
+    technical_failure: 0
+    safety_failure: 0
+    commercial_discontinuation: 0
+    outcome_unknown: 0
+    notes: "Met pCR primary endpoint; ExteNET Phase III followed"
+  financial_event:
+    event_date: "2014-12-10"
+    source: San Antonio Breast Cancer Symposium 2014
+    direction: positive
+
+C005:
+  primary_nct_id: NCT01891344
+  notes: "ARIEL2 Part 1 Phase II rucaparib platinum-sensitive ovarian cancer"
+  outcome:
+    clinical_success: 1
+    met_primary_endpoint: 1
+    advanced_to_phase3: 1
+    technical_failure: 0
+    safety_failure: 0
+    commercial_discontinuation: 0
+    outcome_unknown: 0
+    notes: "Positive Phase II; ARIEL3 Phase III confirmed"
+  financial_event:
+    event_date: "2015-10-25"
+    source: ESMO 2015 ARIEL2 presentation
+    direction: positive

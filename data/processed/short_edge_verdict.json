@@ -1,0 +1,17 @@
+{
+  "checks": {
+    "min_oos_short_trades": false,
+    "positive_mean": true,
+    "ci_above_zero": false,
+    "multi_era_positive": true,
+    "beats_short_all": true,
+    "beats_dependency_heuristic": false,
+    "survives_100bps_slippage": true,
+    "survives_remove_largest_winner": true
+  },
+  "n_pass": 5,
+  "n_total": 8,
+  "verdict": "WEAK / INCONCLUSIVE EDGE",
+  "primary_strategy_n": 14,
+  "primary_strategy_mean": 0.08160314628270433
+}

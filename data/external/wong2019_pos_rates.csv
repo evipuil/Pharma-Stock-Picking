@@ -1,0 +1,5 @@
+source,phase,indication_group,modality,biomarker_enriched,success_rate,n_programs,effective_year_range,notes
+WONG2019,PHASE2,oncology,all,false,0.30,1000,2000-2015,Placeholder — replace with transcribed Wong et al. supplementary values
+WONG2019,PHASE2,oncology,small_molecule,false,0.28,400,2000-2015,Placeholder
+WONG2019,PHASE2,oncology,biologics,false,0.32,350,2000-2015,Placeholder
+BIO_INFORMA_2020,PHASE2,oncology,all,false,0.29,500,2011-2020,Placeholder — paid report; use published summary only

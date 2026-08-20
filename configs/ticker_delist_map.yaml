@@ -1,0 +1,86 @@
+# Delisted / M&A ticker metadata for price coverage audit.
+# Historical OHLCV for these tickers requires Polygon.io or CRSP.
+# successor_ticker is for reference only — do NOT substitute for event-study CAR.
+
+tickers:
+  IMMU:
+    delisted: true
+    delist_date: "2020-10-23"
+    successor_ticker: GILD
+    notes: "Acquired by Gilead"
+  AVEO:
+    delisted: true
+    delist_date: "2023-06-14"
+    notes: "Delisted post-Chapter 11"
+  CLVS:
+    delisted: true
+    delist_date: "2023-01-05"
+    notes: "Delisted; bankruptcy"
+  LOXO:
+    delisted: true
+    delist_date: "2019-02-08"
+    successor_ticker: LLY
+    notes: "Acquired by Lilly"
+  CELG:
+    delisted: true
+    delist_date: "2019-11-21"
+    successor_ticker: BMY
+    notes: "Acquired by Bristol-Myers"
+  IMGN:
+    delisted: true
+    delist_date: "2024-12-06"
+    successor_ticker: ABBV
+    notes: "Acquired by AbbVie"
+  MRTX:
+    delisted: true
+    delist_date: "2024-01-23"
+    successor_ticker: BMRN
+    notes: "Acquired by BioMarin"
+  SNTA:
+    delisted: true
+    notes: "Delisted biotech"
+  SGEN:
+    delisted: true
+    delist_date: "2023-12-14"
+    successor_ticker: PFE
+    notes: "Acquired by Pfizer (Seagen)"
+  PTLA:
+    delisted: true
+    delist_date: "2023-05-15"
+    notes: "Wrong symbol for Peregrine bavituximab; use PPHM via ticker_history_map"
+  PPHM:
+    delisted: true
+    delist_date: "2018-01-08"
+    successor_ticker: CDMO
+    notes: "Peregrine Pharmaceuticals; renamed Avid Bioservices"
+  CTIC:
+    delisted: true
+    notes: "Delisted biotech"
+  SGMO:
+    delisted: true
+    notes: "Delisted biotech"
+  EPZM:
+    delisted: true
+    delist_date: "2023-06-26"
+    notes: "Acquired/delisted"
+  OCN:
+    delisted: true
+    notes: "Delisted biotech"
+  PLYX:
+    delisted: false
+    notes: "Registry typo; use PHM.MC via ticker_history_map"
+  QED:
+    delisted: false
+    notes: "Registry typo; use BBIO via ticker_history_map"
+  PCYC:
+    delisted: true
+    delist_date: "2015-05-04"
+    successor_ticker: ABBV
+    notes: "Acquired by AbbVie; use for pre-2013 ibrutinib events"
+  CYTR:
+    delisted: true
+    notes: "Delisted biotech"
+  RXDX:
+    delisted: true
+    delist_date: "2023-02-13"
+    notes: "Acquired by Sanofi"

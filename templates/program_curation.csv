@@ -1,0 +1,6 @@
+candidate_id,program_id,ticker,drug_name,indication,primary_nct_id,t0_date,t0_source,t0_definition,clinical_success,technical_failure,safety_failure,commercial_discontinuation,outcome_unknown,event_date,cohort_status,verification_notes
+C014,C014,INCY,epacadostat,melanoma,NCT02178722,2014-07-17,CTGOV,TRIAL_START,1,0,0,0,0,2016-06-01,included,Phase1 basket MK-3475+epacadostat;2 pre-t0 pubs
+C009,C009,IMMU,sacituzumab govitecan,TNBC,NCT01631552,2012-12-17,CTGOV,TRIAL_START,1,0,0,0,0,2016-06-06,included,Phase1 basket IMMU-132;19 pre-t0 pubs
+C011,C011,AVEO,tivozanib,RCC,NCT01297244,2011-01-01,CTGOV,TRIAL_START,1,0,0,0,0,2013-06-03,included,Phase2 biomarker;1 pre-t0 pub;TIVO-1 later failed
+C007,C007,PBYI,neratinib,HER2_positive_breast,NCT01008150,2010-10-01,CTGOV,TRIAL_START,1,0,0,0,0,2014-12-10,included,NEfERT-T Phase2;8 pre-t0 pubs
+C005,C005,CLVS,rucaparib,ovarian_cancer,NCT01891344,2013-10-30,CTGOV,TRIAL_START,1,0,0,0,0,2015-10-25,included,ARIEL2 Phase2;2 pre-t0 pubs

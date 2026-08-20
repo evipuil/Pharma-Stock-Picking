@@ -1,0 +1,35 @@
+{
+  "baseline_id": "baseline_2026_08_19",
+  "frozen_at_utc": "2026-08-20T00:59:27.371497+00:00",
+  "copied": [
+    "data\\out_of_sample_predictions.csv",
+    "data\\processed\\expected_car_predictions.csv",
+    "data\\trade_ledger.csv",
+    "data\\processed\\models\\expected_car_v1.pkl",
+    "configs\\stock_picking.yaml",
+    "configs\\exposure.yaml",
+    "configs\\feature_sets.yaml",
+    "configs\\catalyst_announcement_overrides.yaml",
+    "configs\\ticker_history_map.yaml",
+    "reports\\model_performance.md",
+    "reports\\backtest.md",
+    "reports\\backtest_grid.md",
+    "reports\\event_study.md",
+    "reports\\catalyst_coverage.md",
+    "reports\\ablation_study.md",
+    "reports\\holdout_evaluation.md",
+    "data\\processed\\research.db",
+    "data/walk_forward_ledger.csv"
+  ],
+  "missing": [],
+  "walk_forward_config": {
+    "initial_train_end_year": 2014,
+    "step_years": 1
+  },
+  "ranking_config": {
+    "strong_long_percentile": 0.9,
+    "long_percentile": 0.75,
+    "short_percentile": 0.25,
+    "strong_short_percentile": 0.1
+  }
+}

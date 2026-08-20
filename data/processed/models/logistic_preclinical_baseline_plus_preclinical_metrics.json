@@ -1,0 +1,60 @@
+{
+  "name": "logistic_preclinical",
+  "feature_set": "baseline_plus_preclinical",
+  "feature_columns": [
+    "indication",
+    "modality",
+    "t0_year",
+    "n_animal_studies",
+    "indication_group",
+    "best_effect_size",
+    "median_effect_size",
+    "any_dose_response",
+    "survival_benefit_any",
+    "min_p_value",
+    "pct_studies_randomized",
+    "pct_studies_blinded",
+    "pct_sample_size_calc",
+    "pct_exclusions_described",
+    "pct_peer_reviewed",
+    "mean_face_validity",
+    "mean_construct_validity",
+    "mean_predictive_validity",
+    "mean_endpoint_clinical_similarity",
+    "mean_mechanism_similarity",
+    "any_humanized_or_pdx",
+    "human_target_validated_any",
+    "any_independent_replication",
+    "replicated_across_models_any",
+    "replicated_across_species_any",
+    "n_species",
+    "n_models",
+    "mean_pkpd_relevance",
+    "biomarker_overlap_any"
+  ],
+  "metrics": {
+    "train_note": "temporal_split",
+    "overall": {
+      "brier_score": 0.31400966183574874,
+      "log_loss": 0.8273807832316092,
+      "n": 23,
+      "n_events": 14,
+      "roc_auc": null
+    },
+    "test": {
+      "brier_score": 0.3333333333333334,
+      "log_loss": 0.8675632284814613,
+      "n": 3,
+      "n_events": 2,
+      "roc_auc": null
+    },
+    "loo_cv": {
+      "brier_score": 0.44510139014590405,
+      "log_loss": 1.2304529777842763,
+      "n": 23,
+      "n_events": 14,
+      "roc_auc": 0.12698412698412698
+    }
+  },
+  "version": "v1.0"
+}

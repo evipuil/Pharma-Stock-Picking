@@ -1,0 +1,72 @@
+# Stock-picking system configuration (walk-forward, holdout, event study)
+
+random_seed: 42
+
+cohort:
+  phase_a_target: 100
+  phase_b_target: 250
+  long_term_target: 500
+  t0_year_min: 2010
+  t0_year_max: 2020
+  holdout_start_year: 2019
+
+holdout:
+  final_locked:
+    start_year: 2019
+    end_year: 2021
+    description: "Never inspect until pipeline frozen"
+
+walk_forward:
+  initial_train_end_year: 2014
+  step_years: 1
+
+event_study:
+  estimation_window:
+    start_offset_trading_days: -250
+    end_offset_trading_days: -30
+  event_windows:
+    - "[-5,+5]"
+    - "[-1,+1]"
+    - "[0,+1]"
+    - "[0,+5]"
+    - "[0,+20]"
+  benchmarks:
+    - RAW
+    - SPY
+    - XBI
+    - IBB
+    - MARKET_MODEL
+    - XBI_MODEL
+  primary_benchmark: XBI
+
+market_data:
+  default_provider: yfinance
+  cache_dir: data/market_history
+  benchmark_tickers:
+    - SPY
+    - XBI
+    - IBB
+  history_start: "2008-01-01"
+
+trading:
+  default_slippage_bps: 25
+  slippage_grid_bps: [0, 25, 50, 75, 100]
+  commission_per_trade_usd: 0
+  max_position_pct: 0.05
+  min_adv_usd: 500000
+  short_borrow_cost_bps_annual: 300
+
+ranking:
+  strong_long_percentile: 0.90
+  long_percentile: 0.75
+  short_percentile: 0.25
+  strong_short_percentile: 0.10
+
+strategies:
+  predefined_grid:
+    - name: long_top_k
+      k: [1, 3, 5]
+    - name: threshold
+      min_expected_car: [0.05, 0.10, 0.15]
+    - name: confidence_filtered
+      require_lower_ci_positive: true

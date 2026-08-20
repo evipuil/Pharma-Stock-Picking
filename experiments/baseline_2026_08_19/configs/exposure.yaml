@@ -1,0 +1,38 @@
+# Large-cap pharma — catalyst has limited impact on enterprise value
+large_pharma_tickers:
+  - PFE
+  - MRK
+  - BMY
+  - LLY
+  - JNJ
+  - AZN
+  - NVS
+  - GSK
+  - ABBV
+  - GILD
+  - AMGN
+  - TAK
+  - SNY
+  - BAYRY
+  - RHHBY
+
+# Mid-cap biotech — partial dependency
+mid_cap_tickers:
+  - EXEL
+  - INCY
+  - REGN
+  - BIIB
+  - VRTX
+  - ALNY
+  - BMRN
+  - SGMO
+  - AGIO
+  - KURA
+  - TGTX
+  - PBYI
+  - MRTX
+
+dependency_scores:
+  large_pharma: 0.20
+  mid_cap: 0.55
+  small_cap: 0.90

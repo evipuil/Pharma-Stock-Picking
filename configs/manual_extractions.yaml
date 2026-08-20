@@ -1,0 +1,300 @@
+# Manual feature extractions — Wave 1 MVP
+# Reviewer: manual_curation_v1
+# Rules: values derived from abstract/full-text where noted; NULL = not reported
+# verification_status: verified | rejected
+
+programs:
+  C014:
+    reject_pmids: []  # both relevant
+    studies:
+      - pmid: "20124451"
+        relevance: PRIMARY_EFFICACY
+        species: mouse
+        strain: null
+        sex: not_reported
+        age: null
+        disease_model: xenograft
+        model_induction_method: "CT26 colon carcinoma and PAN02 pancreatic carcinoma cell lines; IDO-expressing tumors"
+        sample_size_treatment: null
+        sample_size_control: null
+        control_type: "Ido1-deficient mice (mechanism control)"
+        is_humanized_model: false
+        is_pdx: false
+        therapeutic_vs_prophylactic: therapeutic
+        primary_endpoint: tumor growth inhibition
+        effect_size: null
+        effect_size_type: qualitative
+        pct_improvement: null
+        p_value: null
+        dose_response: true
+        survival_benefit: false
+        randomization_reported: false
+        blinding_reported: false
+        allocation_concealment: false
+        sample_size_calculation: false
+        exclusions_described: false
+        preregistration: false
+        peer_reviewed: true
+        independent_lab_replication: false
+        replicated_across_models: true
+        replicated_across_species: true
+        face_validity: 1
+        construct_validity: 2
+        predictive_validity: 1
+        endpoint_clinical_similarity: 1
+        mechanism_similarity: 2
+        pkpd_relevance: 2
+        biomarker_overlap: true
+        human_target_validated: true
+        feature_source_sentence: "Repeated administration of these IDO1 inhibitors impedes tumor growth in a dose- and lymphocyte-dependent fashion"
+        extraction_confidence: 0.85
+        verification_status: verified
+        reviewer_notes: "INCB024360 = epacadostat; xenograft + mouse/dog PK; lymphocyte-dependent efficacy"
+
+      - pmid: "20197554"
+        relevance: PRIMARY_EFFICACY
+        species: mouse
+        disease_model: xenograft
+        model_induction_method: tumor-bearing mice (IDO pathway)
+        therapeutic_vs_prophylactic: therapeutic
+        primary_endpoint: tumor growth inhibition
+        dose_response: null
+        survival_benefit: false
+        randomization_reported: false
+        blinding_reported: false
+        peer_reviewed: true
+        face_validity: 1
+        construct_validity: 2
+        predictive_validity: 1
+        endpoint_clinical_similarity: 1
+        mechanism_similarity: 2
+        pkpd_relevance: 1
+        human_target_validated: true
+        feature_source_sentence: "administration of INCB024360 to tumor-bearing mice significantly inhibits tumor growth in a lymphocyte-dependent manner"
+        extraction_confidence: 0.82
+        verification_status: verified
+
+  C011:
+    reject_pmids: []
+    studies:
+      - pmid: "20799147"
+        relevance: REVIEW
+        species: rat
+        disease_model: xenograft
+        model_induction_method: "athymic rats; multiple xenograft tumor models (review summarizing preclinical)"
+        therapeutic_vs_prophylactic: therapeutic
+        primary_endpoint: tumor growth inhibition
+        pct_improvement: null
+        peer_reviewed: true
+        randomization_reported: false
+        blinding_reported: false
+        face_validity: 1
+        construct_validity: 2
+        predictive_validity: 1
+        endpoint_clinical_similarity: 2
+        mechanism_similarity: 2
+        pkpd_relevance: 1
+        human_target_validated: true
+        feature_source_sentence: "tivozanib produced a significant inhibition of tumor growth and angiogenesis in several different xenograft tumor models in athymic rats"
+        extraction_confidence: 0.65
+        verification_status: verified
+        reviewer_notes: "Review article — secondary source; RCC-specific xenograft data not isolated in abstract"
+
+  C009:
+    # Reject generic SN-38 / irinotecan papers not about IMMU-132
+    reject_all_existing: true
+    add_studies:
+      - pmid: "21372224"
+        title: "Humanized anti-Trop-2 IgG-SN-38 conjugate for effective treatment of diverse epithelial cancers"
+        publication_date: "2011-05-15"
+        doi: "10.1158/1538-7445.AM2011-4186"
+        relevance: PRIMARY_EFFICACY
+        species: mouse
+        disease_model: xenograft
+        model_induction_method: "human cancer xenograft models; nonhuman primate (monkey) studies"
+        is_humanized_model: true
+        therapeutic_vs_prophylactic: therapeutic
+        primary_endpoint: antitumor efficacy / tumor growth
+        pct_improvement: null
+        peer_reviewed: true
+        randomization_reported: false
+        blinding_reported: false
+        replicated_across_models: true
+        face_validity: 2
+        construct_validity: 2
+        predictive_validity: 2
+        endpoint_clinical_similarity: 2
+        mechanism_similarity: 2
+        pkpd_relevance: 2
+        biomarker_overlap: true
+        human_target_validated: true
+        feature_source_sentence: "Humanized anti-Trop-2 IgG-SN-38 conjugate for effective treatment of diverse epithelial cancers: preclinical studies in human cancer xenograft models and monkeys"
+        extraction_confidence: 0.90
+        verification_status: verified
+        reviewer_notes: "hRS7-SN-38 = sacituzumab govitecan (IMMU-132); primary preclinical paper predating Phase I start"
+
+      - pmid: "21467164"
+        title: "Combination radioimmunotherapy and chemoimmunotherapy involving different or the same targets"
+        publication_date: "2011-06-01"
+        relevance: SECONDARY_EFFICACY
+        species: mouse
+        disease_model: xenograft
+        therapeutic_vs_prophylactic: therapeutic
+        primary_endpoint: combination antitumor activity
+        peer_reviewed: true
+        face_validity: 1
+        construct_validity: 2
+        endpoint_clinical_similarity: 1
+        mechanism_similarity: 2
+        feature_source_sentence: "Combination radioimmunotherapy and chemoimmunotherapy involving different or the same targets"
+        extraction_confidence: 0.70
+        verification_status: verified
+        reviewer_notes: "Includes hRS7-SN-38 combination data; secondary to 21372224"
+
+  C007:
+    reject_pmids:
+      - "17613432"   # commentary/editorial
+      - "17671147"   # clinical-focused review
+    studies:
+      - pmid: "15173008"
+        relevance: PRIMARY_EFFICACY
+        species: mouse
+        disease_model: xenograft
+        model_induction_method: "HER-2-overexpressing and EGFR-dependent human breast cancer cell xenografts"
+        therapeutic_vs_prophylactic: therapeutic
+        primary_endpoint: antitumor activity / tumor growth inhibition
+        pct_improvement: null
+        dose_response: null
+        peer_reviewed: true
+        randomization_reported: false
+        blinding_reported: false
+        face_validity: 2
+        construct_validity: 2
+        predictive_validity: 2
+        endpoint_clinical_similarity: 1
+        mechanism_similarity: 2
+        pkpd_relevance: 2
+        human_target_validated: true
+        feature_source_sentence: "HKI-272 is active in HER-2- and EGFR-dependent tumor xenograft models when dosed orally on a once daily schedule"
+        extraction_confidence: 0.92
+        verification_status: verified
+        reviewer_notes: "Directly breast-cancer xenograft — highest translational relevance for NEfERT-T program"
+
+      - pmid: "17613438"
+        relevance: SECONDARY_EFFICACY
+        species: mouse
+        disease_model: GEMM
+        model_induction_method: "doxycycline-inducible EGFR T790M-L858R transgenic lung adenocarcinoma"
+        therapeutic_vs_prophylactic: therapeutic
+        primary_endpoint: tumor regression
+        peer_reviewed: true
+        face_validity: 1
+        construct_validity: 2
+        predictive_validity: 1
+        endpoint_clinical_similarity: 0
+        mechanism_similarity: 2
+        pkpd_relevance: 1
+        feature_source_sentence: "combination of HKI-272 and rapamycin resulted in significant regression of both types of lung tumors"
+        extraction_confidence: 0.80
+        verification_status: verified
+        reviewer_notes: "Lung GEMM — mechanism relevant but indication mismatch vs breast program"
+
+      - pmid: "16730237"
+        relevance: SECONDARY_EFFICACY
+        species: mouse
+        disease_model: GEMM
+        model_induction_method: "bitransgenic EGFR mutant lung adenocarcinoma"
+        therapeutic_vs_prophylactic: therapeutic
+        primary_endpoint: tumor regression
+        peer_reviewed: true
+        endpoint_clinical_similarity: 0
+        mechanism_similarity: 2
+        feature_source_sentence: "Treatment with small molecule inhibitors (erlotinib or HKI-272)... led to dramatic tumor regression"
+        extraction_confidence: 0.78
+        verification_status: verified
+
+      - pmid: "16672372"
+        relevance: SECONDARY_EFFICACY
+        species: mouse
+        disease_model: GEMM
+        model_induction_method: "EGFRvIII transgenic murine lung NSCLC"
+        therapeutic_vs_prophylactic: therapeutic
+        primary_endpoint: tumor size reduction
+        peer_reviewed: true
+        face_validity: 1
+        endpoint_clinical_similarity: 0
+        feature_source_sentence: "Treatment with an irreversible EGFR inhibitor, HKI-272, dramatically reduced the size of these EGFRvIII-driven murine tumors in 1 week"
+        extraction_confidence: 0.78
+        verification_status: verified
+
+      - pmid: "16818618"
+        relevance: MECHANISM
+        species: mouse
+        disease_model: cell_line
+        model_induction_method: "Ba/F3 murine pro-B cells engineered with ERBB2 mutation"
+        therapeutic_vs_prophylactic: in_vitro_plus_engineered
+        primary_endpoint: proliferation / apoptosis
+        peer_reviewed: true
+        endpoint_clinical_similarity: 0
+        feature_source_sentence: "Ba/F3 murine pro-B cells, engineered to express mutant ERBB2, became sensitive to HKI-272"
+        extraction_confidence: 0.75
+        verification_status: verified
+
+      - pmid: "17311002"
+        relevance: MECHANISM
+        species: mouse
+        disease_model: cell_line
+        model_induction_method: "Murine cells transformed with ERBB2 mutants"
+        primary_endpoint: sensitivity to HKI-272
+        peer_reviewed: true
+        endpoint_clinical_similarity: 0
+        extraction_confidence: 0.72
+        verification_status: verified
+
+  C005:
+    reject_pmids:
+      - "23881923"   # BMN 673 paper; rucaparib comparator only
+      - "24080524"   # rucaparib as internal standard only
+      - "24216281"   # PK methods paper published 2014-01-01 AFTER t0 2013-10-30
+    studies:
+      - pmid: "20978505"
+        relevance: PRIMARY_EFFICACY
+        species: mouse
+        disease_model: xenograft
+        model_induction_method: "human medulloblastoma xenografts (D384Med, D425Med, D283Med)"
+        therapeutic_vs_prophylactic: therapeutic
+        primary_endpoint: tumor growth delay
+        effect_size: 4.0
+        effect_size_type: fold_sensitization
+        pct_improvement: null
+        p_value: null
+        peer_reviewed: true
+        randomization_reported: false
+        blinding_reported: false
+        face_validity: 0
+        construct_validity: 2
+        predictive_validity: 1
+        endpoint_clinical_similarity: 0
+        mechanism_similarity: 2
+        pkpd_relevance: 2
+        human_target_validated: true
+        feature_source_sentence: "D384Med cells were sensitised fourfold by AG-014699; D283Med xenografts were sensitised 20-fold"
+        extraction_confidence: 0.88
+        verification_status: verified
+        reviewer_notes: "AG-014699 = rucaparib; medulloblastoma not ovarian — indication mismatch but PARP mechanism relevant"
+
+    # 24216281 excluded — post-t0 publication (2014-01-01 > t0 2013-10-30)
+
+  # Wave 2 failures — reuse drug-level extractions (same preclinical lit before各自 t0)
+  F001:
+    inherit_from: C014
+    reject_pmids: []
+  F002:
+    inherit_from: C014
+    reject_pmids: []
+  F003:
+    inherit_from: C011
+    reject_pmids: []
+  F004:
+    inherit_from: C005
+    reject_pmids: []

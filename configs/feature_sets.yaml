@@ -1,0 +1,74 @@
+# Feature sets for ablation studies (see docs/statistical_analysis_plan.md)
+
+feature_sets:
+  baseline_clinical:
+    description: Historical development context without preclinical data
+    columns:
+      - indication_group
+      - modality
+      - biomarker_strategy
+      - sponsor_size
+      - development_stage_at_t0
+
+  animal_efficacy:
+    description: Quantitative efficacy outcomes from animal studies
+    columns:
+      - best_effect_size
+      - median_effect_size
+      - any_dose_response
+      - survival_benefit_any
+      - min_p_value
+
+  animal_quality:
+    description: ARRIVE 2.0 / Landis reporting rigor aggregates
+    columns:
+      - pct_studies_randomized
+      - pct_studies_blinded
+      - pct_sample_size_calc
+      - pct_exclusions_described
+      - pct_peer_reviewed
+
+  translation:
+    description: FIMD-inspired translational validity aggregates
+    columns:
+      - mean_face_validity
+      - mean_construct_validity
+      - mean_predictive_validity
+      - mean_endpoint_clinical_similarity
+      - mean_mechanism_similarity
+      - any_humanized_or_pdx
+      - human_target_validated_any
+
+  replication:
+    description: Replication across labs, models, species
+    columns:
+      - any_independent_replication
+      - replicated_across_models_any
+      - replicated_across_species_any
+      - n_animal_studies
+      - n_species
+      - n_models
+
+  pkpd:
+    description: PK/PD and exposure relevance
+    columns:
+      - mean_pkpd_relevance
+      - biomarker_overlap_any
+      - human_target_validated_any
+
+  all_preclinical:
+    extends:
+      - animal_efficacy
+      - animal_quality
+      - translation
+      - replication
+      - pkpd
+
+  baseline_plus_preclinical:
+    extends:
+      - baseline_clinical
+      - all_preclinical
+
+missing_data:
+  strategy: indicator_plus_median_train
+  add_missing_indicators: true

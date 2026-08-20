@@ -1,0 +1,893 @@
+# Catalyst cohort expansion — Phase A target N≥100
+# Programs already in research.db are migrated via migrate-catalysts (skip new load)
+
+phase_a_target: 100
+
+candidates:
+  # --- Existing in DB: catalyst rows created by migration only ---
+  - { id: C003, skip: true }
+  - { id: C004, skip: true }
+  - { id: C005, skip: true }
+  - { id: C007, skip: true }
+  - { id: C008, skip: true }
+  - { id: C009, skip: true }
+  - { id: C011, skip: true }
+  - { id: C014, skip: true }
+  - { id: C015, skip: true }
+  - { id: C016, skip: true }
+  - { id: C017, skip: true }
+  - { id: C018, skip: true }
+  - { id: C019, skip: true }
+  - { id: C025, skip: true }
+  - { id: C026, skip: true }
+  - { id: C027, skip: true }
+  - { id: C029, skip: true }
+  - { id: C030, skip: true }
+  - { id: C001, skip: true }
+  - { id: C002, skip: true }
+  - { id: C006, skip: true }
+  - { id: C010, skip: true }
+  - { id: C020, skip: true }
+  - { id: C021, skip: true }
+  - { id: C022, skip: true }
+  - { id: C023, skip: true }
+  - { id: C024, skip: true }
+  - { id: F001, skip: true }
+  - { id: F002, skip: true }
+  - { id: F003, skip: true }
+  - { id: F004, skip: true }
+  - { id: F005, skip: true }
+  - { id: F007, skip: true }
+  - { id: F008, skip: true }
+  - { id: F009, skip: true }
+  - { id: F010, skip: true }
+  - { id: F011, skip: true }
+  - { id: F012, skip: true }
+
+  # --- NEW: Phase A expansion (successes) ---
+  - id: C031
+    drug_name: pembrolizumab
+    ticker: MRK
+    company_name: Merck
+    indication: melanoma
+    modality: mAb
+    nct_id: NCT01295827
+    outcome_override: { clinical_success: 1 }
+    announcement_date: "2013-06-02"
+    announcement_timing: UNKNOWN
+
+  - id: C032
+    drug_name: nivolumab
+    ticker: BMY
+    company_name: Bristol-Myers Squibb
+    indication: melanoma
+    modality: mAb
+    nct_id: NCT01721746
+    outcome_override: { clinical_success: 1 }
+    announcement_date: "2014-06-02"
+
+  - id: C033
+    drug_name: ipilimumab
+    ticker: BMY
+    company_name: Bristol-Myers Squibb
+    indication: melanoma
+    modality: mAb
+    nct_id: NCT02094391
+    outcome_override: { clinical_success: 1 }
+    announcement_date: "2014-06-02"
+
+  - id: C034
+    drug_name: ibrutinib
+    ticker: ABBV
+    company_name: AbbVie
+    indication: CLL
+    modality: small_molecule
+    nct_id: NCT01105247
+    outcome_override: { clinical_success: 1 }
+    announcement_date: "2012-12-08"
+
+  - id: C035
+    drug_name: acalabrutinib
+    ticker: AZN
+    company_name: AstraZeneca
+    indication: CLL
+    modality: small_molecule
+    search: "acalabrutinib CLL phase 2"
+    outcome_override: { clinical_success: 1 }
+
+  - id: C036
+    drug_name: venetoclax
+    ticker: ABBV
+    company_name: AbbVie
+    indication: CLL
+    modality: small_molecule
+    nct_id: NCT01889186
+    outcome_override: { clinical_success: 1 }
+    announcement_date: "2014-12-06"
+
+  - id: C037
+    drug_name: daratumumab
+    ticker: JNJ
+    company_name: Johnson & Johnson
+    indication: myeloma
+    modality: mAb
+    nct_id: NCT03357952
+    outcome_override: { clinical_success: 1 }
+    announcement_date: "2017-12-08"
+
+  - id: C038
+    drug_name: elotuzumab
+    ticker: BMY
+    company_name: Bristol-Myers Squibb
+    indication: myeloma
+    modality: mAb
+    nct_id: NCT03104270
+    outcome_override: { clinical_success: 1 }
+
+  - id: C039
+    drug_name: carfilzomib
+    ticker: AMGN
+    company_name: Amgen
+    indication: myeloma
+    modality: small_molecule
+    nct_id: NCT02773030
+    outcome_override: { clinical_success: 1 }
+
+  - id: C040
+    drug_name: pomalidomide
+    ticker: CELG
+    company_name: Celgene
+    indication: myeloma
+    modality: small_molecule
+    nct_id: NCT01311687
+    outcome_override: { clinical_success: 1 }
+
+  - id: C041
+    drug_name: lenalidomide
+    ticker: CELG
+    company_name: Celgene
+    indication: myeloma
+    modality: small_molecule
+    search: "lenalidomide myeloma phase 2"
+    outcome_override: { clinical_success: 1 }
+
+  - id: C042
+    drug_name: cabozantinib
+    ticker: EXEL
+    company_name: Exelixis
+    indication: RCC
+    modality: small_molecule
+    nct_id: NCT01578499
+    outcome_override: { clinical_success: 1 }
+    announcement_date: "2015-09-26"
+
+  - id: C043
+    drug_name: axitinib
+    ticker: PFE
+    company_name: Pfizer
+    indication: RCC
+    modality: small_molecule
+    nct_id: NCT01727336
+    outcome_override: { clinical_success: 1 }
+
+  - id: C044
+    drug_name: pazopanib
+    ticker: NVS
+    company_name: Novartis
+    indication: RCC
+    modality: small_molecule
+    search: "pazopanib renal cell carcinoma phase 2"
+    outcome_override: { clinical_success: 1 }
+
+  - id: C045
+    drug_name: regorafenib
+    ticker: BAYRY
+    company_name: Bayer
+    indication: colorectal
+    modality: small_molecule
+    nct_id: NCT01103323
+    outcome_override: { clinical_success: 1 }
+
+  - id: C046
+    drug_name: ramucirumab
+    ticker: LLY
+    company_name: Eli Lilly
+    indication: gastric
+    modality: mAb
+    nct_id: NCT01170663
+    outcome_override: { clinical_success: 1 }
+
+  - id: C047
+    drug_name: trastuzumab emtansine
+    ticker: RHHBY
+    company_name: Roche
+    indication: HER2_breast
+    modality: ADC
+    nct_id: NCT01597414
+    outcome_override: { clinical_success: 1 }
+
+  - id: C048
+    drug_name: pertuzumab
+    ticker: RHHBY
+    company_name: Roche
+    indication: HER2_breast
+    modality: mAb
+    search: "pertuzumab neoadjuvant phase 2"
+    outcome_override: { clinical_success: 1 }
+
+  - id: C049
+    drug_name: ado-trastuzumab emtansine
+    ticker: RHHBY
+    company_name: Roche
+    indication: HER2_breast
+    modality: ADC
+    skip: true  # duplicate T-DM1
+
+  - id: C050
+    drug_name: inotuzumab ozogamicin
+    ticker: PFE
+    company_name: Pfizer
+    indication: ALL
+    modality: ADC
+    nct_id: NCT01162785
+    outcome_override: { clinical_success: 1 }
+
+  - id: C051
+    drug_name: blinatumomab
+    ticker: AMGN
+    company_name: Amgen
+    indication: ALL
+    modality: mAb
+    nct_id: NCT01471782
+    outcome_override: { clinical_success: 1 }
+
+  - id: C052
+    drug_name: ibrutinib
+    ticker: ABBV
+    company_name: AbbVie
+    indication: MCL
+    modality: small_molecule
+    search: "ibrutinib mantle cell lymphoma phase 2"
+    outcome_override: { clinical_success: 1 }
+
+  - id: C053
+    drug_name: obinutuzumab
+    ticker: RHHBY
+    company_name: Roche
+    indication: CLL
+    modality: mAb
+    nct_id: NCT01010061
+    outcome_override: { clinical_success: 1 }
+
+  - id: C054
+    drug_name: ofatumumab
+    ticker: NVS
+    company_name: Novartis
+    indication: CLL
+    modality: mAb
+    search: "ofatumumab CLL phase 2"
+    outcome_override: { clinical_success: 1 }
+
+  - id: C055
+    drug_name: vismodegib
+    ticker: NVS
+    company_name: Novartis
+    indication: basal_cell
+    modality: small_molecule
+    nct_id: NCT01898598
+    outcome_override: { clinical_success: 1 }
+
+  - id: C056
+    drug_name: sonidegib
+    ticker: NVS
+    company_name: Novartis
+    indication: basal_cell
+    modality: small_molecule
+    nct_id: NCT01336665
+    outcome_override: { clinical_success: 1 }
+
+  - id: C057
+    drug_name: trametinib
+    ticker: NVS
+    company_name: Novartis
+    indication: melanoma_BRAF
+    modality: small_molecule
+    nct_id: NCT01227135
+    outcome_override: { clinical_success: 1 }
+
+  - id: C058
+    drug_name: dabrafenib
+    ticker: NVS
+    company_name: Novartis
+    indication: melanoma_BRAF
+    modality: small_molecule
+    nct_id: NCT01701037
+    outcome_override: { clinical_success: 1 }
+
+  - id: C059
+    drug_name: ceritinib
+    ticker: NVS
+    company_name: Novartis
+    indication: ALK_NSCLC
+    modality: small_molecule
+    nct_id: NCT01685060
+    outcome_override: { clinical_success: 1 }
+
+  - id: C060
+    drug_name: alectinib
+    ticker: RHHBY
+    company_name: Roche
+    indication: ALK_NSCLC
+    modality: small_molecule
+    nct_id: NCT01801111
+    outcome_override: { clinical_success: 1 }
+
+  - id: C061
+    drug_name: crizotinib
+    ticker: PFE
+    company_name: Pfizer
+    indication: ALK_NSCLC
+    modality: small_molecule
+    search: "crizotinib ALK phase 2"
+    outcome_override: { clinical_success: 1 }
+
+  - id: C062
+    drug_name: brigatinib
+    ticker: TAK
+    company_name: Takeda
+    indication: ALK_NSCLC
+    modality: small_molecule
+    nct_id: NCT02094573
+    outcome_override: { clinical_success: 1 }
+
+  - id: C063
+    drug_name: lorlatinib
+    ticker: PFE
+    company_name: Pfizer
+    indication: ALK_NSCLC
+    modality: small_molecule
+    nct_id: NCT01970865
+    outcome_override: { clinical_success: 1 }
+    cohort_phase: holdout
+
+  - id: C064
+    drug_name: pralsetinib
+    ticker: RHHBY
+    company_name: Roche
+    indication: RET_NSCLC
+    modality: small_molecule
+    nct_id: NCT03037385
+    outcome_override: { clinical_success: 1 }
+    cohort_phase: holdout
+
+  - id: C065
+    drug_name: selpercatinib
+    ticker: LLY
+    company_name: Eli Lilly
+    indication: RET_NSCLC
+    modality: small_molecule
+    nct_id: NCT03157128
+    outcome_override: { clinical_success: 1 }
+    cohort_phase: holdout
+
+  # --- NEW: failures ---
+  - id: F013
+    drug_name: ganetespib
+    ticker: SNTA
+    company_name: Synta Pharmaceuticals
+    indication: NSCLC
+    modality: small_molecule
+    nct_id: NCT01791595
+    outcome_override: { clinical_success: 0, technical_failure: 1 }
+
+  - id: F014
+    drug_name: rindopepimut
+    ticker: CELG
+    company_name: Celgene
+    indication: glioblastoma
+    modality: vaccine
+    nct_id: NCT01480479
+    outcome_override: { clinical_success: 0, technical_failure: 1 }
+
+  - id: F015
+    drug_name: iniparib
+    ticker: SNY
+    company_name: Sanofi
+    indication: triple_negative_breast
+    modality: small_molecule
+    search: "iniparib triple negative breast phase 2"
+    outcome_override: { clinical_success: 0, technical_failure: 1 }
+
+  - id: F016
+    drug_name: motesanib
+    ticker: PFE
+    company_name: Pfizer
+    indication: thyroid
+    modality: small_molecule
+    nct_id: NCT00410761
+    outcome_override: { clinical_success: 0, technical_failure: 1 }
+
+  - id: F017
+    drug_name: vandetanib
+    ticker: SNY
+    company_name: Sanofi
+    indication: NSCLC
+    modality: small_molecule
+    search: "vandetanib NSCLC phase 2"
+    outcome_override: { clinical_success: 0, technical_failure: 1 }
+
+  - id: F018
+    drug_name: patupilone
+    ticker: BAYRY
+    company_name: Bayer
+    indication: ovarian
+    modality: small_molecule
+    search: "patupilone ovarian phase 2"
+    outcome_override: { clinical_success: 0, technical_failure: 1 }
+
+  - id: F019
+    drug_name: brivanib
+    ticker: BMY
+    company_name: Bristol-Myers Squibb
+    indication: HCC
+    modality: small_molecule
+    nct_id: NCT00858871
+    outcome_override: { clinical_success: 0, technical_failure: 1 }
+
+  - id: F020
+    drug_name: linifanib
+    ticker: ABBV
+    company_name: AbbVie
+    indication: HCC
+    modality: small_molecule
+    nct_id: NCT01010459
+    outcome_override: { clinical_success: 0, technical_failure: 1 }
+
+  - id: F021
+    drug_name: cediranib
+    ticker: AZN
+    company_name: AstraZeneca
+    indication: ovarian
+    modality: small_molecule
+    search: "cediranib ovarian phase 2"
+    outcome_override: { clinical_success: 0, technical_failure: 1 }
+
+  - id: F022
+    drug_name: rilotumumab
+    ticker: AMGN
+    company_name: Amgen
+    indication: gastric
+    modality: mAb
+    nct_id: NCT01443065
+    outcome_override: { clinical_success: 0, technical_failure: 1 }
+
+  - id: F023
+    drug_name: onartuzumab
+    ticker: RHHBY
+    company_name: Roche
+    indication: NSCLC
+    modality: mAb
+    nct_id: NCT01456325
+    outcome_override: { clinical_success: 0, technical_failure: 1 }
+
+  - id: F024
+    drug_name: figitumumab
+    ticker: PFE
+    company_name: Pfizer
+    indication: NSCLC
+    modality: mAb
+    search: "figitumumab NSCLC phase 2"
+    outcome_override: { clinical_success: 0, technical_failure: 1 }
+
+  - id: F025
+    drug_name: margetuximab
+    ticker: MMAC
+    company_name: MacroGenics
+    indication: HER2_breast
+    modality: mAb
+    nct_id: NCT01891601
+    outcome_override: { clinical_success: 0, technical_failure: 1 }
+
+  - id: F026
+    drug_name: glembatumumab vedotin
+    ticker: CLDX
+    company_name: Celldex
+    indication: breast
+    modality: ADC
+    search: "glembatumumab vedotin phase 2"
+    outcome_override: { clinical_success: 0, technical_failure: 1 }
+
+  - id: F027
+    drug_name: pinatuzumab vedotin
+    ticker: RHHBY
+    company_name: Roche
+    indication: DLBCL
+    modality: ADC
+    nct_id: NCT01691898
+    outcome_override: { clinical_success: 0, technical_failure: 1 }
+
+  - id: F028
+    drug_name: denintuzumab mafodotin
+    ticker: SGEN
+    company_name: Seattle Genetics
+    indication: DLBCL
+    modality: ADC
+    search: "denintuzumab mafodotin phase 2"
+    outcome_override: { clinical_success: 0, technical_failure: 1 }
+
+  - id: F029
+    drug_name: pacritinib
+    ticker: CTIC
+    company_name: CTI BioPharma
+    indication: myelofibrosis
+    modality: small_molecule
+    nct_id: NCT02584777
+    outcome_override: { clinical_success: 0, safety_failure: 1 }
+
+  - id: F030
+    drug_name: quizartinib
+    ticker: DNLI
+    company_name: Daiichi Sankyo
+    indication: AML_FLT3
+    modality: small_molecule
+    search: "quizartinib relapsed AML phase 2"
+    outcome_override: { clinical_success: 0, technical_failure: 1 }
+
+  - id: F031
+    drug_name: sapacitabine
+    ticker: CYTR
+    company_name: Cyclacel
+    indication: AML
+    modality: small_molecule
+    search: "sapacitabine AML phase 2"
+    outcome_override: { clinical_success: 0, technical_failure: 1 }
+
+  - id: F032
+    drug_name: vosaroxin
+    ticker: SUN
+    company_name: Sunesis
+    indication: AML
+    modality: small_molecule
+    nct_id: NCT01305287
+    outcome_override: { clinical_success: 0, technical_failure: 1 }
+
+  - id: F033
+    drug_name: plitidepsin
+    ticker: PLYX
+    company_name: PharmaMar
+    indication: multiple_myeloma
+    modality: small_molecule
+    search: "plitidepsin multiple myeloma phase 2"
+    outcome_override: { clinical_success: 0, technical_failure: 1 }
+
+  - id: F034
+    drug_name: pelareorep
+    ticker: ONCY
+    company_name: Oncolytics Biotech
+    indication: pancreatic
+    modality: oncolytic
+    search: "pelareorep pancreatic phase 2"
+    outcome_override: { clinical_success: 0, technical_failure: 1 }
+
+  - id: F035
+    drug_name: custirsen
+    ticker: ONTY
+    company_name: OncoGenex
+    indication: prostate
+    modality: oligonucleotide
+    nct_id: NCT00667651
+    outcome_override: { clinical_success: 0, technical_failure: 1 }
+
+  - id: F036
+    drug_name: custirsen
+    ticker: ONTY
+    company_name: OncoGenex
+    indication: NSCLC
+    modality: oligonucleotide
+    search: "custirsen NSCLC phase 2"
+    outcome_override: { clinical_success: 0, technical_failure: 1 }
+
+  - id: F037
+    drug_name: bavituximab
+    ticker: PTLA
+    company_name: Peregrine Pharmaceuticals
+    indication: NSCLC
+    modality: mAb
+    nct_id: NCT01157663
+    outcome_override: { clinical_success: 0, technical_failure: 1 }
+
+  - id: F038
+    drug_name: rindopepimut
+    ticker: CELG
+    company_name: Celgene
+    indication: glioblastoma
+    skip: true
+
+  - id: F039
+    drug_name: perifosine
+    ticker: KERX
+    company_name: Keryx
+    indication: colorectal
+    modality: small_molecule
+    search: "perifosine colorectal phase 2"
+    outcome_override: { clinical_success: 0, technical_failure: 1 }
+
+  - id: F040
+    drug_name: enzastaurin
+    ticker: LLY
+    company_name: Eli Lilly
+    indication: DLBCL
+    modality: small_molecule
+    search: "enzastaurin lymphoma phase 2"
+    outcome_override: { clinical_success: 0, technical_failure: 1 }
+
+  # --- Phase A fill: additional catalysts (C066+) ---
+  - id: C066
+    drug_name: durvalumab
+    ticker: AZN
+    company_name: AstraZeneca
+    indication: NSCLC
+    modality: mAb
+    nct_id: NCT02888743
+    outcome_override: { clinical_success: 1 }
+
+  - id: C067
+    drug_name: atezolizumab
+    ticker: RHHBY
+    company_name: Roche
+    indication: bladder
+    modality: mAb
+    nct_id: NCT02451423
+    outcome_override: { clinical_success: 1 }
+
+  - id: C068
+    drug_name: tagraxofusp
+    ticker: STML
+    company_name: Stemline Therapeutics
+    indication: BPDCN
+    modality: fusion_protein
+    nct_id: NCT02113982
+    outcome_override: { clinical_success: 1 }
+
+  - id: C069
+    drug_name: tisagenlecleucel
+    ticker: NVS
+    company_name: Novartis
+    indication: DLBCL
+    modality: CAR-T
+    nct_id: NCT02445248
+    outcome_override: { clinical_success: 1 }
+
+  - id: C070
+    drug_name: lisocabtagene maraleucel
+    ticker: BMY
+    company_name: Bristol-Myers Squibb
+    indication: LBCL
+    modality: CAR-T
+    nct_id: NCT03483103
+    outcome_override: { clinical_success: 1 }
+
+  - id: C071
+    drug_name: alpelisib
+    ticker: NVS
+    company_name: Novartis
+    indication: breast_PIK3CA
+    modality: small_molecule
+    nct_id: NCT01872260
+    outcome_override: { clinical_success: 1 }
+
+  - id: C072
+    drug_name: tepotinib
+    ticker: MRK
+    company_name: Merck
+    indication: NSCLC_MET
+    modality: small_molecule
+    nct_id: NCT01988493
+    outcome_override: { clinical_success: 1 }
+
+  - id: C073
+    drug_name: infigratinib
+    ticker: QED
+    company_name: QED Therapeutics
+    indication: cholangiocarcinoma
+    modality: small_molecule
+    nct_id: NCT02150967
+    outcome_override: { clinical_success: 1 }
+
+  - id: C074
+    drug_name: glasdegib
+    ticker: PFE
+    company_name: Pfizer
+    indication: AML
+    modality: small_molecule
+    nct_id: NCT03226418
+    outcome_override: { clinical_success: 1 }
+
+  - id: C075
+    drug_name: ivosidenib
+    ticker: AGIO
+    company_name: Agios Pharmaceuticals
+    indication: AML_IDH1
+    modality: small_molecule
+    nct_id: NCT03013998
+    outcome_override: { clinical_success: 1 }
+
+  - id: C076
+    drug_name: erdafitinib
+    ticker: JNJ
+    company_name: Johnson & Johnson
+    indication: bladder_FGFR
+    modality: small_molecule
+    nct_id: NCT02699606
+    outcome_override: { clinical_success: 1 }
+
+  - id: C077
+    drug_name: tazemetostat
+    ticker: EPZM
+    company_name: Epizyme
+    indication: lymphoma_EZH2
+    modality: small_molecule
+    nct_id: NCT02889523
+    outcome_override: { clinical_success: 1 }
+
+  - id: C078
+    drug_name: capmatinib
+    ticker: NVS
+    company_name: Novartis
+    indication: NSCLC_MET
+    modality: small_molecule
+    search: "capmatinib INC280 MET phase 2"
+    outcome_override: { clinical_success: 1 }
+
+  - id: C079
+    drug_name: ribociclib
+    ticker: NVS
+    company_name: Novartis
+    indication: breast_HR
+    modality: small_molecule
+    search: "ribociclib breast phase 2 MONALEESA"
+    outcome_override: { clinical_success: 1 }
+
+  - id: C080
+    drug_name: niraparib
+    ticker: GSK
+    company_name: GSK
+    indication: ovarian
+    modality: small_molecule
+    nct_id: NCT01847274
+    outcome_override: { clinical_success: 1 }
+
+  - id: C081
+    drug_name: rucaparib
+    ticker: CLVS
+    company_name: Clovis Oncology
+    indication: prostate
+    modality: small_molecule
+    search: "rucaparib prostate phase 2 TRITON"
+    outcome_override: { clinical_success: 1 }
+
+  - id: C082
+    drug_name: acalabrutinib
+    ticker: AZN
+    company_name: AstraZeneca
+    indication: MCL
+    modality: small_molecule
+    search: "acalabrutinib mantle cell phase 2"
+    outcome_override: { clinical_success: 1 }
+
+  - id: C083
+    drug_name: ibrutinib
+    ticker: ABBV
+    company_name: AbbVie
+    indication: WM
+    modality: small_molecule
+    search: "ibrutinib waldenstrom phase 2"
+    outcome_override: { clinical_success: 1 }
+
+  - id: C084
+    drug_name: venetoclax
+    ticker: ABBV
+    company_name: AbbVie
+    indication: CLL_combo
+    modality: small_molecule
+    search: "venetoclax obinutuzumab CLL phase 2"
+    outcome_override: { clinical_success: 1 }
+
+  - id: C085
+    drug_name: pembrolizumab
+    ticker: MRK
+    company_name: Merck
+    indication: NSCLC
+    modality: mAb
+    search: "pembrolizumab NSCLC phase 2 KEYNOTE"
+    outcome_override: { clinical_success: 1 }
+
+  - id: C086
+    drug_name: nivolumab
+    ticker: BMY
+    company_name: Bristol-Myers Squibb
+    indication: RCC
+    modality: mAb
+    search: "nivolumab renal cell carcinoma phase 2"
+    outcome_override: { clinical_success: 1 }
+
+  - id: C087
+    drug_name: cabozantinib
+    ticker: EXEL
+    company_name: Exelixis
+    indication: HCC
+    modality: small_molecule
+    search: "cabozantinib hepatocellular phase 2"
+    outcome_override: { clinical_success: 1 }
+
+  - id: C088
+    drug_name: regorafenib
+    ticker: BAYRY
+    company_name: Bayer
+    indication: HCC
+    modality: small_molecule
+    search: "regorafenib HCC phase 2"
+    outcome_override: { clinical_success: 1 }
+
+  - id: C089
+    drug_name: lenvatinib
+    ticker: EIS
+    company_name: Eisai
+    indication: thyroid
+    modality: small_molecule
+    search: "lenvatinib differentiated thyroid phase 2"
+    outcome_override: { clinical_success: 1 }
+
+  - id: C090
+    drug_name: lenvatinib
+    ticker: EIS
+    company_name: Eisai
+    indication: HCC
+    modality: small_molecule
+    search: "lenvatinib hepatocellular phase 2"
+    outcome_override: { clinical_success: 1 }
+
+  - id: F041
+    drug_name: intetumumab
+    ticker: JNJ
+    company_name: Johnson & Johnson
+    indication: melanoma
+    modality: mAb
+    search: "intetumumab melanoma phase 2"
+    outcome_override: { clinical_success: 0, technical_failure: 1 }
+
+  - id: F042
+    drug_name: ganitumab
+    ticker: LLY
+    company_name: Eli Lilly
+    indication: NSCLC
+    modality: mAb
+    search: "ganitumab IGF-1R phase 2"
+    outcome_override: { clinical_success: 0, technical_failure: 1 }
+
+  - id: F043
+    drug_name: dalotuzumab
+    ticker: LLY
+    company_name: Eli Lilly
+    indication: breast
+    modality: mAb
+    search: "dalotuzumab breast phase 2"
+    outcome_override: { clinical_success: 0, technical_failure: 1 }
+
+  - id: F044
+    drug_name: simtuzumab
+    ticker: GILD
+    company_name: Gilead
+    indication: myelofibrosis
+    modality: mAb
+    search: "simtuzumab myelofibrosis phase 2"
+    outcome_override: { clinical_success: 0, technical_failure: 1 }
+
+  - id: F045
+    drug_name: demcizumab
+    ticker: OMED
+    company_name: OncoMed
+    indication: pancreatic
+    modality: mAb
+    search: "demcizumab pancreatic phase 2"
+    outcome_override: { clinical_success: 0, technical_failure: 1 }

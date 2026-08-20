@@ -1,0 +1,358 @@
+# Batch cohort expansion — verified NCT IDs filled by batch_expand_cohort.py
+# Outcomes manually overridden where CT.gov heuristics are insufficient
+
+candidates:
+  - id: C003
+    drug_name: palbociclib
+    ticker: PFE
+    company_name: Pfizer
+    indication: breast_cancer
+    modality: small_molecule
+    search: "palbociclib breast phase 2"
+    outcome_override:
+      clinical_success: 1
+      notes: "PALOMA-2 path; Phase II monotherapy/combo positive"
+
+  - id: C004
+    drug_name: osimertinib
+    ticker: AZN
+    company_name: AstraZeneca
+    indication: NSCLC_EGFR
+    modality: small_molecule
+    nct_id: NCT02094261
+    outcome_override:
+      clinical_success: 1
+      notes: "AURA2 Phase II EGFR T790M"
+
+  - id: C006
+    drug_name: abemaciclib
+    ticker: LLY
+    company_name: Eli Lilly
+    indication: breast_cancer
+    modality: small_molecule
+    nct_id: NCT02102490
+    outcome_override:
+      clinical_success: 1
+      notes: "MONARCH-1 monotherapy Phase II breast"
+
+  - id: C008
+    drug_name: mirvetuximab soravtansine
+    ticker: IMGN
+    company_name: ImmunoGen
+    indication: ovarian_cancer
+    modality: ADC
+    nct_id: NCT01632150
+    outcome_override:
+      clinical_success: 1
+      notes: "FORWARD I precursor studies; Phase II signal"
+
+  - id: C010
+    drug_name: belantamab mafodotin
+    ticker: GSK
+    company_name: GSK
+    indication: myeloma
+    modality: ADC
+    nct_id: NCT03525678
+    outcome_override:
+      clinical_success: 1
+      notes: "DREAMM-2 Phase II pivotal"
+
+  - id: C015
+    drug_name: umbralisib
+    ticker: TGTX
+    company_name: TG Therapeutics
+    indication: CLL
+    modality: small_molecule
+    nct_id: NCT02742090
+    outcome_override:
+      clinical_success: 1
+      notes: "UNITY-CLL Phase III later; Phase II positive signal"
+
+  - id: C016
+    drug_name: larotrectinib
+    ticker: LOXO
+    company_name: Loxo Oncology
+    indication: NTRK_solid_tumors
+    modality: small_molecule
+    nct_id: NCT02576431
+    outcome_override:
+      clinical_success: 1
+
+  - id: C017
+    drug_name: entrectinib
+    ticker: RXDX
+    company_name: Ignyta
+    indication: NTRK_NSCLC
+    modality: small_molecule
+    nct_id: NCT02568267
+    outcome_override:
+      clinical_success: 1
+
+  - id: C018
+    drug_name: copanlisib
+    ticker: BAYRY
+    company_name: Bayer
+    indication: NHL
+    modality: small_molecule
+    nct_id: NCT01660451
+    outcome_override:
+      clinical_success: 1
+
+  - id: C019
+    drug_name: duvelisib
+    ticker: VSTM
+    company_name: Verastem
+    indication: CLL
+    modality: small_molecule
+    nct_id: NCT02004522
+    outcome_override:
+      clinical_success: 1
+
+  - id: C021
+    drug_name: enasidenib
+    ticker: CELG
+    company_name: Celgene
+    indication: AML
+    modality: small_molecule
+    nct_id: NCT03825796
+    outcome_override:
+      clinical_success: 1
+      notes: "CPX-351 plus enasidenib relapsed AML Phase II"
+
+  - id: C022
+    drug_name: midostaurin
+    ticker: NVS
+    company_name: Novartis
+    indication: AML_FLT3
+    modality: small_molecule
+    nct_id: NCT03591510
+    outcome_override:
+      clinical_success: 1
+      notes: "Global midostaurin+chemo Phase II (2019 start; RATIFY follow-on era)"
+
+  - id: C025
+    drug_name: olaparib
+    ticker: AZN
+    company_name: AstraZeneca
+    indication: ovarian_cancer
+    modality: small_molecule
+    nct_id: NCT01081951
+    outcome_override:
+      clinical_success: 1
+
+  - id: C026
+    drug_name: talazoparib
+    ticker: PFE
+    company_name: Pfizer
+    indication: breast_BRCA
+    modality: small_molecule
+    nct_id: NCT01945775
+    outcome_override:
+      clinical_success: 1
+
+  - id: C027
+    drug_name: encorafenib
+    ticker: PFE
+    company_name: Pfizer
+    indication: melanoma_BRAF
+    modality: small_molecule
+    nct_id: NCT01909453
+    outcome_override:
+      clinical_success: 1
+
+  - id: C002
+    drug_name: idelalisib
+    ticker: GILD
+    company_name: Gilead
+    indication: CLL
+    modality: small_molecule
+    nct_id: NCT02141282
+    outcome_override:
+      clinical_success: 1
+      notes: "Phase II monotherapy CLL (GS-1101)"
+
+  - id: C001
+    drug_name: selumetinib
+    ticker: AZN
+    company_name: AstraZeneca
+    indication: NSCLC_KRAS
+    modality: small_molecule
+    nct_id: NCT01750281
+    outcome_override:
+      clinical_success: 0
+      technical_failure: 1
+      notes: "SELECT-1 selumetinib+docetaxel failed primary endpoint"
+
+  - id: C020
+    drug_name: axicabtagene ciloleucel
+    ticker: GILD
+    company_name: Kite Pharma
+    indication: DLBCL
+    modality: CAR-T
+    nct_id: NCT03105336
+    outcome_override:
+      clinical_success: 1
+      notes: "ZUMA-5/related Phase II DLBCL path"
+
+  - id: C023
+    drug_name: vemurafenib
+    ticker: RHHBY
+    company_name: Roche
+    indication: melanoma_BRAF
+    modality: small_molecule
+    nct_id: NCT01006980
+    outcome_override:
+      clinical_success: 1
+      notes: "BRIM-3 Phase III; landmark BRAF program (2010 start)"
+
+  - id: C024
+    drug_name: cobimetinib
+    ticker: EXEL
+    company_name: Exelixis
+    indication: melanoma_BRAF
+    modality: small_molecule
+    nct_id: NCT02414750
+    outcome_override:
+      clinical_success: 1
+      notes: "coBRIM combo Phase II with vemurafenib"
+
+  - id: F011
+    drug_name: selumetinib
+    ticker: AZN
+    company_name: AstraZeneca
+    indication: uveal_melanoma
+    modality: small_molecule
+    search: "selumetinib uveal melanoma phase 2"
+    outcome_override:
+      clinical_success: 0
+      technical_failure: 1
+      notes: "Selumetinib uveal melanoma Phase II did not meet endpoint"
+
+  - id: F012
+    drug_name: duvelisib
+    ticker: VSTM
+    company_name: Verastem
+    indication: follicular_lymphoma
+    modality: small_molecule
+    nct_id: NCT01882803
+    outcome_override:
+      clinical_success: 0
+      technical_failure: 1
+      notes: "DYNAMO Phase II duvelisib in iNHL; mixed efficacy"
+
+  # Failures
+  - id: F005
+    drug_name: gedatolisib
+    ticker: BMY
+    company_name: Bristol-Myers Squibb
+    indication: breast_cancer
+    modality: small_molecule
+    nct_id: NCT01920061
+    outcome_override:
+      clinical_success: 0
+      technical_failure: 1
+      notes: "Phase II breast combo did not advance"
+
+  - id: F006
+    drug_name: idelalisib
+    ticker: GILD
+    company_name: Gilead
+    indication: indolent_NHL
+    modality: small_molecule
+    nct_id: NCT01732979
+    skip: true  # duplicate drug diff indication - use search
+
+  - id: F007
+    drug_name: mirvetuximab soravtansine
+    ticker: IMGN
+    company_name: ImmunoGen
+    indication: ovarian_FRalpha
+    modality: ADC
+    nct_id: NCT02606305
+    outcome_override:
+      clinical_success: 0
+      technical_failure: 1
+      notes: "FORWARD I Phase III failed primary PFS"
+
+  - id: F008
+    drug_name: umbralisib
+    ticker: TGTX
+    company_name: TG Therapeutics
+    indication: MZL
+    modality: small_molecule
+    search: "umbralisib marginal zone"
+    outcome_override:
+      clinical_success: 0
+      safety_failure: 1
+      notes: "Later FDA safety concerns; program withdrawn"
+
+  - id: F009
+    drug_name: tipifarnib
+    ticker: KURA
+    company_name: Kura Oncology
+    indication: head_neck_squamous
+    modality: small_molecule
+    nct_id: NCT03719690
+    outcome_override:
+      clinical_success: 0
+      technical_failure: 1
+
+  - id: F010
+    drug_name: copanlisib
+    ticker: BAYRY
+    company_name: Bayer
+    indication: endometrial
+    modality: small_molecule
+    search: "copanlisib endometrial phase 2"
+    outcome_override:
+      clinical_success: 0
+      technical_failure: 1
+
+  - id: C029
+    drug_name: sotorasib
+    ticker: AMGN
+    company_name: Amgen
+    indication: NSCLC_KRAS_G12C
+    modality: small_molecule
+    nct_id: NCT03600883
+    outcome_override:
+      clinical_success: 1
+    mvp_wave: wave_3_holdout
+
+  - id: C030
+    drug_name: adagrasib
+    ticker: MRTX
+    company_name: Mirati Therapeutics
+    indication: NSCLC_KRAS_G12C
+    modality: small_molecule
+    nct_id: NCT03785249
+    outcome_override:
+      clinical_success: 1
+    mvp_wave: wave_3_holdout
+
+# Drug-level extraction inheritance (auto-applied to new programs)
+drug_extraction_templates:
+  palbociclib: { search_terms: ["palbociclib", "PD-0332991"] }
+  osimertinib: { search_terms: ["osimertinib", "AZD9291", "mereletinib"] }
+  abemaciclib: { search_terms: ["abemaciclib", "LY2835219"] }
+  mirvetuximab soravtansine: { search_terms: ["mirvetuximab", "IMGN853"] }
+  belantamab mafodotin: { search_terms: ["belantamab", "GSK2857916"] }
+  umbralisib: { search_terms: ["umbralisib", "TGR-1202"] }
+  larotrectinib: { search_terms: ["larotrectinib", "LOXO-101"] }
+  entrectinib: { search_terms: ["entrectinib", "RXDX-101"] }
+  copanlisib: { search_terms: ["copanlisib", "BAY 80-6946"] }
+  duvelisib: { search_terms: ["duvelisib", "IPI-145"] }
+  enasidenib: { search_terms: ["enasidenib", "AG-221"] }
+  midostaurin: { search_terms: ["midostaurin", "PKC412"] }
+  olaparib: { search_terms: ["olaparib", "AZD2281"] }
+  talazoparib: { search_terms: ["talazoparib", "BMN 673"] }
+  encorafenib: { search_terms: ["encorafenib", "LGX818"] }
+  idelalisib: { search_terms: ["idelalisib", "GS-1101", "CAL-101"] }
+  gedatolisib: { search_terms: ["gedatolisib", "PF-05212384"] }
+  tipifarnib: { search_terms: ["tipifarnib", "R115777"] }
+  sotorasib: { search_terms: ["sotorasib", "AMG 510"] }
+  adagrasib: { search_terms: ["adagrasib", "MRTX849"] }
+  selumetinib: { search_terms: ["selumetinib", "AZD6244"] }
+  axicabtagene ciloleucel: { search_terms: ["axicabtagene ciloleucel", "KTE-C19", "axi-cel"] }
+  vemurafenib: { search_terms: ["vemurafenib", "PLX4032", "RO5185426"] }
+  cobimetinib: { search_terms: ["cobimetinib", "GDC-0973"] }

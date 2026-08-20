@@ -1,0 +1,35 @@
+{
+  "name": "logistic_preclinical",
+  "feature_set": "baseline_clinical",
+  "feature_columns": [
+    "indication",
+    "modality",
+    "t0_year",
+    "n_animal_studies"
+  ],
+  "metrics": {
+    "train_note": "temporal_split",
+    "overall": {
+      "brier_score": 0.31400966183574874,
+      "log_loss": 0.8273807832316092,
+      "n": 23,
+      "n_events": 14,
+      "roc_auc": null
+    },
+    "test": {
+      "brier_score": 0.3333333333333334,
+      "log_loss": 0.8675632284814613,
+      "n": 3,
+      "n_events": 2,
+      "roc_auc": null
+    },
+    "loo_cv": {
+      "brier_score": 0.31340993630801345,
+      "log_loss": 0.8329629453739181,
+      "n": 23,
+      "n_events": 14,
+      "roc_auc": 0.30952380952380953
+    }
+  },
+  "version": "v1.0"
+}

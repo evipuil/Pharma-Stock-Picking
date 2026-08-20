@@ -1,0 +1,94 @@
+{
+  "models": {
+    "baseline_clinical": {
+      "path": "C:\\Users\\eshan\\Desktop\\StockPicking\\data\\processed\\models\\logistic_preclinical_baseline_clinical.pkl",
+      "metrics": {
+        "train_note": "temporal_split",
+        "overall": {
+          "brier_score": 0.31400966183574874,
+          "log_loss": 0.8273807832316092,
+          "n": 23,
+          "n_events": 14,
+          "roc_auc": null
+        },
+        "test": {
+          "brier_score": 0.3333333333333334,
+          "log_loss": 0.8675632284814613,
+          "n": 3,
+          "n_events": 2,
+          "roc_auc": null
+        },
+        "loo_cv": {
+          "brier_score": 0.31340993630801345,
+          "log_loss": 0.8329629453739181,
+          "n": 23,
+          "n_events": 14,
+          "roc_auc": 0.30952380952380953
+        }
+      }
+    },
+    "all_preclinical": {
+      "path": "C:\\Users\\eshan\\Desktop\\StockPicking\\data\\processed\\models\\logistic_preclinical_all_preclinical.pkl",
+      "metrics": {
+        "train_note": "temporal_split",
+        "overall": {
+          "brier_score": 0.31400966183574874,
+          "log_loss": 0.8273807832316092,
+          "n": 23,
+          "n_events": 14,
+          "roc_auc": null
+        },
+        "test": {
+          "brier_score": 0.3333333333333334,
+          "log_loss": 0.8675632284814613,
+          "n": 3,
+          "n_events": 2,
+          "roc_auc": null
+        },
+        "loo_cv": {
+          "brier_score": 0.41507121883171255,
+          "log_loss": 1.1722843758833421,
+          "n": 23,
+          "n_events": 14,
+          "roc_auc": 0.1746031746031746
+        }
+      }
+    },
+    "baseline_plus_preclinical": {
+      "path": "C:\\Users\\eshan\\Desktop\\StockPicking\\data\\processed\\models\\logistic_preclinical_baseline_plus_preclinical.pkl",
+      "metrics": {
+        "train_note": "temporal_split",
+        "overall": {
+          "brier_score": 0.31400966183574874,
+          "log_loss": 0.8273807832316092,
+          "n": 23,
+          "n_events": 14,
+          "roc_auc": null
+        },
+        "test": {
+          "brier_score": 0.3333333333333334,
+          "log_loss": 0.8675632284814613,
+          "n": 3,
+          "n_events": 2,
+          "roc_auc": null
+        },
+        "loo_cv": {
+          "brier_score": 0.44510139014590405,
+          "log_loss": 1.2304529777842763,
+          "n": 23,
+          "n_events": 14,
+          "roc_auc": 0.12698412698412698
+        }
+      }
+    }
+  },
+  "baselines": {
+    "wong_pos": {
+      "brier_score": 0.34426086956521745,
+      "log_loss": 0.8986191825270238,
+      "n": 23,
+      "n_events": 14,
+      "roc_auc": 0.5158730158730158
+    }
+  }
+}

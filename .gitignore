@@ -1,0 +1,35 @@
+# Git ignore patterns for research pipeline
+
+# Data (immutable raw stored locally)
+data/raw/
+data/interim/
+data/processed/*.db
+data/processed/*.parquet
+data/processed/*.csv
+!data/processed/.gitkeep
+!data/external/.gitkeep
+
+# Environment
+.env
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+
+# Secrets
+*.pem
+credentials.json
