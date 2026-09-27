@@ -1,6 +1,6 @@
-# StockPicking: Preclinical Translation & Biotech Mispricing Research
+# Preclinical Translation Modeling
 
-Research pipeline testing whether **preclinical animal evidence characteristics** prospectively predict **clinical trial success** and whether model–market probability gaps identify **mispricing** in biotech/pharma stocks.
+Testing whether characteristics of preclinical animal evidence predict clinical translation, with a secondary analysis of model–market probability gaps.
 
 **Start here:** [PROJECT_PLAN.md](PROJECT_PLAN.md)
 
