@@ -2,48 +2,64 @@
 
 from __future__ import annotations
 
+import numpy as np
 import pandas as pd
 
-from src.return_models.expected_car import ExpectedCarBundle, predict_expected_car
+from src.return_models.expected_car import (
+    ExpectedCarBundle,
+    predict_expected_car,
+    predict_with_wong_prior,
+)
+
+
+class _FixedProbabilityModel:
+    def predict_proba(self, frame: pd.DataFrame) -> np.ndarray:
+        return np.tile([0.4, 0.6], (len(frame), 1))
 
 
 def test_expected_car_formula():
-    df = pd.DataFrame(
-        {
-            "catalyst_id": ["CAT-1"],
-            "return_60d": [0.1],
-            "abnormal_return_60d_xbi": [0.05],
-            "return_20d": [0.02],
-            "return_5d": [0.01],
-            "return_1d": [0.0],
-            "return_120d": [0.15],
-            "abnormal_return_20d_xbi": [0.01],
-            "distance_from_52w_high": [-0.1],
-            "realized_vol_20d": [0.3],
-            "volume_ratio_20d": [1.2],
-            "pre_catalyst_runup_60d": [0.1],
-            "clinical_success": [1],
-            "realized_car": [0.05],
-        }
-    )
-    # Minimal mock: set models to None and rely on fallback means
-    bundle = ExpectedCarBundle(
-        feature_cols=[
-            "return_1d",
-            "return_5d",
-            "return_20d",
-            "return_60d",
-            "return_120d",
-            "abnormal_return_20d_xbi",
-            "abnormal_return_60d_xbi",
-            "distance_from_52w_high",
-            "realized_vol_20d",
-            "volume_ratio_20d",
-            "pre_catalyst_runup_60d",
-        ],
-        p_success_model=None,
-    )
-    # Without fitted models this would fail — test formula directly
     p, es, ef = 0.6, 0.10, -0.15
     expected = p * es + (1 - p) * ef
     assert abs(expected - (0.6 * 0.10 + 0.4 * (-0.15))) < 1e-9
+
+
+def test_conditional_fallbacks_never_read_prediction_outcomes():
+    bundle = ExpectedCarBundle(
+        p_success_model=_FixedProbabilityModel(),
+        feature_cols=["x"],
+        p_feature_cols=["x"],
+        car_feature_cols=["x"],
+        car_success_fallback=0.08,
+        car_failure_fallback=-0.22,
+    )
+    first = pd.DataFrame({"x": [1.0, 2.0], "clinical_success": [1, 0], "realized_car": [0.9, -0.9]})
+    second = first.assign(realized_car=[-0.4, 0.4])
+
+    pred_first = predict_expected_car(first, bundle)
+    pred_second = predict_expected_car(second, bundle)
+
+    assert pred_first["expected_car"].equals(pred_second["expected_car"])
+    assert pred_first["e_car_given_success"].eq(0.08).all()
+    assert pred_first["e_car_given_failure"].eq(-0.22).all()
+
+
+def test_wong_conditional_returns_are_calibrated_on_training_rows():
+    calibration = pd.DataFrame(
+        {
+            "modality": ["SMALL_MOLECULE", "SMALL_MOLECULE"],
+            "clinical_success": [1, 0],
+            "realized_car": [0.06, -0.18],
+        }
+    )
+    test = pd.DataFrame(
+        {
+            "modality": ["SMALL_MOLECULE"],
+            "clinical_success": [1],
+            "realized_car": [0.95],
+        }
+    )
+
+    pred = predict_with_wong_prior(test, calibration_df=calibration)
+
+    assert pred["e_car_given_success"].eq(0.06).all()
+    assert pred["e_car_given_failure"].eq(-0.18).all()

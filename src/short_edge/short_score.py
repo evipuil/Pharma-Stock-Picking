@@ -6,6 +6,35 @@ import numpy as np
 import pandas as pd
 
 
+def top_fraction_mask(
+    df: pd.DataFrame,
+    score_col: str,
+    fraction: float,
+    group_col: str = "test_year",
+) -> pd.Series:
+    """Select the top score fraction independently inside each OOS fold.
+
+    A cutoff computed across the complete OOS history can use the distribution of
+    future scores to decide whether an earlier observation was tradable.  Ranking
+    inside each test-year fold preserves the decision set that was available then.
+    """
+    if not 0 < fraction <= 1:
+        raise ValueError("fraction must be in (0, 1]")
+    if score_col not in df.columns:
+        raise KeyError(f"missing score column: {score_col}")
+
+    selected = pd.Series(False, index=df.index, dtype=bool)
+    groups = df.groupby(group_col, sort=True) if group_col in df.columns else [(None, df)]
+    for _, group in groups:
+        valid = group.dropna(subset=[score_col])
+        if valid.empty:
+            continue
+        n_select = max(1, int(np.ceil(len(valid) * fraction)))
+        chosen = valid.nlargest(n_select, score_col, keep="first").index
+        selected.loc[chosen] = True
+    return selected
+
+
 def compute_expected_short_return(
     p_failure: np.ndarray,
     car_failure: np.ndarray,
@@ -48,10 +77,16 @@ def apply_trading_costs(
     return expected_short - slip - borrow
 
 
-def realized_short_return(realized_car: np.ndarray, slippage_bps: float = 25.0) -> np.ndarray:
-    """Realized short P&L = -realized_car - slippage."""
+def realized_short_return(
+    realized_car: np.ndarray,
+    slippage_bps: float = 25.0,
+    borrow_bps_annual: float = 300.0,
+    hold_days: float = 3.0,
+) -> np.ndarray:
+    """Realized short P&L after round-trip slippage and prorated borrow."""
     slip = 2 * slippage_bps / 10_000
-    return -np.asarray(realized_car, dtype=float) - slip
+    borrow = (borrow_bps_annual / 10_000) * (hold_days / 252)
+    return -np.asarray(realized_car, dtype=float) - slip - borrow
 
 
 def assign_short_trades(
@@ -67,15 +102,13 @@ def assign_short_trades(
     """
     side = pd.Series(0, index=df.index)
     if strategy == "short_top_10pct":
-        cutoff = df[score_col].quantile(0.90)
-        side.loc[df[score_col] >= cutoff] = -1
+        side.loc[top_fraction_mask(df, score_col, 0.10)] = -1
     elif strategy == "short_top_20pct":
-        cutoff = df[score_col].quantile(0.80)
-        side.loc[df[score_col] >= cutoff] = -1
-    elif strategy == "min_esr_10pct":
-        side.loc[df[score_col] >= param] = -1
-    elif strategy == "min_esr_20pct":
-        side.loc[df[score_col] >= param] = -1
-    elif strategy == "major_drop_threshold":
+        side.loc[top_fraction_mask(df, score_col, 0.20)] = -1
+    elif (
+        strategy == "min_esr_10pct"
+        or strategy == "min_esr_20pct"
+        or strategy == "major_drop_threshold"
+    ):
         side.loc[df[score_col] >= param] = -1
     return side

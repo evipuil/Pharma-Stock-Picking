@@ -6,7 +6,6 @@ import json
 import sqlite3
 import uuid
 from datetime import date
-from pathlib import Path
 
 import yaml
 
@@ -113,7 +112,9 @@ def _auto_extract_studies(
                 pub_id,
                 drug_name,
                 "mouse" if "mouse" in abstract or "mice" in abstract else None,
-                "xenograft" if "xenograft" in abstract else ("GEMM" if "transgenic" in abstract else None),
+                "xenograft"
+                if "xenograft" in abstract
+                else ("GEMM" if "transgenic" in abstract else None),
                 0.5 if has_xeno else 0.3,
             ),
         )
@@ -172,8 +173,7 @@ def expand_cohort(max_new: int | None = None) -> dict:
                         stats["errors"].append(f"{pid}: no Phase II found for {query}")
                         continue
                     nct_id = picked["protocolSection"]["identificationModule"]["nctId"]
-                    raw_path = RAW_CTGOV / f"{nct_id}.json"
-                    raw_path.write_text(json.dumps(picked, indent=2), encoding="utf-8")
+                    raw_path = ctgov.cache_study(nct_id, picked, RAW_CTGOV)
                     raw = picked
 
                 parsed = parse_study(raw)
@@ -185,7 +185,9 @@ def expand_cohort(max_new: int | None = None) -> dict:
 
                 outcome = infer_outcome_labels(parsed)
                 if cand.get("outcome_override"):
-                    outcome.update({k: v for k, v in cand["outcome_override"].items() if k != "notes"})
+                    outcome.update(
+                        {k: v for k, v in cand["outcome_override"].items() if k != "notes"}
+                    )
                     if "notes" in cand["outcome_override"]:
                         outcome["notes"] = cand["outcome_override"]["notes"]
 
@@ -226,7 +228,9 @@ def expand_cohort(max_new: int | None = None) -> dict:
                     "financial_event": None,
                 }
                 insert_program_bundle(conn, bundle)
-                n_studies = _auto_extract_studies(conn, pid, cand["drug_name"], t0_date, publications)
+                n_studies = _auto_extract_studies(
+                    conn, pid, cand["drug_name"], t0_date, publications
+                )
                 conn.commit()
                 existing.add(pid)
                 stats["loaded"] += 1
@@ -240,8 +244,10 @@ def expand_cohort(max_new: int | None = None) -> dict:
                         "studies": n_studies,
                     }
                 )
-                print(f"OK {pid} {cand['drug_name']} | {nct_id} | t0={t0_date} | success={outcome.get('clinical_success')} | pubs={len(publications)}")
-            except Exception as exc:
+                print(
+                    f"OK {pid} {cand['drug_name']} | {nct_id} | t0={t0_date} | success={outcome.get('clinical_success')} | pubs={len(publications)}"
+                )
+            except Exception as exc:  # noqa: BLE001 - isolate candidate import failures
                 stats["errors"].append(f"{pid}: {exc}")
                 print(f"ERR {pid}: {exc}")
 

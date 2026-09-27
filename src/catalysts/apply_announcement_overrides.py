@@ -18,8 +18,11 @@ def _load_overrides() -> dict:
     return data.get("overrides", {})
 
 
-def apply_announcement_overrides(db_path: Path | None = None) -> dict:
-    overrides = _load_overrides()
+def apply_announcement_overrides(
+    db_path: Path | None = None,
+    overrides: dict | None = None,
+) -> dict:
+    overrides = overrides if overrides is not None else _load_overrides()
     db_path = db_path or project_root() / "data" / "processed" / "research.db"
     conn = sqlite3.connect(db_path)
     stats = {"updated": 0, "tickers": 0, "missing": 0}

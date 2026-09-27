@@ -3,13 +3,13 @@
 from __future__ import annotations
 
 import sqlite3
-import uuid
 from pathlib import Path
 
 import pandas as pd
 import yaml
 
 from src.config import project_root
+from src.validation.point_in_time import sanitize_feature_family
 
 
 def _load_exposure_config() -> dict:
@@ -92,19 +92,33 @@ def compute_exposure_for_catalysts(db_path: Path | None = None) -> dict:
     return stats
 
 
-def load_exposure_frame(db_path: Path | None = None) -> pd.DataFrame:
+def load_exposure_frame(
+    db_path: Path | None = None,
+    *,
+    point_in_time_only: bool = True,
+) -> pd.DataFrame:
     db_path = db_path or project_root() / "data" / "processed" / "research.db"
     conn = sqlite3.connect(db_path)
     df = pd.read_sql_query(
         """
         SELECT c.catalyst_id, c.drug_name, c.indication, ct.ticker_at_event,
                ae.company_dependency, ae.is_lead_asset, ae.is_single_asset_company,
-               ae.data_source AS exposure_source
+               ae.data_source AS exposure_source, ae.as_of_date AS exposure_as_of,
+               COALESCE(cut.entry_cutoff_date, c.trading_cutoff_date,
+                        c.announcement_date) AS feature_cutoff_date
         FROM catalysts c
         JOIN catalyst_ticker_history ct ON c.catalyst_id = ct.catalyst_id
         LEFT JOIN asset_exposure ae ON c.catalyst_id = ae.catalyst_id
+        LEFT JOIN catalyst_trading_cutoffs cut ON c.catalyst_id = cut.catalyst_id
         """,
         conn,
     )
     conn.close()
+    if point_in_time_only:
+        df = sanitize_feature_family(
+            df,
+            ["company_dependency", "is_lead_asset", "is_single_asset_company"],
+            "exposure_as_of",
+            flag_col="company_features_point_in_time",
+        )
     return df

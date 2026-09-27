@@ -14,7 +14,7 @@ holdout:
   final_locked:
     start_year: 2019
     end_year: 2021
-    description: "Never inspect until pipeline frozen"
+    description: "Legacy evaluation period; already present in artifacts and not pristine"
 
 walk_forward:
   initial_train_end_year: 2014

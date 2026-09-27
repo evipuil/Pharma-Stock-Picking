@@ -10,6 +10,7 @@ from pathlib import Path
 
 import yaml
 
+from src.catalysts.migrate_from_programs import apply_catalyst_schema, migrate_programs_to_catalysts
 from src.clinical_trials.ctgov_client import ClinicalTrialsGovClient
 from src.clinical_trials.parse_study import infer_outcome_labels, infer_t0, parse_study
 from src.config import project_root
@@ -17,12 +18,11 @@ from src.db.load_program import insert_program_bundle
 from src.event_study.windows import infer_trading_cutoff
 from src.literature.pubmed_client import PubMedClient
 from src.pipeline.batch_expand_cohort import _auto_extract_studies, _existing_programs
-from src.pipeline.wave1_curation import DRUG_ALT_NAMES, _pick_phase2_study
-from src.catalysts.migrate_from_programs import apply_catalyst_schema, migrate_programs_to_catalysts
+from src.pipeline.wave1_curation import DRUG_ALT_NAMES, _pick_clinical_study, _pick_phase2_study
 
 ROOT = project_root()
 DB_PATH = ROOT / "data" / "processed" / "research.db"
-CONFIG = ROOT / "configs" / "catalyst_candidates.yaml"
+DEFAULT_CONFIG = ROOT / "configs" / "catalyst_candidates.yaml"
 RAW_CTGOV = ROOT / "data" / "raw" / "ctgov"
 
 
@@ -56,8 +56,16 @@ def _insert_catalyst_from_program(
         return False
 
     (
-        company_id, drug, indication, ticker, success, met_pe,
-        tech, safety, unknown, n_preclin,
+        company_id,
+        drug,
+        indication,
+        ticker,
+        success,
+        met_pe,
+        tech,
+        safety,
+        _unknown,
+        n_preclin,
     ) = row
     catalyst_id = f"CAT-{program_id}"
     ann = ann_date
@@ -138,17 +146,18 @@ def _insert_catalyst_from_program(
     return True
 
 
-def expand_catalyst_cohort(max_new: int | None = None) -> dict:
+def expand_catalyst_cohort(
+    max_new: int | None = None,
+    config_path: Path | None = None,
+) -> dict:
     apply_catalyst_schema(DB_PATH)
-    cfg = yaml.safe_load(CONFIG.read_text(encoding="utf-8"))
+    config_path = config_path or DEFAULT_CONFIG
+    cfg = yaml.safe_load(config_path.read_text(encoding="utf-8"))
     ctgov = ClinicalTrialsGovClient()
     pubmed = PubMedClient()
     conn = sqlite3.connect(DB_PATH)
     existing = _existing_programs(conn)
-    existing_cats = {
-        r[0]
-        for r in conn.execute("SELECT catalyst_id FROM catalysts").fetchall()
-    }
+    existing_cats = {r[0] for r in conn.execute("SELECT catalyst_id FROM catalysts").fetchall()}
 
     stats = {"programs_loaded": 0, "catalysts_created": 0, "skipped": 0, "errors": []}
 
@@ -174,14 +183,18 @@ def expand_catalyst_cohort(max_new: int | None = None) -> dict:
                         raw = json.loads(raw_path.read_text(encoding="utf-8"))
                     else:
                         query = cand.get("search") or f"{cand['drug_name']} {cand['indication']}"
+                        phase_hint = cand.get("github_stage") or cand.get("search_phase")
                         studies = ctgov.search_studies(query, phase="PHASE2", page_size=25)
-                        picked = _pick_phase2_study(studies, cand["drug_name"], cand["indication"])
+                        if not studies:
+                            studies = ctgov.search_studies(query, phase="PHASE3", page_size=25)
+                        picked = _pick_clinical_study(
+                            studies, cand["drug_name"], cand["indication"], prefer_phase=phase_hint
+                        ) or _pick_phase2_study(studies, cand["drug_name"], cand["indication"])
                         if not picked:
                             stats["errors"].append(f"{pid}: no Phase II found")
                             continue
                         nct_id = picked["protocolSection"]["identificationModule"]["nctId"]
-                        raw_path = RAW_CTGOV / f"{nct_id}.json"
-                        raw_path.write_text(json.dumps(picked, indent=2), encoding="utf-8")
+                        raw_path = ctgov.cache_study(nct_id, picked, RAW_CTGOV)
                         raw = picked
 
                     parsed = parse_study(raw)
@@ -228,9 +241,12 @@ def expand_catalyst_cohort(max_new: int | None = None) -> dict:
                     existing.add(pid)
                     stats["programs_loaded"] += 1
                 else:
-                    nct_id = cand.get("nct_id") or conn.execute(
-                        "SELECT primary_nct_id FROM programs WHERE program_id = ?", (pid,)
-                    ).fetchone()[0]
+                    nct_id = (
+                        cand.get("nct_id")
+                        or conn.execute(
+                            "SELECT primary_nct_id FROM programs WHERE program_id = ?", (pid,)
+                        ).fetchone()[0]
+                    )
 
                 ann = None
                 if cand.get("announcement_date"):
@@ -243,7 +259,7 @@ def expand_catalyst_cohort(max_new: int | None = None) -> dict:
                     existing_cats.add(f"CAT-{pid}")
                     conn.commit()
                     print(f"OK catalyst CAT-{pid} {cand['drug_name']}")
-            except Exception as exc:
+            except Exception as exc:  # noqa: BLE001 - continue importing independent candidates
                 stats["errors"].append(f"{pid}: {exc}")
                 print(f"ERR {pid}: {exc}")
     finally:
@@ -252,9 +268,9 @@ def expand_catalyst_cohort(max_new: int | None = None) -> dict:
     # Ensure all programs have catalyst rows
     mig = migrate_programs_to_catalysts(DB_PATH)
     stats["migration"] = mig
-    stats["total_catalysts"] = sqlite3.connect(DB_PATH).execute(
-        "SELECT COUNT(*) FROM catalysts"
-    ).fetchone()[0]
+    stats["total_catalysts"] = (
+        sqlite3.connect(DB_PATH).execute("SELECT COUNT(*) FROM catalysts").fetchone()[0]
+    )
 
     report = ROOT / "data" / "interim" / "catalyst_expand_report.json"
     report.parent.mkdir(parents=True, exist_ok=True)

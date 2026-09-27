@@ -33,6 +33,10 @@ def get_adapter(provider: str | None = None) -> PriceAdapter:
         from src.market_data.adapters.local_csv_adapter import LocalCsvAdapter
 
         return LocalCsvAdapter()
+    if name == "stooq":
+        from src.market_data.adapters.stooq_adapter import StooqAdapter
+
+        return StooqAdapter()
     raise ValueError(f"Unknown price provider: {name}")
 
 
@@ -46,9 +50,9 @@ def _fallback_fetch(
     cfg = load_yaml(project_root() / "configs" / "stock_picking.yaml")
     primary = primary_provider or cfg["market_data"]["default_provider"]
     chain = (
-        ["local_csv", "eodhd", "polygon", "yfinance"]
+        ["local_csv", "stooq", "eodhd", "polygon", "yfinance"]
         if primary == "yfinance"
-        else ["polygon", "eodhd", "local_csv", "yfinance"]
+        else ["polygon", "eodhd", "stooq", "local_csv", "yfinance"]
     )
 
     for name in chain:

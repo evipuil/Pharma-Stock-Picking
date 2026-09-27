@@ -2,52 +2,81 @@
 
 from __future__ import annotations
 
-from datetime import date
+from datetime import date, datetime, timezone
 from pathlib import Path
 
 import pandas as pd
 
 from src.config import load_yaml, project_root
 from src.fundamentals.exposure import load_exposure_frame
-from src.return_models.expected_car import load_bundle, predict_expected_car
-from src.return_models.dataset import load_catalyst_modeling_frame
-from src.ranking.uncertainty import add_uncertainty_columns, classify_confidence_signal
-
-
 from src.ranking.signals import classify_signal_from_percentile
+from src.ranking.uncertainty import add_uncertainty_columns, classify_confidence_signal
+from src.return_models.dataset import load_catalyst_modeling_frame
+from src.return_models.expected_car import load_bundle, predict_expected_car
+
+
 def rank_catalysts(
     as_of: date | None = None,
     model_path: Path | None = None,
+    *,
+    include_historical: bool = False,
 ) -> pd.DataFrame:
     cfg = load_yaml(project_root() / "configs" / "stock_picking.yaml")
-    model_path = model_path or project_root() / "data" / "processed" / "models" / "expected_car_v1.pkl"
+    model_path = (
+        model_path or project_root() / "data" / "processed" / "models" / "expected_car_v1.pkl"
+    )
 
-    df = load_catalyst_modeling_frame()
-    if as_of:
-        df = df[pd.to_datetime(df["announcement_date"]) >= pd.Timestamp(as_of)]
+    effective_as_of = None if include_historical else (as_of or datetime.now(timezone.utc).date())
+    df = load_catalyst_modeling_frame(labeled_only=False, as_of=effective_as_of)
+    if df.empty:
+        return pd.DataFrame()
 
     if model_path.exists():
         bundle = load_bundle(model_path)
+        policy = getattr(bundle, "training_data_policy", "unverified")
+        if policy != "strict_point_in_time_sanitized":
+            raise ValueError(
+                "Expected-CAR model lacks strict point-in-time training provenance; retrain it"
+            )
         preds = predict_expected_car(df, bundle)
     else:
-        preds = df.copy()
-        preds["p_success"] = preds["clinical_success"].astype(float)
-        preds["e_car_given_success"] = preds.groupby("clinical_success")["realized_car"].transform("mean")
-        preds["e_car_given_failure"] = preds["e_car_given_success"]
-        preds["expected_car"] = preds["realized_car"]
+        raise FileNotFoundError(
+            f"Expected-CAR model not found at {model_path}; refusing to rank with realized outcomes"
+        )
 
     exposure = load_exposure_frame()
+    exposure_cols = [
+        "catalyst_id",
+        "company_dependency",
+        "is_lead_asset",
+        "exposure_source",
+        "exposure_as_of",
+        "company_features_point_in_time",
+    ]
     preds = preds.merge(
-        exposure[["catalyst_id", "company_dependency", "is_lead_asset", "exposure_source"]],
+        exposure[[col for col in exposure_cols if col in exposure.columns]],
         on="catalyst_id",
         how="left",
     )
     preds["company_dependency"] = preds["company_dependency"].fillna(0.9)
     preds["expected_car_exposure_adj"] = preds["expected_car"] * preds["company_dependency"]
+    structured_safe = preds.get(
+        "structured_features_point_in_time",
+        pd.Series(False, index=preds.index),
+    ).fillna(False)
+    company_safe = preds.get(
+        "company_features_point_in_time",
+        pd.Series(False, index=preds.index),
+    ).fillna(False)
+    preds["point_in_time_verified"] = structured_safe & company_safe
+    preds["ranking_as_of"] = effective_as_of.isoformat() if effective_as_of else None
+    preds["model_training_policy"] = bundle.training_data_policy
     preds = add_uncertainty_columns(preds)
 
     preds["expected_car_pct"] = preds["expected_car_exposure_adj"].rank(pct=True)
-    preds["signal"] = preds["expected_car_pct"].apply(lambda p: classify_signal_from_percentile(p, cfg))
+    preds["signal"] = preds["expected_car_pct"].apply(
+        lambda p: classify_signal_from_percentile(p, cfg)
+    )
     preds["confidence_signal"] = preds.apply(classify_confidence_signal, axis=1)
 
     out_cols = [
@@ -56,6 +85,12 @@ def rank_catalysts(
         "drug_name",
         "indication",
         "catalyst_year",
+        "ranking_as_of",
+        "market_feature_as_of",
+        "trial_source_observed_at",
+        "exposure_as_of",
+        "point_in_time_verified",
+        "model_training_policy",
         "p_success",
         "e_car_given_success",
         "e_car_given_failure",
@@ -67,8 +102,6 @@ def rank_catalysts(
         "expected_car_ci_width",
         "signal",
         "confidence_signal",
-        "realized_car",
-        "clinical_success",
     ]
     ranked = preds[[c for c in out_cols if c in preds.columns]].sort_values(
         "expected_car_exposure_adj", ascending=False
@@ -105,7 +138,7 @@ def format_decomposition(row: pd.Series) -> str:
         "Market reaction (conditional):",
         f"- E(CAR|success) = {es:+.1%}",
         f"- E(CAR|failure) = {ef:+.1%}",
-        f"- Expected CAR = {p:.0%}×({es:+.1%}) + {1-p:.0%}×({ef:+.1%}) = {exp:+.1%}",
+        f"- Expected CAR = {p:.0%}×({es:+.1%}) + {1 - p:.0%}×({ef:+.1%}) = {exp:+.1%}",
         "",
         "Company:",
         f"- company_dependency = {dep:.0%}",

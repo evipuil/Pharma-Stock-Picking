@@ -8,9 +8,9 @@
 ## Success vs failure CAR (market model, [-1,+1])
 
  clinical_success  n  mean_car  median_car      std
-                0 27 -0.104766   -0.008537 0.245388
-                1 80 -0.002656    0.004521 0.051205
+              0.0 28 -0.120216   -0.009098 0.269563
+              1.0 83 -0.002202    0.004347 0.050713
 
 ## Price coverage by catalyst
 
-Total catalysts with prices: **107** / **112**
+Total catalysts with prices: **115** / **122**

@@ -13,7 +13,7 @@ import pandas as pd
 
 from src.config import load_yaml, project_root
 from src.event_study.car import cumulative_abnormal_return, estimate_market_model_beta
-from src.event_study.windows import nearest_trading_index, parse_window, window_slice
+from src.event_study.windows import first_trading_index_on_or_after, parse_window, window_slice
 from src.market_data.catalyst_prices import fetch_for_catalyst
 from src.market_data.history import load_benchmarks
 
@@ -82,7 +82,7 @@ def run_catalyst_event_study(
             rows.append(_failed_row(cat, "insufficient_history"))
             continue
 
-        event_idx = nearest_trading_index(aligned.index, event_date)
+        event_idx = first_trading_index_on_or_after(aligned.index, event_date)
         if event_idx is None:
             rows.append(_failed_row(cat, "no_event_date_match"))
             continue

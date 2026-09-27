@@ -9,19 +9,30 @@ import numpy as np
 import pandas as pd
 
 from src.config import load_yaml, project_root
-from src.return_models.expected_car import _bootstrap_interval, load_bundle, predict_expected_car
 from src.return_models.dataset import load_catalyst_modeling_frame
+from src.return_models.expected_car import load_bundle, predict_expected_car
 
 
 def _load_oos_residuals(db_path: Path) -> np.ndarray:
     """Prefer walk-forward OOS residuals; fall back to in-sample."""
+    # The CSV preserves the raw expected CAR used by rank_catalysts.  The legacy
+    # DB ledger stores an exposure-adjusted value, whose residuals are not on the
+    # same scale as the ranking point estimate.
+    oos_path = project_root() / "data" / "out_of_sample_predictions.csv"
+    if oos_path.exists():
+        oos = pd.read_csv(oos_path)
+        if {"expected_car", "realized_car"}.issubset(oos.columns):
+            valid = oos[["expected_car", "realized_car"]].dropna()
+            if len(valid) >= 10:
+                return (valid["realized_car"] - valid["expected_car"]).values
+
     conn = sqlite3.connect(db_path)
     try:
         wf = pd.read_sql_query(
             "SELECT expected_car, realized_car FROM walk_forward_ledger WHERE realized_car IS NOT NULL",
             conn,
         )
-    except Exception:
+    except (pd.errors.DatabaseError, sqlite3.Error):
         wf = pd.DataFrame()
     conn.close()
 
@@ -49,7 +60,12 @@ def conformal_interval(
     if len(residuals) == 0:
         arr = np.asarray(point_estimate, dtype=float)
         return arr, arr
-    q = float(np.quantile(np.abs(residuals), 1 - alpha / 2))
+    scores = np.abs(np.asarray(residuals, dtype=float))
+    # Finite-sample split-conformal quantile for two-sided intervals.  Absolute
+    # residuals already account for both tails, so the target is 1-alpha rather
+    # than 1-alpha/2.
+    quantile_level = min(1.0, np.ceil((len(scores) + 1) * (1 - alpha)) / len(scores))
+    q = float(np.quantile(scores, quantile_level, method="higher"))
     est = np.asarray(point_estimate, dtype=float)
     return est - q, est + q
 

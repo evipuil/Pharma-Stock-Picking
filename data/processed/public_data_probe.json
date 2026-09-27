@@ -1,0 +1,49 @@
+[
+  {
+    "source": "clinicaltrials_gov",
+    "status": "error",
+    "error": "400 Client Error: Bad Request for url: https://clinicaltrials.gov/api/v2/studies?query.cond=cancer&filter.overallStatus=COMPLETED&filter.phase=PHASE2%2CPHASE3&filter.studyType=INTERVENTIONAL&pageSize=1&countTotal=true"
+  },
+  {
+    "source": "clinicaltrials_gov_results",
+    "status": "error",
+    "error": "400 Client Error: Bad Request for url: https://clinicaltrials.gov/api/v2/studies?query.cond=neoplasms&filter.overallStatus=COMPLETED&filter.phase=PHASE2%2CPHASE3&filter.resultsFirstPostDate=2015-01-01%3A2020-12-31&pageSize=1&countTotal=true"
+  },
+  {
+    "source": "sec_company_tickers",
+    "status": "ok",
+    "n_tickers": 10387
+  },
+  {
+    "source": "sec_efts_8k",
+    "status": "error",
+    "error": "500 Server Error: Internal Server Error for url: https://efts.sec.gov/LATEST/search-index?q=top-line+results&forms=8-K&startdt=2018-01-01&enddt=2019-12-31"
+  },
+  {
+    "source": "openfda_drugsfda",
+    "status": "ok",
+    "status_code": 404,
+    "found": false
+  },
+  {
+    "source": "openfda_faers",
+    "status": "ok",
+    "faers_reaction_buckets": 1
+  },
+  {
+    "source": "nih_reporter",
+    "status": "ok",
+    "sample_projects": 1
+  },
+  {
+    "source": "finra_short_interest",
+    "status": "ok",
+    "status_code": 400,
+    "body_preview": "{\"statusCode\":400,\"statusDescription\":\"Bad Request\",\"requestId\":\"3b4a6dab-2551-42ef-a1fe-2a20b23a9b7d\",\"message\":\"The fo"
+  },
+  {
+    "source": "ken_french_factors",
+    "status": "ok",
+    "status_code": 200
+  }
+]

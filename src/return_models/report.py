@@ -50,6 +50,9 @@ def generate_model_report(rerun_walk_forward: bool = False) -> Path:
         f"- Mean realized CAR [-1,+1]: {bundle.metrics.get('realized_car_mean', 0):.4f}",
         f"- Mean expected CAR: {bundle.metrics.get('expected_car_mean', 0):.4f}",
         f"- Corr(expected, realized): {bundle.metrics.get('correlation_expected_vs_realized')}",
+        f"- Market features verified at cutoff: {bundle.metrics.get('market_features_verified_at_cutoff')}/{n}",
+        f"- Trial snapshots verified at cutoff: {bundle.metrics.get('trial_features_verified_at_cutoff')}/{n}",
+        "- Unverified feature values are nulled before fitting.",
         "",
         "## Baseline comparison (in-sample)",
         "",
@@ -78,7 +81,7 @@ def generate_model_report(rerun_walk_forward: bool = False) -> Path:
             "",
             "- Models B/C use Ridge on pre-catalyst market features only (Stage 5).",
             "- P(success) uses logistic on same features (Model A provisional).",
-            "- Holdout years 2019–2021 reserved per config; see holdout_evaluation.md.",
+            "- The 2019–2021 period is a legacy evaluation, not a pristine holdout; see holdout_evaluation.md.",
             f"- Priced sample: {n}/112 catalysts with event-study CAR.",
         ]
     )

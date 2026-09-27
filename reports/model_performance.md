@@ -6,25 +6,25 @@
 Expected CAR = P(success) × E(CAR|success) + (1 − P(success)) × E(CAR|failure)
 ```
 
-## In-sample (107 catalysts with CAR + market features)
+## In-sample (111 catalysts with CAR + market features)
 
-- N: 107
-- Mean realized CAR [-1,+1]: -0.0284
-- Mean expected CAR: -0.0419
-- Corr(expected, realized): 0.6217269033859765
+- N: 111
+- Mean realized CAR [-1,+1]: -0.0312
+- Mean expected CAR: -0.0443
+- Corr(expected, realized): 0.6388332936804804
 
 ## Baseline comparison (in-sample)
 
-- Wong prior corr(expected, realized): 0.0132
-- Full model corr(expected, realized): 0.6217
+- Wong prior corr(expected, realized): 0.0306
+- Full model corr(expected, realized): 0.6388
 
 ## Walk-forward OOS
 
-- n_oos: 69
-- mean_realized_car_all: -0.035543438428991124
-- mean_realized_car_long: -0.0289237597425633
-- mean_realized_car_short: -0.030932056992916426
-- correlation_expected_realized: 0.1131554028567953
+- n_oos: 73
+- mean_realized_car_all: -0.039419936942594
+- mean_realized_car_long: -0.023719114406583797
+- mean_realized_car_short: -0.07144241203609795
+- correlation_expected_realized: 0.3315850193135733
 - n_long_signals: 24
 - n_short_signals: 13
 
@@ -32,12 +32,12 @@ Expected CAR = P(success) × E(CAR|success) + (1 − P(success)) × E(CAR|failur
 
                   count      mean    median
 clinical_success                           
-0                    27 -0.104766 -0.008537
-1                    80 -0.002656  0.004521
+0                    28 -0.120216 -0.009097
+1                    83 -0.001208  0.004204
 
 ## Notes
 
 - Models B/C use Ridge on pre-catalyst market features only (Stage 5).
 - P(success) uses logistic on same features (Model A provisional).
-- Holdout years 2019–2021 reserved per config; see holdout_evaluation.md.
-- Priced sample: 107/112 catalysts with event-study CAR.
+- The 2019–2021 period is a legacy evaluation, not a pristine holdout; see holdout_evaluation.md.
+- Priced sample: 111/112 catalysts with event-study CAR.

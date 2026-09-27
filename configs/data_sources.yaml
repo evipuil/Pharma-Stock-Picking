@@ -29,6 +29,53 @@ market_data:
     - IBB
   market_benchmark: SPY
   ff_factors_url: https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/F-F_Research_Data_Factors_daily_CSV.zip
+  # Delisted / extended history (require API keys unless noted)
+  stooq:
+    base_url: https://stooq.com/q/d/l/
+    api_key_env: STOOQ_API_KEY
+    note: "Free with CAPTCHA registration at stooq.com; daily quota"
+  fmp:
+    base_url: https://financialmodelingprep.com/api/v3
+    api_key_env: FMP_API_KEY
+    free_tier_requests_per_day: 250
+    delisted_endpoint: /delisted-companies
+  eodhd:
+    api_key_env: EODHD_API_KEY
+    delisted_symbol_list: "https://eodhd.com/api/exchange-symbol-list/US?delisted=1"
+  polygon:
+    api_key_env: POLYGON_API_KEY
+  pystock_github:
+    repo: HoleyHan/pystock-data
+    last_date: "2017-03-31"
+    cli: seed-delisted-prices
+
+openfda:
+  drugsfda_url: https://api.fda.gov/drug/drugsfda.json
+  event_url: https://api.fda.gov/drug/event.json
+  label_url: https://api.fda.gov/drug/label.json
+  api_key_env: OPENFDA_API_KEY  # optional, raises rate limits
+
+nih_reporter:
+  search_url: https://api.reporter.nih.gov/v2/projects/search
+  note: "Free; no key. Grant funding by sponsor/org."
+
+finra:
+  short_interest_url: https://api.finra.org/data/group/otcMarket/name/consolidatedShortInterest
+  registration_url: https://developer.finra.org
+  note: "Free with FINRA developer account; short interest + Reg SHO volume"
+
+sec_edgar_extended:
+  efts_search: https://efts.sec.gov/LATEST/search-index
+  companyfacts: https://data.sec.gov/api/xbrl/companyfacts/CIK{cik:010d}.json
+  submissions: https://data.sec.gov/submissions/CIK{cik:010d}.json
+  company_tickers: https://www.sec.gov/files/company_tickers.json
+  note: "Use for 8-K clinical readout mining and point-in-time fundamentals"
+
+public_archives:
+  kaggle_arandkei_delisted: https://www.kaggle.com/datasets/rodas86/arandkei-historical-delisted-assets-archive
+  apify_delisted_sec_list: https://apify.com/blackfalcondata/delisted-stocks-list
+  github_events_stock_prices: https://github.com/ejeej/EventsStockPrices
+  license: "Various; verify before bulk import"
 
 benchmark_pos:
   wong2019_csv: data/external/wong2019_pos_rates.csv

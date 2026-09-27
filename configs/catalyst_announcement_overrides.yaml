@@ -1,65 +1,132 @@
-# Curated executable announcement dates (press releases / 8-Ks).
-# Prefer these over CT.gov results_first_posted (often years after delisting)
-# and over t0+18mo proxies.
-
 overrides:
   CAT-F013:
     ticker: SNTA
-    announcement_date: "2015-10-20"
+    announcement_date: '2015-10-20'
     announcement_timing: AMC
     announcement_source: PRESS_RELEASE
-    source_url: "https://www.sec.gov/Archives/edgar/data/1157601/000110465915072217/a15-21591_1ex99d1.htm"
-    notes: "Synta terminated GALAXY-2 ganetespib for futility"
-
+    source_url: https://www.sec.gov/Archives/edgar/data/1157601/000110465915072217/a15-21591_1ex99d1.htm
+    notes: Synta terminated GALAXY-2 ganetespib for futility
   CAT-F029:
     ticker: CTIC
-    announcement_date: "2016-02-09"
+    announcement_date: '2016-02-09'
     announcement_timing: BMO
     announcement_source: PRESS_RELEASE
-    source_url: "https://www.prnewswire.com/news-releases/cti-biopharma-provides-update-on-clinical-hold-of-investigational-agent-pacritinib-and-new-drug-application-in-us-300217839.html"
-    notes: "FDA full clinical hold on pacritinib announced Feb 9 2016"
-
+    source_url: https://www.prnewswire.com/news-releases/cti-biopharma-provides-update-on-clinical-hold-of-investigational-agent-pacritinib-and-new-drug-application-in-us-300217839.html
+    notes: FDA full clinical hold on pacritinib announced Feb 9 2016
   CAT-F003:
     ticker: AVEO
-    announcement_date: "2013-05-02"
+    announcement_date: '2013-05-02'
     announcement_timing: BMO
     announcement_source: PRESS_RELEASE
-    source_url: "https://www.aveooncology.com/"
-    notes: "TIVO-1 FDA ODAC negative vote (post-IPO); 2009 date was pre-listing"
-
+    source_url: https://www.aveooncology.com/
+    notes: TIVO-1 FDA ODAC negative vote (post-IPO); 2009 date was pre-listing
   CAT-F026:
     ticker: CLDX
-    announcement_date: "2018-04-16"
+    announcement_date: '2018-04-16'
     announcement_timing: BMO
     announcement_source: PRESS_RELEASE
-    source_url: "https://ir.celldex.com/news-releases/news-release-details/celldexs-metric-study-metastatic-triple-negative-breast-cancer-0"
-    notes: "Glembatumumab vedotin METRIC failure; Celldex (CLDX) not Celgene"
-
+    source_url: https://ir.celldex.com/news-releases/news-release-details/celldexs-metric-study-metastatic-triple-negative-breast-cancer-0
+    notes: Glembatumumab vedotin METRIC failure; Celldex (CLDX) not Celgene
   CAT-C021:
     ticker: AGIO
-    announcement_date: "2017-08-01"
+    announcement_date: '2017-08-01'
     announcement_timing: BMO
     announcement_source: PRESS_RELEASE
-    notes: "Idhifa (enasidenib) FDA approval; Agios (AGIO) was the listed partner vs delisted CELG"
-
+    notes: Idhifa (enasidenib) FDA approval; Agios (AGIO) was the listed partner vs
+      delisted CELG
   CAT-C068:
     ticker: STML
-    announcement_date: "2016-12-05"
+    announcement_date: '2016-12-05'
     announcement_timing: BMO
     announcement_source: PRESS_RELEASE
-    notes: "Stemline SL-401/tagraxofusp pivotal ASH 2016 update; SGMO was a wrong ticker"
-
+    notes: Stemline SL-401/tagraxofusp pivotal ASH 2016 update; SGMO was a wrong ticker
   CAT-C077:
     ticker: EPZM
-    announcement_date: "2016-12-03"
+    announcement_date: '2016-12-03'
     announcement_timing: BMO
     announcement_source: PRESS_RELEASE
-    notes: "Epizyme tazemetostat NHL update at ASH 2016 (within listed history)"
-
+    notes: Epizyme tazemetostat NHL update at ASH 2016 (within listed history)
   CAT-F045:
     ticker: OMED
-    announcement_date: "2017-04-10"
+    announcement_date: '2017-04-10'
     announcement_timing: BMO
     announcement_source: PRESS_RELEASE
-    source_url: "https://www.sec.gov/Archives/edgar/data/1302573/000156459017006246/omed-8k_20170410.htm"
-    notes: "OncoMed YOSEMITE demcizumab failure; OCN was Ocwen (wrong ticker)"
+    source_url: https://www.sec.gov/Archives/edgar/data/1302573/000156459017006246/omed-8k_20170410.htm
+    notes: OncoMed YOSEMITE demcizumab failure; OCN was Ocwen (wrong ticker)
+  CAT-F001:
+    ticker: INCY
+    announcement_date: '2018-06-04'
+    announcement_timing: UNKNOWN
+    announcement_source: GITHUB_EVENTS_STOCK_PRICES
+    source_url: https://github.com/ejeej/EventsStockPrices
+    notes: Suggested from BioPharmCatalyst events; delta=73.0d vs 2018-03-23; drug_score=0.95
+  CAT-F009:
+    ticker: KURA
+    announcement_date: '2019-06-14'
+    announcement_timing: UNKNOWN
+    announcement_source: GITHUB_EVENTS_STOCK_PRICES
+    source_url: https://github.com/ejeej/EventsStockPrices
+    notes: Suggested from BioPharmCatalyst events; delta=91.0d vs 2019-03-15; drug_score=0.95
+  CAT-C035:
+    ticker: AZN
+    announcement_date: '2021-12-12'
+    announcement_timing: UNKNOWN
+    announcement_source: GITHUB_EVENTS_STOCK_PRICES
+    source_url: https://github.com/ejeej/EventsStockPrices
+    notes: Suggested from BioPharmCatalyst events; delta=-59.0d vs 2022-02-09; drug_score=0.95
+  CAT-F034:
+    ticker: ONCY
+    announcement_date: '2021-05-20'
+    announcement_timing: UNKNOWN
+    announcement_source: GITHUB_EVENTS_STOCK_PRICES
+    source_url: https://github.com/ejeej/EventsStockPrices
+    notes: Suggested from BioPharmCatalyst events; delta=120.0d vs 2021-01-20; drug_score=0.95
+  CAT-C038:
+    ticker: BMY
+    announcement_date: '2018-06-17'
+    announcement_timing: UNKNOWN
+    announcement_source: GITHUB_EVENTS_STOCK_PRICES
+    source_url: https://github.com/ejeej/EventsStockPrices
+    notes: Suggested from BioPharmCatalyst events; delta=-79.0d vs 2018-09-04; drug_score=0.95
+  CAT-C076:
+    ticker: JNJ
+    announcement_date: '2018-03-06'
+    announcement_timing: UNKNOWN
+    announcement_source: GITHUB_EVENTS_STOCK_PRICES
+    source_url: https://github.com/ejeej/EventsStockPrices
+    notes: Suggested from BioPharmCatalyst events; delta=66.0d vs 2017-12-30; drug_score=0.95
+  CAT-C080:
+    ticker: GSK
+    announcement_date: '2019-07-15'
+    announcement_timing: UNKNOWN
+    announcement_source: GITHUB_EVENTS_STOCK_PRICES
+    source_url: https://github.com/ejeej/EventsStockPrices
+    notes: Suggested from BioPharmCatalyst events; delta=75.0d vs 2019-05-01; drug_score=0.95
+  CAT-C082:
+    ticker: AZN
+    announcement_date: '2019-07-05'
+    announcement_timing: UNKNOWN
+    announcement_source: GITHUB_EVENTS_STOCK_PRICES
+    source_url: https://github.com/ejeej/EventsStockPrices
+    notes: Suggested from BioPharmCatalyst events; delta=259.0d vs 2018-10-19; drug_score=0.95
+  CAT-C084:
+    ticker: ABBV
+    announcement_date: '2021-12-13'
+    announcement_timing: UNKNOWN
+    announcement_source: GITHUB_EVENTS_STOCK_PRICES
+    source_url: https://github.com/ejeej/EventsStockPrices
+    notes: Suggested from BioPharmCatalyst events; delta=-120.0d vs 2022-04-12; drug_score=0.95
+  CAT-C086:
+    ticker: BMY
+    announcement_date: '2017-08-15'
+    announcement_timing: UNKNOWN
+    announcement_source: GITHUB_EVENTS_STOCK_PRICES
+    source_url: https://github.com/ejeej/EventsStockPrices
+    notes: Suggested from BioPharmCatalyst events; delta=327.0d vs 2016-09-22; drug_score=0.95
+  CAT-C087:
+    ticker: EXEL
+    announcement_date: '2021-11-20'
+    announcement_timing: UNKNOWN
+    announcement_source: GITHUB_EVENTS_STOCK_PRICES
+    source_url: https://github.com/ejeej/EventsStockPrices
+    notes: Suggested from BioPharmCatalyst events; delta=-136.0d vs 2022-04-05; drug_score=0.95

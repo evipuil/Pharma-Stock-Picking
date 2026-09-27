@@ -1,59 +1,67 @@
 # Robustness Tests (Short Top 20% Strategy)
 
-N trades: **14**
+N trades: **15**
 
 ## Bootstrap
 
-- n: 14
-- observed_mean: 0.08160314628270433
-- bootstrap_ci_95: (-0.001836314591065517, 0.18787940304891093)
-- p_mean_positive: 0.9698
-- permutation_p_value: 0.06
-- t_stat: 1.5776113386017963
-- ttest_p_value: 0.13866934850308188
+- n: 15
+- observed_mean: 0.17663808125438257
+- bootstrap_ci_95: (0.04006762850001127, 0.3363245463240053)
+- p_mean_positive: 0.9974
+- permutation_p_value: 0.0185
+- t_stat: 2.2435771288914306
+- ttest_p_value: 0.0415539379878902
+
+## Year-block bootstrap
+
+- n_years: 7
+- n_obs: 15
+- block_bootstrap_ci_95: (0.001361493540141781, 0.3847449373009536)
+- p_mean_positive: 0.978
 
 ## Winsorized / trimmed means
 
-- cap_50pct: 0.0708
-- cap_30pct: 0.0565
-- cap_20pct: 0.0433
-- trimmed_mean_10pct: 0.048369537955192395
+- cap_50pct: 0.1304
+- cap_30pct: 0.0904
+- cap_20pct: 0.0648
+- trimmed_mean_10pct: 0.1457268979291128
 
 ## Leave-one-out (largest winner removed)
 
-- Largest winner return: 0.6507
-- Mean without: 0.0378
-- Delta: -0.0438
+- Largest winner return: 0.8439
+- Mean without: 0.1290
+- Delta: -0.0477
 
 ### Full LOO table
 
- dropped_index                     label  dropped_return  mean_without  delta_mean
-             0             larotrectinib        0.087201      0.081173   -0.000431
-             1     sacituzumab govitecan        0.285280      0.065936   -0.015667
-             2               epacadostat       -0.013534      0.088921    0.007318
-             3 mirvetuximab soravtansine       -0.069606      0.093235    0.011631
-             4                umbralisib        0.102340      0.080008   -0.001595
-             5              lenalidomide        0.019841      0.086354    0.004751
-             6              tazemetostat        0.013526      0.086840    0.005237
-             7                enasidenib       -0.088736      0.094706    0.013103
-             8     glembatumumab vedotin        0.650746      0.037823   -0.043780
-             9                ivosidenib        0.000666      0.087829    0.006226
-            10               quizartinib       -0.066663      0.093008    0.011405
-            11               plitidepsin        0.193798      0.072973   -0.008630
-            12                pelareorep        0.040096      0.084796    0.003193
-            13                lenvatinib       -0.012510      0.088843    0.007239
+ dropped_index                 label  dropped_return  mean_without  delta_mean
+             0         larotrectinib        0.087200      0.183026    0.006388
+             1          cabozantinib        0.080116      0.183533    0.006894
+             2   ORILISSA (Elagolix)        0.007862      0.188694    0.012055
+             3 sacituzumab govitecan        0.285280      0.168878   -0.007760
+             4            pacritinib        0.843858      0.128979   -0.047659
+             5                Ampion        0.698348      0.139373   -0.037265
+             6            enasidenib       -0.088737      0.195593    0.018955
+             7          blinatumomab       -0.004365      0.189567    0.012929
+             8 glembatumumab vedotin        0.650746      0.142773   -0.033865
+             9            ivosidenib        0.000666      0.189208    0.012569
+            10           quizartinib       -0.066663      0.194017    0.017379
+            11             tepotinib       -0.003234      0.189486    0.012848
+            12           plitidepsin        0.193798      0.175412   -0.001226
+            13            pelareorep       -0.032571      0.191582    0.014944
+            14          cabozantinib       -0.002734      0.189450    0.012812
 
 ## Slippage stress
 
- slippage_bps  n  mean_short_return                                         ci_95  win_rate
-           25 14           0.081603 (-0.0013792287885237044, 0.19533202901052749)  0.642857
-           50 14           0.076603  (-0.0063792287885236975, 0.1903320290105274)  0.571429
-          100 14           0.066603    (-0.0163792287885237, 0.18033202901052742)  0.500000
-          200 14           0.046603    (-0.0363792287885237, 0.16033202901052743)  0.428571
+ slippage_bps  n  mean_short_return                                       ci_95  win_rate
+           25 15           0.176638  (0.03972859437984539, 0.33847625460690456)  0.600000
+           50 15           0.171638   (0.0347285943798454, 0.33347625460690455)  0.533333
+          100 15           0.161638 (0.024728594379845384, 0.32347625460690455)  0.466667
+          200 15           0.141638 (0.0047285943798453765, 0.3034762546069046)  0.466667
 
 ## Era splits
 
-             era  n  mean_short_return                                        ci_95  win_rate
- early_2010_2016  7           0.060721 (-0.014372662402933082, 0.14111926178834427)  0.714286
-middle_2017_2020  5           0.137962  (-0.062026664653783446, 0.3772481830531136)  0.600000
-  late_2021_plus  2           0.013793      (-0.012509591379344, 0.040095714263386)  0.500000
+             era  n  mean_short_return                                         ci_95  win_rate
+ early_2010_2016  6           0.333777     (0.09196689131426432, 0.5812647204003968)  1.000000
+middle_2017_2020  7           0.097459   (-0.03968850968216179, 0.29337149782936484)  0.428571
+  late_2021_plus  2          -0.017653 (-0.03257113529393225, -0.002734242587007974)  0.000000

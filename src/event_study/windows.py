@@ -49,10 +49,19 @@ def infer_trading_cutoff(
 
 
 def nearest_trading_index(dates: pd.DatetimeIndex, target: date | datetime) -> int | None:
+    """Backward-compatible alias for the first session on/after an event date."""
+    return first_trading_index_on_or_after(dates, target)
+
+
+def first_trading_index_on_or_after(
+    dates: pd.DatetimeIndex,
+    target: date | datetime,
+) -> int | None:
+    """Return the first trading session on/after target, never a pre-event session."""
     if dates.empty:
         return None
     ts = pd.Timestamp(target)
-    idx = dates.get_indexer([ts], method="nearest")[0]
-    if idx < 0:
+    idx = int(dates.searchsorted(ts, side="left"))
+    if idx >= len(dates):
         return None
-    return int(idx)
+    return idx

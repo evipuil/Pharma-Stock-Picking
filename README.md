@@ -4,6 +4,14 @@ Research pipeline testing whether **preclinical animal evidence characteristics*
 
 **Start here:** [PROJECT_PLAN.md](PROJECT_PLAN.md)
 
+Current release: **v1.0**. See the [changelog](CHANGELOG.md),
+[release notes](docs/releases/v1.0.md), and [versioning guide](docs/versioning.md).
+
+The original August 19, 2026 baseline is preserved under `baseline_2026_08_19`
+and `v0.1`. The current reports describe a promising but unvalidated short edge;
+the existing evaluation periods are legacy research periods. See the
+[code and market-edge audit](reports/CODE_AND_EDGE_AUDIT.md) for limitations.
+
 ## Quick links
 
 | Document | Contents |
@@ -24,6 +32,11 @@ python -m venv .venv
 .venv\Scripts\activate          # Windows
 pip install -r requirements.txt
 ```
+
+Run the tests with `python -m pytest -q`. Downloaded GitHub datasets are kept
+locally and can be fetched with `python -m src.cli seed-github-data`.
+The working database and ignored raw/intermediate data are also local; this
+repository includes the previously tracked research snapshots and reports.
 
 ## Project principles
 

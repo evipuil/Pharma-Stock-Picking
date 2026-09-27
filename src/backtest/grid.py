@@ -30,8 +30,8 @@ def _load_oos_ledger(db_path: Path | None = None) -> pd.DataFrame:
     conn.close()
     if ledger.empty:
         return ledger
-    dep = ledger["company_dependency"].fillna(0.9)
-    ledger["expected_car_adj"] = ledger["expected_car"] * dep
+    # The persisted OOS expected_car is already exposure-adjusted.
+    ledger["expected_car_adj"] = ledger["expected_car"]
     return ledger
 
 
@@ -64,7 +64,10 @@ def _assign_sides_top_k(ledger: pd.DataFrame, k: int) -> pd.DataFrame:
     return out
 
 
-def _assign_sides_walkforward(ledger: pd.DataFrame) -> pd.DataFrame:
+def _assign_sides_walkforward(
+    ledger: pd.DataFrame,
+    allow_threshold_fallback: bool = False,
+) -> pd.DataFrame:
     out = ledger.copy()
 
     def _side(row):
@@ -73,6 +76,8 @@ def _assign_sides_walkforward(ledger: pd.DataFrame) -> pd.DataFrame:
             return 1
         if sig in ("SHORT", "STRONG SHORT"):
             return -1
+        if not allow_threshold_fallback:
+            return 0
         if row["expected_car_adj"] > 0.03:
             return 1
         if row["expected_car_adj"] < -0.03:

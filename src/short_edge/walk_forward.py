@@ -10,11 +10,26 @@ import numpy as np
 import pandas as pd
 
 from src.config import load_yaml, project_root
-from src.short_edge.conditional_car import fit_conditional_car, predict_car_failure, predict_car_success
+from src.short_edge.conditional_car import (
+    fit_conditional_car,
+    predict_car_failure,
+    predict_car_success,
+)
 from src.short_edge.dataset import load_short_edge_frame, resolve_features
-from src.short_edge.p_failure import evaluate_p_failure, fit_p_failure, predict_p_failure
-from src.short_edge.short_score import apply_trading_costs, compute_expected_short_return, realized_short_return
+from src.short_edge.p_failure import fit_p_failure, predict_p_failure
+from src.short_edge.short_score import (
+    apply_trading_costs,
+    compute_expected_short_return,
+    realized_short_return,
+)
 from src.short_edge.tail_risk import fit_tail_risk, predict_tail_risk
+
+
+def _exclude_locked_holdout(df: pd.DataFrame, final_holdout_start: str) -> pd.DataFrame:
+    """Return development rows strictly before the configured final holdout."""
+    cutoff = pd.Timestamp(final_holdout_start)
+    dates = pd.to_datetime(df["announcement_date"], errors="coerce")
+    return df.loc[dates < cutoff].copy()
 
 
 def _nested_major_drop_threshold(train: pd.DataFrame, feature_cols: list[str], seed: int) -> float:
@@ -56,7 +71,13 @@ def _nested_major_drop_threshold(train: pd.DataFrame, feature_cols: list[str], s
 def run_short_walk_forward(
     feature_set: str = "everything_no_preclinical",
     db_path: Path | None = None,
+    include_final_holdout: bool = False,
 ) -> pd.DataFrame:
+    """Run development OOS folds, excluding the locked holdout by default.
+
+    ``include_final_holdout`` is intentionally explicit so routine reports and
+    feature ablations cannot consume the final evaluation period accidentally.
+    """
     cfg = load_yaml(project_root() / "configs" / "short_edge.yaml")
     sp_cfg = load_yaml(project_root() / "configs" / "stock_picking.yaml")
     seed = cfg.get("random_seed", 42)
@@ -68,6 +89,8 @@ def run_short_walk_forward(
 
     df = load_short_edge_frame(db_path)
     df = df.dropna(subset=["catalyst_year"]).copy()
+    if not include_final_holdout:
+        df = _exclude_locked_holdout(df, cfg["holdout"]["final_locked_start"])
     p_cols = resolve_features(feature_set)
     car_cols = resolve_features("market_plus_company")
 
@@ -99,7 +122,14 @@ def run_short_walk_forward(
         tail_preds = predict_tail_risk(test, tail_bundle)
 
         for i, (_, row) in enumerate(test.iterrows()):
-            real_short = float(realized_short_return(np.array([row["realized_car"]]), slip)[0])
+            real_short = float(
+                realized_short_return(
+                    np.array([row["realized_car"]]),
+                    slip,
+                    borrow,
+                    hold,
+                )[0]
+            )
             rows.append(
                 {
                     "prediction_id": str(uuid.uuid4()),
@@ -110,7 +140,7 @@ def run_short_walk_forward(
                     "train_end_year": train_end,
                     "test_year": test_year,
                     "catalyst_year": int(row["catalyst_year"]),
-                    "feature_timestamp": row["announcement_date"],
+                    "feature_timestamp": row.get("feature_as_of_date"),
                     "p_failure": float(p_fail[i]),
                     "p_success": float(1 - p_fail[i]),
                     "car_failure_pred": float(car_fail[i]),
@@ -169,11 +199,19 @@ def persist_short_predictions(preds: pd.DataFrame, db_path: Path | None = None) 
             ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             """,
             (
-                row["prediction_id"], row["catalyst_id"], row["ticker"],
-                int(row["train_end_year"]), int(row["test_year"]),
-                row["p_failure"], row["expected_short_return"], row["net_expected_short_return"],
-                row["p_major_drop"], row["tail_risk_score"],
-                row["realized_car"], row["realized_short_return"], row["model_version"],
+                row["prediction_id"],
+                row["catalyst_id"],
+                row["ticker"],
+                int(row["train_end_year"]),
+                int(row["test_year"]),
+                row["p_failure"],
+                row["expected_short_return"],
+                row["net_expected_short_return"],
+                row["p_major_drop"],
+                row["tail_risk_score"],
+                row["realized_car"],
+                row["realized_short_return"],
+                row["model_version"],
             ),
         )
     conn.commit()

@@ -47,6 +47,48 @@ def export_missing_price_requirements(db_path: Path | None = None) -> Path:
     return out
 
 
+def try_extend_prices_via_stooq(tickers: list[str] | None = None) -> dict:
+    """Fetch post-2017 bars from Stooq and merge into local CSV files."""
+    from src.market_data.adapters.stooq_adapter import StooqAdapter
+
+    adapter = StooqAdapter()
+    if not adapter.api_key:
+        return {"status": "skipped", "reason": "STOOQ_API_KEY not set"}
+
+    req_path = export_missing_price_requirements()
+    req = pd.read_csv(req_path)
+    if tickers:
+        req = req[req["ticker"].isin(tickers)]
+
+    out_dir = project_root() / "data" / "external" / "prices"
+    stats = {"attempted": 0, "extended": 0, "errors": []}
+
+    for ticker in sorted(req["ticker"].dropna().unique()):
+        sub = req[req["ticker"] == ticker]
+        start = sub["price_start_required"].min()
+        end = sub["price_end_required"].max()
+        stats["attempted"] += 1
+        try:
+            df = adapter.fetch_daily(ticker, start=start, end=end)
+            if df.empty:
+                stats["errors"].append(f"{ticker}: empty Stooq response")
+                continue
+            csv_path = out_dir / f"{ticker.upper()}.csv"
+            if csv_path.exists():
+                existing = pd.read_csv(csv_path, parse_dates=["date"])
+                df = (
+                    pd.concat([existing, df], ignore_index=True)
+                    .drop_duplicates("date")
+                    .sort_values("date")
+                )
+            df.to_csv(csv_path, index=False)
+            stats["extended"] += 1
+        except Exception as exc:
+            stats["errors"].append(f"{ticker}: {exc}")
+
+    return stats
+
+
 def try_recover_missing_cars() -> dict:
     """Attempt event study on missing catalysts using available adapters."""
     from src.event_study.catalyst_study import run_catalyst_event_study
@@ -58,6 +100,7 @@ def try_recover_missing_cars() -> dict:
         return {"attempted": 0, "recovered": 0}
 
     before = _count_cars(db_path)
+    stooq_stats = try_extend_prices_via_stooq()
     run_catalyst_event_study()
     after = _count_cars(db_path)
     return {
@@ -65,6 +108,7 @@ def try_recover_missing_cars() -> dict:
         "recovered": after - before,
         "still_missing": len(req) - (after - before),
         "requirements_csv": str(req_path),
+        "stooq": stooq_stats,
     }
 
 

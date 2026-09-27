@@ -36,15 +36,17 @@ def simulate_short_portfolio(
         cost = notional * slip
         pnl = gross - cost
         capital += pnl
-        nav_history.append({
-            "date": row["announcement_date"],
-            "catalyst_id": row["catalyst_id"],
-            "ticker": row.get("ticker"),
-            "notional": notional,
-            "pnl": pnl,
-            "capital_after": capital,
-            "open": False,
-        })
+        nav_history.append(
+            {
+                "date": row["announcement_date"],
+                "catalyst_id": row["catalyst_id"],
+                "ticker": row.get("ticker"),
+                "notional": notional,
+                "pnl": pnl,
+                "capital_after": capital,
+                "open": False,
+            }
+        )
         exposures.append(notional / starting_capital)
 
     if not nav_history:
@@ -52,14 +54,28 @@ def simulate_short_portfolio(
 
     nav_df = pd.DataFrame(nav_history)
     nav_series = nav_df["capital_after"].values
-    returns = np.diff(np.insert(nav_series, 0, starting_capital)) / starting_capital
+    nav_with_start = np.insert(nav_series, 0, starting_capital)
+    returns = np.diff(nav_with_start) / nav_with_start[:-1]
     total_return = (capital - starting_capital) / starting_capital
     vol = float(np.std(returns)) if len(returns) > 1 else 0.0
-    sharpe = float(np.mean(returns) / vol * np.sqrt(252)) if vol > 0 else None
+    dates = pd.to_datetime(nav_df["date"], errors="coerce").dropna()
+    if len(dates) > 1:
+        span_years = max((dates.max() - dates.min()).days / 365.25, 1.0)
+    else:
+        span_years = 1.0
+    trades_per_year = len(returns) / span_years
+    # These are event-trade returns, not daily observations.  Annualizing them
+    # by sqrt(252) materially overstates Sharpe for a sparse catalyst strategy.
+    annualization = np.sqrt(trades_per_year) if trades_per_year > 0 else 1.0
+    sharpe = float(np.mean(returns) / vol * annualization) if vol > 0 else None
     downside = returns[returns < 0]
-    sortino = float(np.mean(returns) / np.std(downside) * np.sqrt(252)) if len(downside) > 1 and np.std(downside) > 0 else None
-    peak = np.maximum.accumulate(nav_series)
-    dd = (nav_series - peak) / peak
+    sortino = (
+        float(np.mean(returns) / np.std(downside) * annualization)
+        if len(downside) > 1 and np.std(downside) > 0
+        else None
+    )
+    peak = np.maximum.accumulate(nav_with_start)
+    dd = (nav_with_start - peak) / peak
     max_dd = float(dd.min()) if len(dd) else 0.0
 
     return {
@@ -70,6 +86,7 @@ def simulate_short_portfolio(
         "mean_exposure": float(np.mean(exposures)) if exposures else 0.0,
         "max_exposure": float(np.max(exposures)) if exposures else 0.0,
         "volatility_approx": vol,
+        "trades_per_year": float(trades_per_year),
         "sharpe_approx": sharpe,
         "sortino_approx": sortino,
         "max_drawdown": max_dd,

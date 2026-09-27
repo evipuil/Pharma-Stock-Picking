@@ -6,28 +6,28 @@
 
 | Metric | Count | Target |
 |--------|------:|-------:|
-| Catalysts | 112 | ≥100 (Phase A) |
-| Underlying programs | 112 | — |
-| With announcement date | 112 | — |
-| With event study CAR | 107 | — |
+| Catalysts | 122 | ≥100 (Phase A) |
+| Underlying programs | 121 | — |
+| With announcement date | 122 | — |
+| With event study CAR | 115 | — |
 | With market features | 107 | — |
 | With trial design features | 112 | — |
 | Preclinical evidence found | 65 | — |
-| No preclinical evidence | 47 | — |
+| No preclinical evidence | 57 | — |
 
 ## Outcome mix
 
 outcome_category  n
-EFFICACY_FAILURE 24
+EFFICACY_FAILURE 31
   SAFETY_FAILURE  3
-         SUCCESS 63
+         SUCCESS 66
          UNKNOWN 22
 
 ## Event study: CAR [-1,+1] market model by outcome
 
  clinical_success  n  mean_car  median_car      std
-                0 27 -0.104766   -0.008537 0.245388
-                1 80 -0.002656    0.004521 0.051205
+              0.0 28 -0.120216   -0.009098 0.269563
+              1.0 83 -0.002202    0.004347 0.050713
 
 ## Known blockers
 

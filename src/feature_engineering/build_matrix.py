@@ -16,6 +16,12 @@ def _mean_or_nan(values: list) -> float | None:
     return float(np.mean(clean)) if clean else None
 
 
+def _binary_any(values: pd.Series) -> int:
+    """Return whether any truthy numeric flag is present without object downcasting."""
+    numeric = pd.to_numeric(values, errors="coerce")
+    return int((numeric.fillna(0) > 0).any())
+
+
 def build_study_level_frame(conn: sqlite3.Connection) -> pd.DataFrame:
     return pd.read_sql_query(
         """
@@ -89,8 +95,8 @@ def aggregate_program_features(studies: pd.DataFrame) -> pd.DataFrame:
                 "best_effect_size": effect.max() if len(effect) else np.nan,
                 "median_effect_size": effect.median() if len(effect) else np.nan,
                 "min_p_value": grp["p_value"].min(skipna=True),
-                "any_dose_response": int(grp["dose_response"].fillna(0).max()),
-                "survival_benefit_any": int(grp["survival_benefit"].fillna(0).max()),
+                "any_dose_response": _binary_any(grp["dose_response"]),
+                "survival_benefit_any": _binary_any(grp["survival_benefit"]),
                 # quality aggregates
                 "pct_studies_randomized": grp["randomization_reported"].mean(skipna=True),
                 "pct_studies_blinded": grp["blinding_reported"].mean(skipna=True),
@@ -107,20 +113,14 @@ def aggregate_program_features(studies: pd.DataFrame) -> pd.DataFrame:
                 "mean_mechanism_similarity": _mean_or_nan(grp["mechanism_similarity"].tolist()),
                 "mean_pkpd_relevance": _mean_or_nan(grp["pkpd_relevance"].tolist()),
                 "any_humanized_or_pdx": int(
-                    grp["is_humanized_model"].fillna(0).max() or grp["is_pdx"].fillna(0).max()
+                    _binary_any(grp["is_humanized_model"]) or _binary_any(grp["is_pdx"])
                 ),
-                "human_target_validated_any": int(grp["human_target_validated"].fillna(0).max()),
-                "biomarker_overlap_any": int(grp["biomarker_overlap"].fillna(0).max()),
+                "human_target_validated_any": _binary_any(grp["human_target_validated"]),
+                "biomarker_overlap_any": _binary_any(grp["biomarker_overlap"]),
                 # replication
-                "any_independent_replication": int(
-                    grp["independent_lab_replication"].fillna(0).max()
-                ),
-                "replicated_across_models_any": int(
-                    grp["replicated_across_models"].fillna(0).max()
-                ),
-                "replicated_across_species_any": int(
-                    grp["replicated_across_species"].fillna(0).max()
-                ),
+                "any_independent_replication": _binary_any(grp["independent_lab_replication"]),
+                "replicated_across_models_any": _binary_any(grp["replicated_across_models"]),
+                "replicated_across_species_any": _binary_any(grp["replicated_across_species"]),
                 "n_animal_studies": len(grp),
                 "n_species": grp["species"].nunique(),
                 "n_models": grp["disease_model"].nunique(),

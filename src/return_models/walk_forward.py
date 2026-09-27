@@ -3,19 +3,18 @@
 from __future__ import annotations
 
 import uuid
-from pathlib import Path
 
-import numpy as np
 import pandas as pd
 
 from src.config import load_yaml, project_root
 from src.fundamentals.exposure import load_exposure_frame
-from src.return_models.dataset import load_catalyst_modeling_frame, resolve_split_feature_cols
 from src.ranking.signals import assign_percentile_signals
+from src.return_models.dataset import load_catalyst_modeling_frame, resolve_split_feature_cols
 from src.return_models.expected_car import (
     ExpectedCarBundle,
     _fit_conditional_car,
     _make_logistic,
+    conditional_car_fallbacks,
     export_predictions_csv,
     predict_expected_car,
     predict_with_wong_prior,
@@ -57,6 +56,7 @@ def run_walk_forward(
         # Fit models on train only
         p_model = _make_logistic(seed)
         p_model.fit(train[p_cols], train["clinical_success"].astype(int))
+        success_fallback, failure_fallback = conditional_car_fallbacks(train)
 
         bundle = ExpectedCarBundle(
             version=f"wf_{train_end}",
@@ -66,6 +66,9 @@ def run_walk_forward(
             p_success_model=p_model,
             car_success_model=_fit_conditional_car(train, car_cols, 1),
             car_failure_model=_fit_conditional_car(train, car_cols, 0),
+            car_success_fallback=success_fallback,
+            car_failure_fallback=failure_fallback,
+            training_data_policy="strict_point_in_time_sanitized",
         )
 
         preds = predict_expected_car(test, bundle)
@@ -156,9 +159,7 @@ def summarize_walk_forward(ledger: pd.DataFrame) -> dict:
         "mean_realized_car_all": float(ledger["realized_car"].mean()),
         "mean_realized_car_long": float(longs["realized_car"].mean()) if len(longs) else None,
         "mean_realized_car_short": float(shorts["realized_car"].mean()) if len(shorts) else None,
-        "correlation_expected_realized": float(
-            ledger["expected_car"].corr(ledger["realized_car"])
-        ),
+        "correlation_expected_realized": float(ledger["expected_car"].corr(ledger["realized_car"])),
         "n_long_signals": len(longs),
         "n_short_signals": len(shorts),
     }
@@ -169,7 +170,9 @@ def compare_baselines() -> dict:
     df = load_catalyst_modeling_frame()
     full = predict_expected_car(
         df,
-        __import__("src.return_models.expected_car", fromlist=["train_expected_car_models"]).train_expected_car_models(),
+        __import__(
+            "src.return_models.expected_car", fromlist=["train_expected_car_models"]
+        ).train_expected_car_models(),
     )
     wong = predict_with_wong_prior(df)
     return {

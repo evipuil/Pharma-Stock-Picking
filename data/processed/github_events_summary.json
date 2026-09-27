@@ -1,0 +1,15 @@
+{
+  "validation_csv": "C:\\Users\\eshan\\Desktop\\StockPicking\\data\\processed\\github_events_validation.csv",
+  "candidates_csv": "C:\\Users\\eshan\\Desktop\\StockPicking\\data\\processed\\github_events_candidates.csv",
+  "candidates_yaml": "C:\\Users\\eshan\\Desktop\\StockPicking\\configs\\github_events_candidates.yaml",
+  "suggestions_yaml": "C:\\Users\\eshan\\Desktop\\StockPicking\\configs\\github_events_date_suggestions.yaml",
+  "match_status": {
+    "NO_MATCH": 90,
+    "EXACT": 13,
+    "LARGE_DRIFT": 7,
+    "MODERATE_DRIFT": 1,
+    "CLOSE": 1
+  },
+  "n_suggestions": 0,
+  "n_candidates": 200
+}

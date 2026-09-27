@@ -1,0 +1,251 @@
+phase_b_target: 250
+source: ejeej/EventsStockPrices pilot import
+note: Outcome-agnostic; CT.gov NCT resolved at import time
+candidates:
+- id: GH0001
+  drug_name: Etirinotecan pegol NKTR-102 (BEACON)
+  ticker: NKTR
+  company_name: NKTR
+  indication: Cancer - Metastatic Breast Cancer
+  announcement_date: '2015-03-17'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  search: Etirinotecan pegol NKTR-102 (BEACON) Cancer - Metastatic Breast Cancer
+  notes: Phase 3 topline data mid March 17, 2015 did not reach primary endpoint.
+- id: GH0002
+  drug_name: Fexapotide Triflutate (NX-1207)
+  ticker: NYMX
+  company_name: NYMX
+  indication: BPH
+  announcement_date: '2015-07-27'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  search: Fexapotide Triflutate (NX-1207) BPH
+  notes: Phase 3 endpoints met in extension trial July 2015.
+- id: GH0003
+  drug_name: ORILISSA (Elagolix)
+  ticker: NBIX
+  company_name: NBIX
+  indication: Endometriosis
+  announcement_date: '2015-08-01'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  search: ORILISSA (Elagolix) Endometriosis
+  notes: First Phase 3 trial met both co-primary endpoints - January 8, 2015.
+- id: GH0006
+  drug_name: Omecamtiv mecarbil - (GALACTIC-HF)
+  ticker: CYTK
+  company_name: CYTK
+  indication: Acute heart failure
+  announcement_date: '2015-10-27'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  search: Omecamtiv mecarbil - (GALACTIC-HF) Acute heart failure
+  notes: Phase 2 trial data released October 27, 2015. The Phase 2 trial met the objectives
+    related to safety, tolerability, pharmacokinetics and pharmacodynamics in a population
+    of chronic heart failure patie
+- id: GH0007
+  drug_name: GOCOVRI (amantadine)
+  ticker: ADMS
+  company_name: ADMS
+  indication: Levodopa-Induced Dyskinesia + Parkinson's disease patients receiving
+    levodopa and experiencing OFF episodes
+  announcement_date: '2015-12-23'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  search: GOCOVRI (amantadine) Levodopa-Induced Dyskinesia + Parkinson's disease patients
+    receiving levodopa and experiencing OFF episodes
+  notes: Phase 3 data released December 23, 2015.
+- id: GH0008
+  drug_name: SPINRAZA (Nusinersen)
+  ticker: IONS
+  company_name: IONS
+  indication: Spinal muscular atrophy (SMA)
+  announcement_date: '2016-01-08'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  search: SPINRAZA (Nusinersen) Spinal muscular atrophy (SMA)
+  notes: Phase 3 ENDEAR trial met primary endpoint August 1, 2016.
+- id: GH0009
+  drug_name: EPIDIOLEX (cannabidiol)
+  ticker: JAZZ
+  company_name: JAZZ
+  indication: Dravet Syndrome and Lennox-Gastaut syndrome
+  announcement_date: '2016-03-14'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  search: EPIDIOLEX (cannabidiol) Dravet Syndrome and Lennox-Gastaut syndrome
+  notes: Top line Phase 3 data released March 14, 2016 met primary endpoint.
+- id: GH0011
+  drug_name: Levosimendan
+  ticker: TENX
+  company_name: TENX
+  indication: Septic shock
+  announcement_date: '2016-05-10'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  search: Levosimendan Septic shock
+  notes: Phase 2b trial did not meet primary endpoint.
+- id: GH0012
+  drug_name: DEXTENZA
+  ticker: OCUL
+  company_name: OCUL
+  indication: Allergic conjunctivitis
+  announcement_date: '2016-06-06'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  search: DEXTENZA Allergic conjunctivitis
+  notes: Phase 3 trial did not meet primary endpoint - June 6, 2016.
+- id: GH0013
+  drug_name: XPOVIO (selinexor)
+  ticker: KPTI
+  company_name: KPTI
+  indication: Quadruple Refractory Multiple Myeloma
+  announcement_date: '2016-06-09'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  search: XPOVIO (selinexor) Quadruple Refractory Multiple Myeloma
+  notes: Phase 2 positive top-line data released September 6, 2016
+- id: GH0014
+  drug_name: Tonmya (TNX-102 SL)
+  ticker: TNXP
+  company_name: TNXP
+  indication: Fibromyalgia
+  announcement_date: '2016-06-09'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  search: Tonmya (TNX-102 SL) Fibromyalgia
+  notes: Phase 3 data released September 6, 2016. Primary endpoint not met. Program
+    discontinued
+- id: GH0015
+  drug_name: DAXI (RT002)
+  ticker: RVNC
+  company_name: RVNC
+  indication: Lateral Canthal (Crow’s Feet) Lines
+  announcement_date: '2016-06-13'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  search: DAXI (RT002) Lateral Canthal (Crow’s Feet) Lines
+  notes: Phase 3 endpoints not met June 13, 2016.
+- id: GH0016
+  drug_name: Ganaxolone
+  ticker: MRNS
+  company_name: MRNS
+  indication: Focal onset seizures
+  announcement_date: '2016-06-13'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  search: Ganaxolone Focal onset seizures
+  notes: Phase 3 data did not meet endpoints - June 13, 2016
+- id: GH0017
+  drug_name: NUZYRA (omadacycline)
+  ticker: PRTK
+  company_name: PRTK
+  indication: Acute bacterial skin and skin structure infections (ABSSSI)
+  announcement_date: '2016-06-16'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  search: NUZYRA (omadacycline) Acute bacterial skin and skin structure infections
+    (ABSSSI)
+  notes: Phase 3 top-line data met endpoints - June 16, 2016
+- id: GH0019
+  drug_name: Ampion
+  ticker: AMPE
+  company_name: AMPE
+  indication: Osteoarthritis of the Knee
+  announcement_date: '2016-06-30'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  search: Ampion Osteoarthritis of the Knee
+  notes: STRIDE study mid April 2015 did not meet endpoint. Second Phase 3 trial also
+    did not meet primary endpoint - June 2016
+- id: GH0020
+  drug_name: SPINRAZA (Nusinersen)
+  ticker: IONS
+  company_name: IONS
+  indication: Spinal muscular atrophy (SMA)
+  announcement_date: '2016-07-11'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  search: SPINRAZA (Nusinersen) Spinal muscular atrophy (SMA)
+  notes: Phase 3 CHERISH data met primary endpoint - November 7, 2016.
+- id: GH0021
+  drug_name: MEPSEVII (vestronidase alfa)
+  ticker: RARE
+  company_name: RARE
+  indication: Mucopolysaccharidosis 7 (MPS 7)
+  announcement_date: '2016-07-14'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  search: MEPSEVII (vestronidase alfa) Mucopolysaccharidosis 7 (MPS 7)
+  notes: Phase 3 data released July 2016. Primary endpoint hit. Secondary missed.
+- id: GH0022
+  drug_name: SER-109 (ECOSPOR)
+  ticker: MCRB
+  company_name: MCRB
+  indication: Recurrent C. Difficile infection
+  announcement_date: '2016-07-29'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  search: SER-109 (ECOSPOR) Recurrent C. Difficile infection
+  notes: Phase 2 interim data did not meet primary endpoint.
+- id: GH0023
+  drug_name: TALICIA (RHB-105)
+  ticker: RDHL
+  company_name: RDHL
+  indication: H. pylori
+  announcement_date: '2016-08-03'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  search: TALICIA (RHB-105) H. pylori
+  notes: Phase 3 final data released March 8, 2016.
+- id: GH0024
+  drug_name: ACTIMMUNE
+  ticker: HZNP
+  company_name: HZNP
+  indication: Friedreich's Ataxia (FA)
+  announcement_date: '2016-08-12'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  search: ACTIMMUNE Friedreich's Ataxia (FA)
+  notes: Phase 3 data released December 8, 2016 - primary endpoint not met

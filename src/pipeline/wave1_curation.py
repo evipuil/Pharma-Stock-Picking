@@ -13,9 +13,6 @@ from __future__ import annotations
 import json
 import sys
 from datetime import date
-from pathlib import Path
-
-import yaml
 
 from src.clinical_trials.ctgov_client import ClinicalTrialsGovClient
 from src.clinical_trials.parse_study import infer_outcome_labels, infer_t0, parse_study
@@ -74,9 +71,14 @@ def _pick_phase2_study(studies: list[dict], drug: str, indication_hint: str) -> 
         title = (parsed.get("brief_title") or "").lower()
         conditions = " ".join(parsed.get("conditions") or []).lower()
         score = 0
-        if drug.lower() in title.lower() or any(drug.lower() in i.lower() for i in parsed.get("interventions") or []):
+        if drug.lower() in title.lower() or any(
+            drug.lower() in i.lower() for i in parsed.get("interventions") or []
+        ):
             score += 2
-        if indication_hint.lower().replace("_", " ")[:4] in conditions or indication_hint.lower()[:4] in title:
+        if (
+            indication_hint.lower().replace("_", " ")[:4] in conditions
+            or indication_hint.lower()[:4] in title
+        ):
             score += 1
         candidates.append((score, start or date(2000, 1, 1), parsed, raw))
 
@@ -84,6 +86,47 @@ def _pick_phase2_study(studies: list[dict], drug: str, indication_hint: str) -> 
         return None
     candidates.sort(key=lambda x: (-x[0], x[1]))
     return candidates[0][3]
+
+
+def _pick_clinical_study(
+    studies: list[dict],
+    drug: str,
+    indication_hint: str,
+    prefer_phase: str | None = None,
+) -> dict | None:
+    """Select best matching Phase II/III study from search results."""
+    from src.clinical_trials.parse_study import parse_study as ps
+
+    prefer = (prefer_phase or "").upper()
+    candidates = []
+    for raw in studies:
+        parsed = ps(raw)
+        phase = (parsed.get("phase") or "").upper()
+        if "2" not in phase and "3" not in phase:
+            continue
+        start = parsed.get("start_date")
+        if start and (start.year < 2010 or start.year > 2020):
+            continue
+        title = (parsed.get("brief_title") or "").lower()
+        conditions = " ".join(parsed.get("conditions") or []).lower()
+        score = 0
+        if drug.lower() in title or any(
+            drug.lower() in i.lower() for i in parsed.get("interventions") or []
+        ):
+            score += 2
+        if (
+            indication_hint.lower().replace("_", " ")[:4] in conditions
+            or indication_hint.lower()[:4] in title
+        ):
+            score += 1
+        if "3" in prefer and "3" in phase or "2" in prefer and "2" in phase:
+            score += 1
+        candidates.append((score, start or date(2000, 1, 1), raw))
+
+    if not candidates:
+        return None
+    candidates.sort(key=lambda x: (-x[0], x[1]))
+    return candidates[0][2]
 
 
 def curate_wave1() -> list[dict]:
@@ -116,8 +159,7 @@ def curate_wave1() -> list[dict]:
                 print(f"WARN: No Phase II study found for {cid} ({drug})", file=sys.stderr)
                 continue
             nct_id = picked["protocolSection"]["identificationModule"]["nctId"]
-            raw_path = RAW_CTGOV / f"{nct_id}.json"
-            raw_path.write_text(json.dumps(picked, indent=2), encoding="utf-8")
+            raw_path = ctgov.cache_study(nct_id, picked, RAW_CTGOV)
             raw = picked
 
         parsed = parse_study(raw)
@@ -172,7 +214,9 @@ def curate_wave1() -> list[dict]:
             "financial_event": adj.get("financial_event"),
         }
         bundles.append(bundle)
-        print(f"OK {cid}: {drug} | {nct_id} | t0={t0_date} | pubs={len(publications)} | success={outcome.get('clinical_success')}")
+        print(
+            f"OK {cid}: {drug} | {nct_id} | t0={t0_date} | pubs={len(publications)} | success={outcome.get('clinical_success')}"
+        )
 
     return bundles
 

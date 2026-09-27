@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-import json
 import pickle
 import uuid
 from dataclasses import dataclass, field
@@ -18,9 +17,7 @@ from sklearn.preprocessing import StandardScaler
 from src.config import load_yaml, project_root
 from src.models.baselines import load_benchmark_rates, lookup_pos_rate
 from src.return_models.dataset import (
-    MARKET_FEATURE_COLS,
     load_catalyst_modeling_frame,
-    resolve_feature_cols,
     resolve_split_feature_cols,
 )
 
@@ -34,13 +31,16 @@ class ExpectedCarBundle:
     feature_cols: list[str] = field(default_factory=list)
     p_feature_cols: list[str] = field(default_factory=list)
     car_feature_cols: list[str] = field(default_factory=list)
+    car_success_fallback: float = 0.0
+    car_failure_fallback: float = -0.10
+    training_data_policy: str = "unverified"
     metrics: dict = field(default_factory=dict)
 
 
 def _make_ridge() -> Pipeline:
     return Pipeline(
         [
-            ("imputer", SimpleImputer(strategy="median")),
+            ("imputer", SimpleImputer(strategy="median", keep_empty_features=True)),
             ("scaler", StandardScaler()),
             ("ridge", Ridge(alpha=1.0)),
         ]
@@ -50,7 +50,7 @@ def _make_ridge() -> Pipeline:
 def _make_logistic(seed: int) -> Pipeline:
     return Pipeline(
         [
-            ("imputer", SimpleImputer(strategy="median")),
+            ("imputer", SimpleImputer(strategy="median", keep_empty_features=True)),
             ("scaler", StandardScaler()),
             (
                 "clf",
@@ -81,7 +81,23 @@ def _fit_conditional_car(
     return model
 
 
-def _bootstrap_interval(values: np.ndarray, n_boot: int = 500, seed: int = 42) -> tuple[float, float]:
+def conditional_car_fallbacks(
+    train: pd.DataFrame,
+    *,
+    success_default: float = 0.0,
+    failure_default: float = -0.10,
+) -> tuple[float, float]:
+    """Freeze conditional-return fallbacks from training data only."""
+    success = train.loc[train["clinical_success"] == 1, "realized_car"].dropna()
+    failure = train.loc[train["clinical_success"] == 0, "realized_car"].dropna()
+    success_mean = float(success.mean()) if len(success) else float(success_default)
+    failure_mean = float(failure.mean()) if len(failure) else float(failure_default)
+    return success_mean, failure_mean
+
+
+def _bootstrap_interval(
+    values: np.ndarray, n_boot: int = 500, seed: int = 42
+) -> tuple[float, float]:
     rng = np.random.default_rng(seed)
     if len(values) == 0:
         return np.nan, np.nan
@@ -109,6 +125,7 @@ def train_expected_car_models(
     # Models B/C: conditional CAR regressions — market expectations only
     car_success = _fit_conditional_car(df, car_cols, outcome=1)
     car_failure = _fit_conditional_car(df, car_cols, outcome=0)
+    success_fallback, failure_fallback = conditional_car_fallbacks(df)
 
     bundle = ExpectedCarBundle(
         feature_cols=p_cols,
@@ -117,6 +134,9 @@ def train_expected_car_models(
         p_success_model=p_model,
         car_success_model=car_success,
         car_failure_model=car_failure,
+        car_success_fallback=success_fallback,
+        car_failure_fallback=failure_fallback,
+        training_data_policy="strict_point_in_time_sanitized",
     )
 
     # In-sample metrics for monitoring (not for final claims)
@@ -126,11 +146,16 @@ def train_expected_car_models(
         "n_success": int(y.sum()),
         "realized_car_mean": float(df["realized_car"].mean()),
         "expected_car_mean": float(preds["expected_car"].mean()),
-        "correlation_expected_vs_realized": float(
-            preds["expected_car"].corr(preds["realized_car"])
-        )
+        "correlation_expected_vs_realized": float(preds["expected_car"].corr(preds["realized_car"]))
         if preds["expected_car"].notna().sum() > 2
         else None,
+        "market_features_verified_at_cutoff": int(
+            df.get("market_features_point_in_time", pd.Series(False)).sum()
+        ),
+        "trial_features_verified_at_cutoff": int(
+            df.get("trial_features_point_in_time", pd.Series(False)).sum()
+        ),
+        "unverified_features_nulled": True,
     }
     return bundle
 
@@ -146,12 +171,12 @@ def predict_expected_car(df: pd.DataFrame, bundle: ExpectedCarBundle) -> pd.Data
     if bundle.car_success_model is not None:
         out["e_car_given_success"] = bundle.car_success_model.predict(df[car_cols])
     else:
-        out["e_car_given_success"] = out.loc[out["clinical_success"] == 1, "realized_car"].mean()
+        out["e_car_given_success"] = bundle.car_success_fallback
 
     if bundle.car_failure_model is not None:
         out["e_car_given_failure"] = bundle.car_failure_model.predict(df[car_cols])
     else:
-        out["e_car_given_failure"] = out.loc[out["clinical_success"] == 0, "realized_car"].mean()
+        out["e_car_given_failure"] = bundle.car_failure_fallback
 
     out["expected_car"] = (
         out["p_success"] * out["e_car_given_success"]
@@ -160,17 +185,20 @@ def predict_expected_car(df: pd.DataFrame, bundle: ExpectedCarBundle) -> pd.Data
     return out
 
 
-def predict_with_wong_prior(df: pd.DataFrame) -> pd.DataFrame:
-    """Baseline: Wong PoS for P(success), historical mean CAR by outcome."""
+def predict_with_wong_prior(
+    df: pd.DataFrame,
+    calibration_df: pd.DataFrame | None = None,
+) -> pd.DataFrame:
+    """Baseline using Wong PoS and conditional CAR frozen on calibration data."""
     rates = load_benchmark_rates(project_root() / "data" / "external" / "wong2019_pos_rates.csv")
     out = df.copy()
+    calibration = calibration_df if calibration_df is not None else df
     ps = []
     for _, row in out.iterrows():
         p = lookup_pos_rate(rates, "PHASE2", "oncology", row.get("modality"))
-        ps.append(p if p is not None else out["clinical_success"].mean())
+        ps.append(p if p is not None else calibration["clinical_success"].mean())
     out["p_success"] = ps
-    succ_mean = out.loc[out["clinical_success"] == 1, "realized_car"].mean()
-    fail_mean = out.loc[out["clinical_success"] == 0, "realized_car"].mean()
+    succ_mean, fail_mean = conditional_car_fallbacks(calibration)
     out["e_car_given_success"] = succ_mean
     out["e_car_given_failure"] = fail_mean
     out["expected_car"] = (

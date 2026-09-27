@@ -5,14 +5,22 @@ from __future__ import annotations
 import sqlite3
 from pathlib import Path
 
-import numpy as np
 import pandas as pd
 
 from src.config import load_yaml, project_root
 from src.return_models.expected_car import _bootstrap_interval
 
 
-def build_trade_ledger(db_path: Path | None = None) -> pd.DataFrame:
+def build_trade_ledger(
+    db_path: Path | None = None,
+    allow_threshold_fallback: bool = False,
+) -> pd.DataFrame:
+    """Build P&L for explicit walk-forward signals.
+
+    The optional threshold fallback exists only to reproduce legacy reports.  It
+    is off by default because turning ``NO TRADE`` rows into positions after the
+    fact changes the predefined strategy and inflates its trade count.
+    """
     cfg = load_yaml(project_root() / "configs" / "stock_picking.yaml")
     slip = cfg["trading"]["default_slippage_bps"] / 10_000
     db_path = db_path or project_root() / "data" / "processed" / "research.db"
@@ -36,9 +44,9 @@ def build_trade_ledger(db_path: Path | None = None) -> pd.DataFrame:
     if ledger.empty:
         return pd.DataFrame()
 
-    # Re-derive signals with exposure adjustment if not in ledger
-    dep = ledger["company_dependency"].fillna(0.9)
-    ledger["expected_car_adj"] = ledger["expected_car"] * dep
+    # walk_forward_ledger.expected_car is already exposure-adjusted when the OOS
+    # signal is created.  Multiplying by dependency here would apply it twice.
+    ledger["expected_car_adj"] = ledger["expected_car"]
 
     def _side(row):
         sig = row.get("trade_signal", "NO_TRADE")
@@ -46,6 +54,8 @@ def build_trade_ledger(db_path: Path | None = None) -> pd.DataFrame:
             return 1
         if sig in ("SHORT", "STRONG SHORT"):
             return -1
+        if not allow_threshold_fallback:
+            return 0
         if row["expected_car_adj"] > 0.03:
             return 1
         if row["expected_car_adj"] < -0.03:
@@ -102,8 +112,9 @@ def generate_backtest_report(trades: pd.DataFrame) -> Path:
         "",
         "## Methodology",
         "- Signals from exposure-adjusted expected CAR",
+        "- Only explicit walk-forward trade signals are executed",
         "- Entry before catalyst; exit on announcement window CAR",
-        f"- Slippage: {load_yaml(project_root() / 'configs/stock_picking.yaml')['trading']['default_slippage_bps']} bps round-trip",
+        f"- Slippage: {load_yaml(project_root() / 'configs/stock_picking.yaml')['trading']['default_slippage_bps']} bps per leg",
         "",
         "## Summary",
         "",

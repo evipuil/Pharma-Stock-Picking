@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import sqlite3
-import uuid
 from datetime import timedelta
 from pathlib import Path
 
@@ -12,7 +11,7 @@ import pandas as pd
 
 from src.config import load_yaml, project_root
 from src.market_data.catalyst_prices import fetch_for_catalyst
-from src.market_data.history import fetch_or_load, load_benchmarks
+from src.market_data.history import load_benchmarks
 
 
 def _apply_schema(conn: sqlite3.Connection) -> None:
@@ -50,10 +49,12 @@ def compute_features_for_catalyst(
 
     close = prices.set_index("date")["adj_close"].astype(float)
     rets = close.pct_change().dropna()
-    volume = prices.set_index("date")["volume"].astype(float) if "volume" in prices.columns else None
+    volume = (
+        prices.set_index("date")["volume"].astype(float) if "volume" in prices.columns else None
+    )
 
     price_at = float(close.iloc[-1])
-    high_52w = float(close.iloc[-min(252, len(close)):].max())
+    high_52w = float(close.iloc[-min(252, len(close)) :].max())
     dist_52w = (price_at / high_52w - 1.0) if high_52w > 0 else None
 
     # Align XBI for abnormal returns ending at cutoff
@@ -79,6 +80,7 @@ def compute_features_for_catalyst(
             vol_ratio = float(recent / base)
 
     return {
+        "feature_as_of_date": str(close.index[-1].date()),
         "price_at_cutoff": price_at,
         "return_1d": _cum_return(rets, 1),
         "return_5d": _cum_return(rets, 5),
@@ -159,7 +161,7 @@ def compute_all_market_features(db_path: Path | None = None) -> dict:
                 """,
                 (
                     catalyst_id,
-                    str(cutoff.date()),
+                    feats["feature_as_of_date"],
                     ticker_used,
                     feats["price_at_cutoff"],
                     feats["return_1d"],
@@ -176,7 +178,7 @@ def compute_all_market_features(db_path: Path | None = None) -> dict:
                 ),
             )
             stats["computed"] += 1
-        except Exception:
+        except Exception:  # noqa: BLE001 - record per-catalyst failures and continue
             stats["errors"] += 1
 
     conn.commit()

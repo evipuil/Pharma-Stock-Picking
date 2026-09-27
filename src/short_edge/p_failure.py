@@ -22,7 +22,7 @@ from sklearn.preprocessing import StandardScaler
 def _make_logistic(seed: int = 42) -> Pipeline:
     return Pipeline(
         [
-            ("imputer", SimpleImputer(strategy="median")),
+            ("imputer", SimpleImputer(strategy="median", keep_empty_features=True)),
             ("scaler", StandardScaler()),
             (
                 "clf",

@@ -62,7 +62,10 @@ def _make_preprocessor(cat_cols: list[str], num_cols: list[str]) -> ColumnTransf
                 "num",
                 Pipeline(
                     [
-                        ("imputer", SimpleImputer(strategy="median")),
+                        (
+                            "imputer",
+                            SimpleImputer(strategy="median", keep_empty_features=True),
+                        ),
                         ("scaler", StandardScaler()),
                     ]
                 ),
@@ -75,7 +78,10 @@ def _make_preprocessor(cat_cols: list[str], num_cols: list[str]) -> ColumnTransf
                 "cat",
                 Pipeline(
                     [
-                        ("imputer", SimpleImputer(strategy="most_frequent")),
+                        (
+                            "imputer",
+                            SimpleImputer(strategy="most_frequent", keep_empty_features=True),
+                        ),
                         (
                             "onehot",
                             OneHotEncoder(handle_unknown="ignore", sparse_output=False),
@@ -92,7 +98,7 @@ def _evaluate(y_true: np.ndarray, p_pred: np.ndarray) -> dict:
     metrics: dict = {
         "brier_score": float(brier_score_loss(y_true, p_pred)),
         "log_loss": float(log_loss(y_true, p_pred, labels=[0, 1])),
-        "n": int(len(y_true)),
+        "n": len(y_true),
         "n_events": int(y_true.sum()),
     }
     if len(np.unique(y_true)) > 1 and len(np.unique(p_pred)) > 1:
@@ -106,7 +112,9 @@ def train_baseline_wong(df: pd.DataFrame, rates_path: Path) -> tuple[np.ndarray,
     rates = load_benchmark_rates(rates_path)
     preds = []
     for _, row in df.iterrows():
-        p = lookup_pos_rate(rates, "PHASE2", row.get("indication_group", "oncology"), row.get("modality"))
+        p = lookup_pos_rate(
+            rates, "PHASE2", row.get("indication_group", "oncology"), row.get("modality")
+        )
         preds.append(p if p is not None else df["clinical_success"].mean())
     p = np.array(preds)
     y = df["clinical_success"].astype(int).values
@@ -138,7 +146,9 @@ def train_logistic_model(
             )
         )
         # Only use columns that exist or are added as NaN below
-        feature_cols = [c for c in feature_cols if c in df.columns or c in resolve_baseline_clinical_cols()]
+        feature_cols = [
+            c for c in feature_cols if c in df.columns or c in resolve_baseline_clinical_cols()
+        ]
     elif feature_set == "baseline_clinical":
         feature_cols = resolve_baseline_clinical_cols()
 
@@ -203,10 +213,21 @@ def train_logistic_model(
             mask[i] = False
             if len(np.unique(y[mask])) < 2:
                 continue
-            fold_pipe = Pipeline([("prep", preprocessor), ("clf", LogisticRegression(
-                penalty="l2", C=1.0, max_iter=1000, class_weight="balanced",
-                random_state=cfg["random_seed"],
-            ))])
+            fold_pipe = Pipeline(
+                [
+                    ("prep", preprocessor),
+                    (
+                        "clf",
+                        LogisticRegression(
+                            penalty="l2",
+                            C=1.0,
+                            max_iter=1000,
+                            class_weight="balanced",
+                            random_state=cfg["random_seed"],
+                        ),
+                    ),
+                ]
+            )
             fold_pipe.fit(X[mask], y[mask])
             loo_probs.append(fold_pipe.predict_proba(X.iloc[[i]])[0, 1])
             loo_true.append(y[i])
@@ -254,7 +275,7 @@ def train_all_models(out_dir: Path | None = None) -> dict:
     programs, _ = build_feature_matrix(feature_set="all_preclinical")
     results: dict = {"models": {}}
 
-    p_wong, wong_metrics = train_baseline_wong(programs, rates_path)
+    _p_wong, wong_metrics = train_baseline_wong(programs, rates_path)
     results["baselines"] = {"wong_pos": wong_metrics}
 
     for feature_set in ["baseline_clinical", "all_preclinical", "baseline_plus_preclinical"]:
@@ -265,7 +286,7 @@ def train_all_models(out_dir: Path | None = None) -> dict:
                 "path": str(path),
                 "metrics": bundle.metrics,
             }
-        except Exception as exc:
+        except Exception as exc:  # noqa: BLE001 - report each optional model failure
             results["models"][feature_set] = {"error": str(exc)}
 
     report_path = out_dir / "training_report.json"

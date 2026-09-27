@@ -1,4 +1,4 @@
-"""Locked holdout evaluation (2019–2021) — run once after pipeline freeze."""
+"""Legacy holdout evaluation for the already-inspected 2019–2021 period."""
 
 from __future__ import annotations
 
@@ -15,6 +15,7 @@ from src.return_models.expected_car import (
     _bootstrap_interval,
     _fit_conditional_car,
     _make_logistic,
+    conditional_car_fallbacks,
     predict_expected_car,
     predict_with_wong_prior,
 )
@@ -29,6 +30,7 @@ def _fit_bundle(
 ) -> ExpectedCarBundle:
     p_model = _make_logistic(seed)
     p_model.fit(train[p_cols], train["clinical_success"].astype(int))
+    success_fallback, failure_fallback = conditional_car_fallbacks(train)
     return ExpectedCarBundle(
         version=version,
         feature_cols=p_cols,
@@ -37,14 +39,15 @@ def _fit_bundle(
         p_success_model=p_model,
         car_success_model=_fit_conditional_car(train, car_cols, 1),
         car_failure_model=_fit_conditional_car(train, car_cols, 0),
+        car_success_fallback=success_fallback,
+        car_failure_fallback=failure_fallback,
+        training_data_policy="strict_point_in_time_sanitized",
     )
 
 
 def _apply_exposure(preds: pd.DataFrame) -> pd.DataFrame:
     exposure = load_exposure_frame()
-    out = preds.merge(
-        exposure[["catalyst_id", "company_dependency"]], on="catalyst_id", how="left"
-    )
+    out = preds.merge(exposure[["catalyst_id", "company_dependency"]], on="catalyst_id", how="left")
     out["company_dependency"] = out["company_dependency"].fillna(0.9)
     out["expected_car_adj"] = out["expected_car"] * out["company_dependency"]
     return out
@@ -55,7 +58,7 @@ def run_locked_holdout(
     db_path: Path | None = None,
 ) -> pd.DataFrame:
     """
-    Train strictly on pre-holdout catalysts (year < 2019), evaluate on 2019–2021.
+    Train on pre-period catalysts and evaluate retrospectively on 2019–2021.
     """
     cfg = load_yaml(project_root() / "configs" / "stock_picking.yaml")
     holdout = cfg["holdout"]["final_locked"]
@@ -69,9 +72,12 @@ def run_locked_holdout(
     train = df[df["catalyst_year"] < start_year]
     test = df[(df["catalyst_year"] >= start_year) & (df["catalyst_year"] <= end_year)]
 
-    if feature_set == "market_plus_preclinical":
-        p_cols, car_cols = resolve_split_feature_cols(feature_set)
-    elif feature_set in ("market_only", "market_plus_trial", "market_plus_trial_plus_preclinical", "trial_only"):
+    if feature_set == "market_plus_preclinical" or feature_set in (
+        "market_only",
+        "market_plus_trial",
+        "market_plus_trial_plus_preclinical",
+        "trial_only",
+    ):
         p_cols, car_cols = resolve_split_feature_cols(feature_set)
     else:
         p_cols, car_cols = resolve_split_feature_cols("market_plus_trial")
@@ -85,7 +91,7 @@ def run_locked_holdout(
 
 
 def run_holdout_baselines(db_path: Path | None = None) -> dict[str, pd.DataFrame]:
-    """Full model, preclinical-augmented model, and Wong prior on locked holdout."""
+    """Full model, preclinical-augmented model, and Wong prior on the legacy period."""
     cfg = load_yaml(project_root() / "configs" / "stock_picking.yaml")
     holdout = cfg["holdout"]["final_locked"]
     start_year = holdout["start_year"]
@@ -93,6 +99,7 @@ def run_holdout_baselines(db_path: Path | None = None) -> dict[str, pd.DataFrame
 
     df = load_catalyst_modeling_frame(db_path)
     df = df.dropna(subset=["catalyst_year"]).copy()
+    train = df[df["catalyst_year"] < start_year]
     test = df[(df["catalyst_year"] >= start_year) & (df["catalyst_year"] <= end_year)]
 
     results: dict[str, pd.DataFrame] = {}
@@ -104,7 +111,7 @@ def run_holdout_baselines(db_path: Path | None = None) -> dict[str, pd.DataFrame
     ):
         results[feature_set] = run_locked_holdout(feature_set, db_path)
 
-    wong = predict_with_wong_prior(test)
+    wong = predict_with_wong_prior(test, calibration_df=train)
     wong = _apply_exposure(wong)
     wong["model"] = "wong_prior"
     wong["split"] = "locked_holdout"
@@ -116,7 +123,9 @@ def summarize_holdout(preds: pd.DataFrame) -> dict:
     if preds.empty:
         return {"n": 0}
 
-    exp = preds["expected_car_adj"] if "expected_car_adj" in preds.columns else preds["expected_car"]
+    exp = (
+        preds["expected_car_adj"] if "expected_car_adj" in preds.columns else preds["expected_car"]
+    )
     realized = preds["realized_car"].dropna()
     exp_aligned = exp.loc[realized.index]
 
@@ -172,12 +181,13 @@ def generate_holdout_report(db_path: Path | None = None) -> Path:
     holdout = cfg["holdout"]["final_locked"]
 
     lines = [
-        "# Locked Holdout Evaluation",
+        "# Legacy Holdout Evaluation (Not Pristine)",
         "",
         f"**Holdout window:** {holdout['start_year']}–{holdout['end_year']}",
         f"**Training cutoff:** catalysts with year < {holdout['start_year']}",
         "",
-        "This evaluation uses data that was excluded from walk-forward tuning.",
+        "This period appears in existing repository artifacts and is not a pristine final holdout.",
+        "Use a newly timestamped prospective cohort for confirmatory evaluation.",
         "",
     ]
 

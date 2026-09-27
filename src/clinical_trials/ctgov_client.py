@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import json
 import time
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
@@ -48,23 +49,28 @@ class ClinicalTrialsGovClient:
             phase_upper = phase.upper()
             filtered = []
             for s in studies:
-                phases = (
-                    s.get("protocolSection", {})
-                    .get("designModule", {})
-                    .get("phases")
-                    or []
-                )
+                phases = s.get("protocolSection", {}).get("designModule", {}).get("phases") or []
                 if any(phase_upper in p.upper() for p in phases):
                     filtered.append(s)
             return filtered
         return studies
 
     def fetch_and_cache(self, nct_id: str, raw_dir: Path) -> Path:
-        raw_dir.mkdir(parents=True, exist_ok=True)
         data = self.fetch_study(nct_id)
-        out = raw_dir / f"{nct_id}.json"
-        out.write_text(json.dumps(data, indent=2), encoding="utf-8")
-        return out
+        return self.cache_study(nct_id, data, raw_dir)
+
+    def cache_study(self, nct_id: str, data: dict[str, Any], raw_dir: Path) -> Path:
+        """Write an immutable timestamped snapshot and a latest-compatible alias."""
+        raw_dir.mkdir(parents=True, exist_ok=True)
+        observed = datetime.now(timezone.utc)
+        stamp = observed.strftime("%Y%m%dT%H%M%S%fZ")
+        snapshot_dir = raw_dir / "snapshots" / nct_id
+        snapshot_dir.mkdir(parents=True, exist_ok=True)
+        snapshot = snapshot_dir / f"{stamp}.json"
+        payload = json.dumps(data, indent=2)
+        snapshot.write_text(payload, encoding="utf-8")
+        (raw_dir / f"{nct_id}.json").write_text(payload, encoding="utf-8")
+        return snapshot
 
     def _throttle(self) -> None:
         elapsed = time.time() - self._last_request

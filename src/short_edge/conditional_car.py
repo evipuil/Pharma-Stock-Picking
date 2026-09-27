@@ -17,7 +17,7 @@ from src.short_edge.dataset import shrinkage_mean
 def _make_ridge() -> Pipeline:
     return Pipeline(
         [
-            ("imputer", SimpleImputer(strategy="median")),
+            ("imputer", SimpleImputer(strategy="median", keep_empty_features=True)),
             ("scaler", StandardScaler()),
             ("ridge", Ridge(alpha=5.0)),
         ]
@@ -42,8 +42,16 @@ def fit_conditional_car(
     failures = train[train["clinical_failure"] == 1].dropna(subset=["realized_car"])
     successes = train[train["clinical_failure"] == 0].dropna(subset=["realized_car"])
 
-    global_fail = float(train.loc[train["clinical_failure"] == 1, "realized_car"].mean()) if (train["clinical_failure"] == 1).any() else -0.10
-    global_succ = float(train.loc[train["clinical_failure"] == 0, "realized_car"].mean()) if (train["clinical_failure"] == 0).any() else -0.003
+    global_fail = (
+        float(train.loc[train["clinical_failure"] == 1, "realized_car"].mean())
+        if (train["clinical_failure"] == 1).any()
+        else -0.10
+    )
+    global_succ = (
+        float(train.loc[train["clinical_failure"] == 0, "realized_car"].mean())
+        if (train["clinical_failure"] == 0).any()
+        else -0.003
+    )
 
     fail_model = None
     succ_model = None

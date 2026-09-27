@@ -102,7 +102,7 @@ def compute_fundamentals_for_catalysts(db_path: Path | None = None) -> dict:
         """
         SELECT c.catalyst_id, ct.ticker_at_event,
                COALESCE(tc.entry_cutoff_date, c.trading_cutoff_date, c.announcement_date) AS cutoff,
-               mf.price_at_cutoff
+               mf.price_at_cutoff, mf.as_of_date AS price_as_of
         FROM catalysts c
         JOIN catalyst_ticker_history ct ON c.catalyst_id = ct.catalyst_id
         LEFT JOIN catalyst_trading_cutoffs tc ON c.catalyst_id = tc.catalyst_id
@@ -113,7 +113,7 @@ def compute_fundamentals_for_catalysts(db_path: Path | None = None) -> dict:
     stats = {"computed": 0, "skipped_no_cik": 0, "skipped_no_facts": 0}
     facts_cache: dict[int, dict] = {}
 
-    for catalyst_id, ticker, cutoff, price in rows:
+    for catalyst_id, ticker, cutoff, price, price_as_of in rows:
         if not cutoff:
             continue
         cutoff_d = date.fromisoformat(str(cutoff)[:10])
@@ -125,7 +125,7 @@ def compute_fundamentals_for_catalysts(db_path: Path | None = None) -> dict:
         if cik not in facts_cache:
             try:
                 facts_cache[cik] = fetch_company_facts(cik)
-            except Exception:
+            except Exception:  # noqa: BLE001 - one unavailable issuer must not abort the batch
                 stats["skipped_no_facts"] += 1
                 continue
 
@@ -171,6 +171,12 @@ def compute_fundamentals_for_catalysts(db_path: Path | None = None) -> dict:
 
         dependency = _dependency_from_market_cap(market_cap)
         if dependency is not None:
+            observed_dates = [
+                date.fromisoformat(str(value)[:10])
+                for value in (pit.get("filing_date"), price_as_of)
+                if value
+            ]
+            exposure_as_of = max(observed_dates).isoformat() if observed_dates else None
             conn.execute(
                 """
                 INSERT INTO asset_exposure (
@@ -193,7 +199,7 @@ def compute_fundamentals_for_catalysts(db_path: Path | None = None) -> dict:
                     pit.get("debt_usd"),
                     pit.get("revenue_usd"),
                     dependency,
-                    str(cutoff)[:10],
+                    exposure_as_of,
                     "sec_edgar",
                 ),
             )

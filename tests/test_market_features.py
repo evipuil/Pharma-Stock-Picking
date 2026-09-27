@@ -2,8 +2,6 @@
 
 from __future__ import annotations
 
-from datetime import date
-
 import pandas as pd
 
 from src.market_expectations.features import compute_features_for_catalyst
@@ -24,6 +22,7 @@ def test_features_use_only_pre_cutoff_data():
     assert feats is not None
     assert feats["return_20d"] is not None
     assert feats["price_at_cutoff"] > 100
+    assert pd.Timestamp(feats["feature_as_of_date"]) < cutoff
 
 
 def test_insufficient_history_returns_none():

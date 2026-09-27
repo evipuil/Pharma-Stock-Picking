@@ -1,0 +1,2507 @@
+phase_b_target: 250
+source: ejeej/EventsStockPrices
+note: Outcome-agnostic expansion candidates; review before expand-catalysts
+candidates:
+- id: GH0001
+  drug_name: Etirinotecan pegol NKTR-102 (BEACON)
+  ticker: NKTR
+  company_name: NKTR
+  indication: Cancer - Metastatic Breast Cancer
+  announcement_date: '2015-03-17'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Phase 3 topline data mid March 17, 2015 did not reach primary endpoint.
+- id: GH0002
+  drug_name: Fexapotide Triflutate (NX-1207)
+  ticker: NYMX
+  company_name: NYMX
+  indication: BPH
+  announcement_date: '2015-07-27'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Phase 3 endpoints met in extension trial July 2015.
+- id: GH0003
+  drug_name: ORILISSA (Elagolix)
+  ticker: NBIX
+  company_name: NBIX
+  indication: Endometriosis
+  announcement_date: '2015-08-01'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: First Phase 3 trial met both co-primary endpoints - January 8, 2015.
+- id: GH0004
+  drug_name: ORILISSA (Elagolix)
+  ticker: ABBV
+  company_name: ABBV
+  indication: Endometriosis
+  announcement_date: '2015-08-01'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: First Phase 3 trial met both co-primary endpoints - January 8, 2015.
+- id: GH0005
+  drug_name: Omecamtiv mecarbil - (GALACTIC-HF)
+  ticker: AMGN
+  company_name: AMGN
+  indication: Acute heart failure
+  announcement_date: '2015-10-27'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 2
+  notes: Phase 2 trial data released October 27, 2015. The Phase 2 trial met the objectives
+    related to safety, tolerability, pharmacokinetics and pharmacodynamics in a population
+    of chronic heart failure patie
+- id: GH0006
+  drug_name: Omecamtiv mecarbil - (GALACTIC-HF)
+  ticker: CYTK
+  company_name: CYTK
+  indication: Acute heart failure
+  announcement_date: '2015-10-27'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 2
+  notes: Phase 2 trial data released October 27, 2015. The Phase 2 trial met the objectives
+    related to safety, tolerability, pharmacokinetics and pharmacodynamics in a population
+    of chronic heart failure patie
+- id: GH0007
+  drug_name: GOCOVRI (amantadine)
+  ticker: ADMS
+  company_name: ADMS
+  indication: Levodopa-Induced Dyskinesia + Parkinson's disease patients receiving
+    levodopa and experiencing OFF episodes
+  announcement_date: '2015-12-23'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Phase 3 data released December 23, 2015.
+- id: GH0008
+  drug_name: SPINRAZA (Nusinersen)
+  ticker: IONS
+  company_name: IONS
+  indication: Spinal muscular atrophy (SMA)
+  announcement_date: '2016-01-08'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Phase 3 ENDEAR trial met primary endpoint August 1, 2016.
+- id: GH0009
+  drug_name: EPIDIOLEX (cannabidiol)
+  ticker: JAZZ
+  company_name: JAZZ
+  indication: Dravet Syndrome and Lennox-Gastaut syndrome
+  announcement_date: '2016-03-14'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Top line Phase 3 data released March 14, 2016 met primary endpoint.
+- id: GH0010
+  drug_name: BEVYXXA (betrixaban)
+  ticker: AZN
+  company_name: AZN
+  indication: Venous thromboembolism (VTE) Prevention
+  announcement_date: '2016-03-24'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Phase 3 data released March 24, 2016 did not meet primary endpoint.
+- id: GH0011
+  drug_name: Levosimendan
+  ticker: TENX
+  company_name: TENX
+  indication: Septic shock
+  announcement_date: '2016-05-10'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 2b
+  notes: Phase 2b trial did not meet primary endpoint.
+- id: GH0012
+  drug_name: DEXTENZA
+  ticker: OCUL
+  company_name: OCUL
+  indication: Allergic conjunctivitis
+  announcement_date: '2016-06-06'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Phase 3 trial did not meet primary endpoint - June 6, 2016.
+- id: GH0013
+  drug_name: XPOVIO (selinexor)
+  ticker: KPTI
+  company_name: KPTI
+  indication: Quadruple Refractory Multiple Myeloma
+  announcement_date: '2016-06-09'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 2
+  notes: Phase 2 positive top-line data released September 6, 2016
+- id: GH0014
+  drug_name: Tonmya (TNX-102 SL)
+  ticker: TNXP
+  company_name: TNXP
+  indication: Fibromyalgia
+  announcement_date: '2016-06-09'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Phase 3 data released September 6, 2016. Primary endpoint not met. Program
+    discontinued
+- id: GH0015
+  drug_name: DAXI (RT002)
+  ticker: RVNC
+  company_name: RVNC
+  indication: Lateral Canthal (Crow’s Feet) Lines
+  announcement_date: '2016-06-13'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Phase 3 endpoints not met June 13, 2016.
+- id: GH0016
+  drug_name: Ganaxolone
+  ticker: MRNS
+  company_name: MRNS
+  indication: Focal onset seizures
+  announcement_date: '2016-06-13'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Phase 3 data did not meet endpoints - June 13, 2016
+- id: GH0017
+  drug_name: NUZYRA (omadacycline)
+  ticker: PRTK
+  company_name: PRTK
+  indication: Acute bacterial skin and skin structure infections (ABSSSI)
+  announcement_date: '2016-06-16'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Phase 3 top-line data met endpoints - June 16, 2016
+- id: GH0018
+  drug_name: VABOMERE (meropenem and vaborbactam)
+  ticker: NVS
+  company_name: NVS
+  indication: Complicated urinary tract infections (cUTI)
+  announcement_date: '2016-06-27'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Phase 3 data met endpoints June 27, 2016.
+- id: GH0019
+  drug_name: Ampion
+  ticker: AMPE
+  company_name: AMPE
+  indication: Osteoarthritis of the Knee
+  announcement_date: '2016-06-30'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: STRIDE study mid April 2015 did not meet endpoint. Second Phase 3 trial also
+    did not meet primary endpoint - June 2016
+- id: GH0020
+  drug_name: SPINRAZA (Nusinersen)
+  ticker: IONS
+  company_name: IONS
+  indication: Spinal muscular atrophy (SMA)
+  announcement_date: '2016-07-11'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Phase 3 CHERISH data met primary endpoint - November 7, 2016.
+- id: GH0021
+  drug_name: MEPSEVII (vestronidase alfa)
+  ticker: RARE
+  company_name: RARE
+  indication: Mucopolysaccharidosis 7 (MPS 7)
+  announcement_date: '2016-07-14'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Phase 3 data released July 2016. Primary endpoint hit. Secondary missed.
+- id: GH0022
+  drug_name: SER-109 (ECOSPOR)
+  ticker: MCRB
+  company_name: MCRB
+  indication: Recurrent C. Difficile infection
+  announcement_date: '2016-07-29'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 2
+  notes: Phase 2 interim data did not meet primary endpoint.
+- id: GH0023
+  drug_name: TALICIA (RHB-105)
+  ticker: RDHL
+  company_name: RDHL
+  indication: H. pylori
+  announcement_date: '2016-08-03'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Phase 3 final data released March 8, 2016.
+- id: GH0024
+  drug_name: ACTIMMUNE
+  ticker: HZNP
+  company_name: HZNP
+  indication: Friedreich's Ataxia (FA)
+  announcement_date: '2016-08-12'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Phase 3 data released December 8, 2016 - primary endpoint not met
+- id: GH0025
+  drug_name: DSUVIA (Sufentanil)
+  ticker: ACRX
+  company_name: ACRX
+  indication: Moderate-to-severe acute pain following a surgical procedure
+  announcement_date: '2016-08-15'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Phase 3 data released August 15, 2016.
+- id: GH0026
+  drug_name: LUPKYNIS (Voclosporin)
+  ticker: AUPH
+  company_name: AUPH
+  indication: Lupus
+  announcement_date: '2016-08-15'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 2b
+  notes: Phase 2b data released August 2016. Primary endpoint met but with high number
+    of deaths.
+- id: GH0027
+  drug_name: A-101 (THWART-1 and THWART-2)
+  ticker: ACRS
+  company_name: ACRS
+  indication: Common warts (verruca vulgaris)
+  announcement_date: '2016-08-18'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 2
+  notes: Phase 2 data released August 2016.
+- id: GH0028
+  drug_name: Inhaled formulation of AAT (InnovAATe)
+  ticker: KMDA
+  company_name: KMDA
+  indication: AATD - Alpha-1 Antitrypsin deficiency
+  announcement_date: '2016-08-30'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 2
+  notes: Top-line data released August 30, 2016. Primary endpoint met
+- id: GH0029
+  drug_name: TAVALISSE (Fostamatinib)
+  ticker: RIGL
+  company_name: RIGL
+  indication: Immune Thrombocytopenic Purpura (ITP)
+  announcement_date: '2016-08-30'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Phase 3 data from the first trial released August 30 2016. Primary endpoint
+    met.
+- id: GH0030
+  drug_name: ROCLATAN (netarsudil/latanoprost ophthalmic solution)
+  ticker: AERI
+  company_name: AERI
+  indication: Glaucoma
+  announcement_date: '2016-09-14'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Phase 3 Mercury 1 data released September 14, 2016. Primary endpoint met.
+- id: GH0031
+  drug_name: RSV vaccine - Resolve trial
+  ticker: NVAX
+  company_name: NVAX
+  indication: Respiratory Syncytial Virus (RSV) in older adults
+  announcement_date: '2016-09-15'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Phase 3 released September 15, 2016 did not demonstrate efficacy.
+- id: GH0032
+  drug_name: CAPLYTA (Lumateperone)
+  ticker: ITCI
+  company_name: ITCI
+  indication: Schizophrenia
+  announcement_date: '2016-09-28'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Phase 3 trial failed - September 28, 2016.
+- id: GH0033
+  drug_name: ORILISSA (Elagolix)
+  ticker: ABBV
+  company_name: ABBV
+  indication: Endometriosis
+  announcement_date: '2016-10-02'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: First Phase 3 trial met both co-primary endpoints - Jan 2015. Data from second
+    Phase 3 released February 2016 also met endpoints.
+- id: GH0034
+  drug_name: ORILISSA (Elagolix)
+  ticker: NBIX
+  company_name: NBIX
+  indication: Endometriosis
+  announcement_date: '2016-10-02'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: First Phase 3 trial met both co-primary endpoints - Jan 2015. Data from second
+    Phase 3 released February 2016 also met endpoints.
+- id: GH0035
+  drug_name: ALKS 5461
+  ticker: ALKS
+  company_name: ALKS
+  indication: Major depressive disorder
+  announcement_date: '2016-10-20'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Phase 3 data from first two trials did not meet their endpoints. FORWARD-5
+    data, the third of three trials did meet endpoints - October 2016.
+- id: GH0036
+  drug_name: Locilex
+  ticker: PLXP
+  company_name: PLXP
+  indication: Mild infections of diabetic foot ulcers
+  announcement_date: '2016-10-25'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Phase 3 top-line data did not meet endpoints - October 25, 2016 - TICKER
+    CHANGED FROM DPRX FOLLOWING MERGER
+- id: GH0037
+  drug_name: TAVALISSE (Fostamatinib)
+  ticker: RIGL
+  company_name: RIGL
+  indication: Immune Thrombocytopenic Purpura (ITP)
+  announcement_date: '2016-10-30'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Phase 3 data from second trial did not meet the primary endpoint.
+- id: GH0038
+  drug_name: CHS-0214
+  ticker: CHRS
+  company_name: CHRS
+  indication: Rheumatoid arthritis
+  announcement_date: '2016-11-01'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Phase 3 data released January 2016. Endpoints met. However, commercialization
+    not possible in US before 2029 due to patent issues
+- id: GH0039
+  drug_name: Leqvio (inclisiran)
+  ticker: ALNY
+  company_name: ALNY
+  indication: Hypercholesterolemia
+  announcement_date: '2016-11-15'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 2
+  notes: Phase 2 Day 180 data presented at AHA Scientific Sessions on November 15,
+    2016.
+- id: GH0040
+  drug_name: ESKATA (hydrogen peroxide)
+  ticker: ACRS
+  company_name: ACRS
+  indication: Seborrheic keratosis (SK)
+  announcement_date: '2016-11-15'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Phase 3 trial met endpoints - November 15, 2016.
+- id: GH0041
+  drug_name: Leqvio (inclisiran)
+  ticker: NVS
+  company_name: NVS
+  indication: Hypercholesterolemia
+  announcement_date: '2016-11-15'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 2
+  notes: Phase 2 Day 180 data presented at AHA Scientific Sessions on November 15,
+    2016.
+- id: GH0042
+  drug_name: QWO (collagenase clostridium histolyticum-aaes)
+  ticker: ENDP
+  company_name: ENDP
+  indication: Edematous fibrosclerotic panniculopathy (“cellulite”)
+  announcement_date: '2016-11-17'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 2b
+  notes: Phase 2b data released November 17, 2016. Met endpoints
+- id: GH0043
+  drug_name: Dalfampridine
+  ticker: ACOR
+  company_name: ACOR
+  indication: Post stroke deficits
+  announcement_date: '2016-11-21'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Phase 3 data released November 21, 2016 - failed to show efficacy, development
+    to be discontinued.
+- id: GH0044
+  drug_name: Intravenous (IV) meloxicam
+  ticker: BXRX
+  company_name: BXRX
+  indication: Acute pain following bunionectomy surgery
+  announcement_date: '2016-11-28'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Phase 3 data from second trial released November 28, 2016. Primary endpoint
+    met.
+- id: GH0045
+  drug_name: CERC-301
+  ticker: AVTX
+  company_name: AVTX
+  indication: Major depressive disorder (MDD)
+  announcement_date: '2016-11-29'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 2
+  notes: Phase 2 top-line data released November 29, 2016 failed to meet primary endpoint.
+- id: GH0046
+  drug_name: SB206
+  ticker: NOVN
+  company_name: NOVN
+  indication: Human papillomavirus (HPV)
+  announcement_date: '2016-11-29'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 2
+  notes: Phase 2 data released November 29, 2016. Primary endpoint met.
+- id: GH0047
+  drug_name: HS-410
+  ticker: HTBX
+  company_name: HTBX
+  indication: Bladder cancer
+  announcement_date: '2016-11-30'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 2
+  notes: Phase 2 trial did not meet primary endpoint - November 30, 2016.
+- id: GH0048
+  drug_name: Fovista
+  ticker: ISEE
+  company_name: ISEE
+  indication: Wet age-related macular degeneration (Wet-AMD)
+  announcement_date: '2016-12-12'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Phase 3 data released December 12, 2016 - primary endpoint not met.
+- id: GH0049
+  drug_name: Clonidine gel
+  ticker: BDSI
+  company_name: BDSI
+  indication: Painful diabetic neuropathy (PDN)
+  announcement_date: '2016-12-13'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 2b
+  notes: Phase 2b data released December 13, 2016 - primary endpoints not met.
+- id: GH0050
+  drug_name: TTP273 - LOGRA
+  ticker: VTVT
+  company_name: VTVT
+  indication: Type 2 Diabetes
+  announcement_date: '2016-12-14'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 2
+  notes: Phase 2 primary endpoint met - December 14, 2016.
+- id: GH0051
+  drug_name: NUPLAZID (pimavanserin)
+  ticker: ACAD
+  company_name: ACAD
+  indication: Alzheimer’s disease psychosis
+  announcement_date: '2016-12-20'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 2
+  notes: Phase 2 top-line data released December 20, 2016. Primary endpoint met. Key
+    secondary endpoint missed.
+- id: GH0052
+  drug_name: MM-302 HERMIONE
+  ticker: MACK
+  company_name: MACK
+  indication: Cancer - HER2-positive locally advanced or metastatic breast cancer
+  announcement_date: '2016-12-21'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 2
+  notes: Phase 2 trial discontinued December 21, 2016 due to poor efficacy.
+- id: GH0053
+  drug_name: Sotagliflozin
+  ticker: LXRX
+  company_name: LXRX
+  indication: Type 1 Diabetes
+  announcement_date: '2016-12-21'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Phase 3 data from second trial released December 21, 2016 - primary endpoint
+    met.
+- id: GH0054
+  drug_name: LINZESS (Iinaclotide)
+  ticker: IRWD
+  company_name: IRWD
+  indication: Irritable Bowel Syndrome with Constipation (IBS-C)
+  announcement_date: '2016-12-22'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 2b
+  notes: Phase 2b data released December 22, 2016.
+- id: GH0055
+  drug_name: hGH-CTP
+  ticker: OPK
+  company_name: OPK
+  indication: Adults - growth hormone deficiency
+  announcement_date: '2016-12-30'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Phase 3 data released December 30, 2016 - primary endpoint not met.
+- id: GH0056
+  drug_name: LUPKYNIS (Voclosporin)
+  ticker: AUPH
+  company_name: AUPH
+  indication: Lupus
+  announcement_date: '2017-01-03'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 2b
+  notes: Phase 2b data released August 2016. Primary endpoint met but with high number
+    of deaths. Further data released March 1, 2017 - no additional deaths and endpoints
+    met.
+- id: GH0057
+  drug_name: Zoptrex
+  ticker: AEZS
+  company_name: AEZS
+  indication: Endometrial cancer
+  announcement_date: '2017-01-05'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Phase 3 trial did not meet primary endpoint - May 1, 2017.
+- id: GH0058
+  drug_name: Omaveloxolone
+  ticker: RETA
+  company_name: RETA
+  indication: Friedreich’s ataxia (FA)
+  announcement_date: '2017-01-06'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 2
+  notes: Phase 2 initial data released June 1, 2017. Primary endpoint not met.
+- id: GH0059
+  drug_name: Zalviso
+  ticker: ACRX
+  company_name: ACRX
+  indication: Post-operative pain following open abdominal surgery and hip or knee
+    replacement surgery
+  announcement_date: '2017-01-08'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Phase 2 data released August 1, 2017.
+- id: GH0060
+  drug_name: Alpha-1 Antitrypsin (AAT)
+  ticker: KMDA
+  company_name: KMDA
+  indication: Pediatric patients newly diagnosed with type 1 diabetes
+  announcement_date: '2017-01-11'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 2
+  notes: Phase 2 data released November 3, 2017. No significant treatment effect noted
+    overall.
+- id: GH0061
+  drug_name: Pamrevlumab (LAPIS)
+  ticker: FGEN
+  company_name: FGEN
+  indication: Pancreatic cancer
+  announcement_date: '2017-01-17'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 2
+  notes: Phase 2 abstract released January 17, 2017.
+- id: GH0062
+  drug_name: INGREZZA
+  ticker: NBIX
+  company_name: NBIX
+  indication: Tourette syndrome - adults
+  announcement_date: '2017-01-18'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 2
+  notes: Phase 2 data released January 18, 2017 did not meet primary endpoint.
+- id: GH0063
+  drug_name: Ganaxolone - Marigold
+  ticker: MRNS
+  company_name: MRNS
+  indication: CDKL5 Deficiency Disorder (CDD)
+  announcement_date: '2017-01-23'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 2
+  notes: Phase 2 preliminary CDKL5 cohort data released January 23, 2017.
+- id: GH0064
+  drug_name: SB204
+  ticker: NOVN
+  company_name: NOVN
+  indication: Acne vulgaris
+  announcement_date: '2017-01-27'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Phase 3 top-line data released January 27, 2017. Met one of three co-primary
+    endpoints in NI-AC301 trial. Met all endpoints in NI-AC302 trial.
+- id: GH0065
+  drug_name: Gemcabene - COBALT-1
+  ticker: NRBO
+  company_name: NRBO
+  indication: Homozygous Familial Hypercholesterolemia (HoFH)
+  announcement_date: '2017-01-30'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 2b
+  notes: Phase 2b interim data released January 30, 2017.
+- id: GH0066
+  drug_name: Levosimendan
+  ticker: TENX
+  company_name: TENX
+  indication: Reduce the incidence of low cardiac output syndrome during cardiac surgery
+  announcement_date: '2017-01-31'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Phase 3 top line data released January 31, 2017 - primary endpoints not met.
+- id: GH0067
+  drug_name: Translarna
+  ticker: PTCT
+  company_name: PTCT
+  indication: Nonsense mutation cystic fibrosis
+  announcement_date: '2017-02-03'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Phase 3 data released March 2, 2017 - endpoints not met. Development to be
+    discontinued.
+- id: GH0068
+  drug_name: XPOVIO (selinexor)
+  ticker: KPTI
+  company_name: KPTI
+  indication: Relapsed/Refractory Acute Myeloid Leukemia (AML)
+  announcement_date: '2017-02-03'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 2
+  notes: Data Safety Monitoring Board (DSMB) noted March 2, 2017 that trial will not
+    meet primary endpoint.
+- id: GH0069
+  drug_name: Velusetrag (TD-5108)
+  ticker: TBPH
+  company_name: TBPH
+  indication: Gastroparesis
+  announcement_date: '2017-02-08'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 2b
+  notes: Phase 2b data released August 2, 2017. Primary endpoint not met.
+- id: GH0070
+  drug_name: ONPATTRO (patisiran)
+  ticker: ALNY
+  company_name: ALNY
+  indication: Familial Amyloidotic Polyneuropathy (FAP) in Patients with ATTR
+  announcement_date: '2017-02-11'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Positive full data released November 2, 2017.
+- id: GH0071
+  drug_name: TEGSEDI (inotersen)
+  ticker: IONS
+  company_name: IONS
+  indication: NEURO-TTR - familial amyloid polyneuropathy (FAP).
+  announcement_date: '2017-02-11'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Full data presented November 2, 2017.
+- id: GH0072
+  drug_name: ONPATTRO (patisiran)
+  ticker: SNY
+  company_name: SNY
+  indication: Familial Amyloidotic Polyneuropathy (FAP) in Patients with ATTR
+  announcement_date: '2017-02-11'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Positive full data released November 2, 2017.
+- id: GH0073
+  drug_name: Qtrypta (M207)
+  ticker: ZSAN
+  company_name: ZSAN
+  indication: Migraine
+  announcement_date: '2017-02-13'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Phase 3 trial data due released February 13, 2017 - primary endpoints met.
+- id: GH0074
+  drug_name: SAGE-217 - MOUNTAIN
+  ticker: SAGE
+  company_name: SAGE
+  indication: Major Depressive Disorder (MDD)
+  announcement_date: '2017-02-13'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 2
+  notes: Phase 2 top-line data from open-label trial released February 13, 2017
+- id: GH0075
+  drug_name: Tenapanor
+  ticker: ARDX
+  company_name: ARDX
+  indication: Serum phosphorus - chronic kidney disease (CKD) on dialysis
+  announcement_date: '2017-02-15'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Phase 3 released February 15, 2017 - primary endpoint met.
+- id: GH0076
+  drug_name: LYNPARZA (olaparib)
+  ticker: MRK
+  company_name: MRK
+  indication: Breast cancer
+  announcement_date: '2017-02-17'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Phase 3 data released February 17, 2016 - primary endpoint met.
+- id: GH0077
+  drug_name: OLINVYK (oliceridine)
+  ticker: TRVN
+  company_name: TRVN
+  indication: Moderate to severe acute pain
+  announcement_date: '2017-02-21'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Phase 3 APOLLO-1 and APOLLO-2 data released February 21, 2017 - primary endpoints
+    met but commercial doubts raised.
+- id: GH0078
+  drug_name: Rezafungin (CD101) - RADIANT
+  ticker: CDTX
+  company_name: CDTX
+  indication: Vulvovaginal candidiasis (VVC)
+  announcement_date: '2017-02-21'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 2
+  notes: Phase 2 data released February 21, 2017 - efficacy not evident, Development
+    to be discontinued.
+- id: GH0079
+  drug_name: Brincidofovir - Advise trial
+  ticker: CMRX
+  company_name: CMRX
+  indication: Adenovirus Infection
+  announcement_date: '2017-02-22'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Phase 3 interim analysis released May 2016. Final data released February
+    22, 2017.
+- id: GH0080
+  drug_name: ORLADEYO (Berotralstat)
+  ticker: BCRX
+  company_name: BCRX
+  indication: Reduce or eliminate attacks in HAE patients
+  announcement_date: '2017-02-27'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 2
+  notes: Phase 2 interim data released February 27, 2017.
+- id: GH0081
+  drug_name: GIAPREZA (angiotensin II)
+  ticker: LJPC
+  company_name: LJPC
+  indication: Increase blood pressure in adults with septic or other distributive
+    shock
+  announcement_date: '2017-02-27'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Phase 3 data released February 27, 2016 - primary endpoint hit. Secondary
+    endpoints not mentioned. NDA filing due 2H 2017.
+- id: GH0082
+  drug_name: TWIRLA
+  ticker: AGRX
+  company_name: AGRX
+  indication: Contraceptive patch
+  announcement_date: '2017-03-01'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: CRL issued 2013. Phase 3 top-line data released January 3, 2017 - poor data
+    but intends to reflile NDA 1H 2017.
+- id: GH0083
+  drug_name: NUZYRA (omadacycline)
+  ticker: PRTK
+  company_name: PRTK
+  indication: Community-acquired bacterial pneumonia (CABP)
+  announcement_date: '2017-03-04'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Phase 3 data released April 3, 2017 - all endpoints met.
+- id: GH0084
+  drug_name: VITRAKVI (larotrectinib)
+  ticker: LLY
+  company_name: LLY
+  indication: Solid tumors that harbor a TRK fusion.
+  announcement_date: '2017-03-06'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 2
+  notes: Announced 76% ORR at ASCO - June 3, 2017. Primary analysis by the end of
+    2017 with NDA filing late 2017 or early 2018.
+- id: GH0085
+  drug_name: ZYTIGA (abiraterone acetate) - LATITUDE
+  ticker: JNJ
+  company_name: JNJ
+  indication: metastatic hormone-naïve prostate cancer (mHNPC)
+  announcement_date: '2017-03-06'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Phase 3 data presented at ASCO June 3, 2017 - PFS 33 months.
+- id: GH0086
+  drug_name: BEKINDA
+  ticker: RDHL
+  company_name: RDHL
+  indication: IBS-D
+  announcement_date: '2017-03-10'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 2
+  notes: Phase 2 top-line data released October 3, 2017 - primary endpoint met (borderline)
+    - p=0.05.
+- id: GH0087
+  drug_name: TAVALISSE (Fostamatinib) - (FORWARD)
+  ticker: RIGL
+  company_name: RIGL
+  indication: Warm Autoimmune hemolytic anemia (WAIHA)
+  announcement_date: '2017-03-10'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 2
+  notes: Phase 2 data from Stage 1 of trial released October 3, 2017 - sufficient
+    efficacy shown to progress to Stage 2.
+- id: GH0088
+  drug_name: FIRDAPSE (amifampridine)
+  ticker: CPRX
+  company_name: CPRX
+  indication: MuSK-antibody positive myasthenia gravis (MuSK-MG)
+  announcement_date: '2017-03-15'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 2
+  notes: Phase 2 top-line data met endpoints - March 15, 2017. Pivotal trial planned.
+- id: GH0089
+  drug_name: REPATHA (evolocumab)
+  ticker: AMGN
+  company_name: AMGN
+  indication: Cardiovascular disease
+  announcement_date: '2017-03-17'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Phase 3 cardiovascular outcomes study data released March 17, 2017 - endpoints
+    met but down on expectations.
+- id: GH0090
+  drug_name: JZP-110
+  ticker: JAZZ
+  company_name: JAZZ
+  indication: Excessive sleepiness associated with obstructive sleep apnea
+  announcement_date: '2017-03-20'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Phase 3 data released March 20, 2017 - primary endpoints met.
+- id: GH0091
+  drug_name: Motixafortide (BL-8040) - (GENESIS)
+  ticker: BLRX
+  company_name: BLRX
+  indication: Stem-cell mobilization for autologous transplantation
+  announcement_date: '2017-03-20'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 2
+  notes: Phase 2 trial initiated March 2016. Partial data released March 20, 2017.
+- id: GH0092
+  drug_name: RELAX-AHF-2 (RLX030)
+  ticker: NVS
+  company_name: NVS
+  indication: Acute heart failure
+  announcement_date: '2017-03-22'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Phase 3 data released March 22, 2017 - primary endpoints not met.
+- id: GH0093
+  drug_name: XEN801
+  ticker: XENE
+  company_name: XENE
+  indication: Acne
+  announcement_date: '2017-03-24'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 2
+  notes: Phase 2 data released March 24 2017 - endpoints not met.
+- id: GH0094
+  drug_name: AMZEEQ (FMX101)
+  ticker: VYNE
+  company_name: VYNE
+  indication: Acne
+  announcement_date: '2017-03-27'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Phase 3 data released March 27, 2017 - three of four primary endpoints met
+    across two trials.
+- id: GH0095
+  drug_name: Sarecycline
+  ticker: PRTK
+  company_name: PRTK
+  indication: Severe acne vulgaris
+  announcement_date: '2017-03-27'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Phase 3 data released March 27 2017 - primary endpoints met. NDA filing due
+    2H 2017.
+- id: GH0096
+  drug_name: RP-G28
+  ticker: QLGN
+  company_name: QLGN
+  indication: Lactose intolerance
+  announcement_date: '2017-03-28'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 2/3
+  notes: Phase 2/3 top-line data released March 28, 2017. Primary endpoint met. End
+    of Phase 2 meeting with FDA planned.
+- id: GH0097
+  drug_name: SYMDEKO (tezacaftor/ivacaftor and ivacaftor)
+  ticker: VRTX
+  company_name: VRTX
+  indication: Cystic fibrosis - Two Copies of the F508del Mutation
+  announcement_date: '2017-03-28'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Phase 3 data released March 28, 2017 - primary endpoint met. NDA filing due
+    3Q 2017.
+- id: GH0098
+  drug_name: Lenabasum (Resunab)
+  ticker: CRBP
+  company_name: CRBP
+  indication: Cystic Fibrosis
+  announcement_date: '2017-03-30'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 2
+  notes: Phase 2 data released March 30, 2017 - primary endpoint met but some concerns
+    regarding efficacy.
+- id: GH0099
+  drug_name: AZEDRA (iobenguane I 131)
+  ticker: LNTH
+  company_name: LNTH
+  indication: Pheochromocytoma
+  announcement_date: '2017-03-30'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 2b
+  notes: Pivotal Phase 2 trial resumed January 2015 following suspension of trial
+    in 2010 due to lack of funding. Primary endpoint met - March 30, 2017. NDA filing
+    due mid-2017.
+- id: GH0100
+  drug_name: Tumor Treating Fields (TTFields) - INNOVATE-3
+  ticker: NVCR
+  company_name: NVCR
+  indication: Ovarian cancer
+  announcement_date: '2017-03-31'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 2
+  notes: Phase 2 data presented December 12, 2016. Further promising PFS data released
+    March 31, 2017.
+- id: GH0101
+  drug_name: MACRILEN (Macimorelin Acetate)
+  ticker: AEZS
+  company_name: AEZS
+  indication: Adult Growth Deficiency
+  announcement_date: '2017-04-01'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Phase 3 data released January 4, 2017 - trial failed.
+- id: GH0102
+  drug_name: XPOVIO (selinexor)
+  ticker: KPTI
+  company_name: KPTI
+  indication: Diffuse Large B-Cell Lymphoma (DLBCL)
+  announcement_date: '2017-04-04'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 2b
+  notes: Phase 2b additional interim data released April 4, 2017 at AACR. Final top-line
+    data due mid-2018.
+- id: GH0103
+  drug_name: DUPIXENT (dupilumab)
+  ticker: SNY
+  company_name: SNY
+  indication: Eosinophilic esophagitis
+  announcement_date: '2017-04-05'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 2
+  notes: Phase 2 data released May 4, 2017.
+- id: GH0104
+  drug_name: DUPIXENT (dupilumab)
+  ticker: REGN
+  company_name: REGN
+  indication: Eosinophilic esophagitis
+  announcement_date: '2017-04-05'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 2
+  notes: Phase 2 data released May 4, 2017.
+- id: GH0105
+  drug_name: LYNPARZA (olaparib)
+  ticker: MRK
+  company_name: MRK
+  indication: Breast cancer
+  announcement_date: '2017-04-06'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Phase 3 data released February 17, 2016 - primary endpoint met. Late breaker
+    at ASCO June 4, 2017 showed HR of 0.58 (42% reduction of risk of disease progression
+    or death).
+- id: GH0106
+  drug_name: HALO-301
+  ticker: HALO
+  company_name: HALO
+  indication: Pancreatic cancer
+  announcement_date: '2017-04-06'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 2
+  notes: Phase 2 data released January 5, 2017. Oral presentation of Phase 2 data
+    at ASCO June 4, 2017 showed ORR of 45%.
+- id: GH0107
+  drug_name: REYVOW (lasmiditan
+  ticker: LLY
+  company_name: LLY
+  indication: Migraine
+  announcement_date: '2017-04-08'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Phase 3 data released August 4, 2017 - endpoints met. NDA filing due 2H 2018.
+- id: GH0108
+  drug_name: Lenti-D (Elivaldogene Autotemcel / Eli-Cel) - ALD-102
+  ticker: BLUE
+  company_name: BLUE
+  indication: Childhood cerebral adrenoleukodystrophy (CCALD)
+  announcement_date: '2017-04-10'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 2/3
+  notes: Phase 2/3 trial initiated October 2013. Interim top-line data released June
+    26, 2017. Further data released October 4, 2017 - 88% free of free of major functional
+    disabilities.
+- id: GH0109
+  drug_name: CRYSVITA (burosumab)
+  ticker: RARE
+  company_name: RARE
+  indication: X-Linked Hypophosphatemia (XLH)
+  announcement_date: '2017-04-18'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Phase 3 data released April 18, 2017 - primary endpoint met, two of three
+    secondary endpoints met (missed on pain).
+- id: GH0110
+  drug_name: ZOKINVY (lonafarnib) - (D-LIVR)
+  ticker: EIGR
+  company_name: EIGR
+  indication: Chronic hepatitis delta virus (HDV)
+  announcement_date: '2017-04-21'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 2
+  notes: Phase 2 end of trial data released April 21, 2017. Meeting with FDA scheduled
+    for 4Q 2017.
+- id: GH0111
+  drug_name: XYREM (sodium oxybate)
+  ticker: JAZZ
+  company_name: JAZZ
+  indication: Pediatric narcolepsy patients with cataplexy
+  announcement_date: '2017-04-24'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 2/3
+  notes: Phase 2/3 positive data released April 24, 2017. sNDA filing due 4Q 2017.
+- id: GH0112
+  drug_name: XOMA 213
+  ticker: XOMA
+  company_name: XOMA
+  indication: Hyperprolactinemia
+  announcement_date: '2017-04-24'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 2
+  notes: Phase 2 proof-of-concept results released April 24, 2017.
+- id: GH0113
+  drug_name: Nomacopan
+  ticker: AKTX
+  company_name: AKTX
+  indication: Paroxysmal nocturnal hemoglobinuria (PNH)
+  announcement_date: '2017-04-24'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 2
+  notes: Phase 2 interim data released April 24, 2017. Phase 3 program to commence
+    4Q 2017 with initial data due 1Q 2019.
+- id: GH0114
+  drug_name: SUNOSI (solriamfetol)
+  ticker: JAZZ
+  company_name: JAZZ
+  indication: Excessive sleepiness associated with narcolepsy
+  announcement_date: '2017-04-26'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Phase 3 data released April 26, 2017. NDA to be filed late 2017.
+- id: GH0115
+  drug_name: Ublituximab
+  ticker: TGTX
+  company_name: TGTX
+  indication: Multiple Sclerosis
+  announcement_date: '2017-04-28'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 2
+  notes: Phase 2 preliminary results presented at American Academy of Neurology (AAN)
+    annual meeting April 28, 2017.
+- id: GH0116
+  drug_name: OTIPRIO
+  ticker: OTIC
+  company_name: OTIC
+  indication: Acute otitis externa
+  announcement_date: '2017-05-01'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Phase 3 trial met primary endpoint - January 5, 2017.
+- id: GH0117
+  drug_name: HALO-301
+  ticker: HALO
+  company_name: HALO
+  indication: Pancreatic cancer
+  announcement_date: '2017-05-01'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 2
+  notes: Primary endpoint met.
+- id: GH0118
+  drug_name: Cipro DPI
+  ticker: NKTR
+  company_name: NKTR
+  indication: Bronchiectasis
+  announcement_date: '2017-05-04'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Phase 3 second trial did not meet endpoint - April 5, 2017.
+- id: GH0119
+  drug_name: Uproleselan (GMI-1271)
+  ticker: GLYC
+  company_name: GLYC
+  indication: Acute myeloid leukemia (AML) newly diagnosed and refractory - cancer
+  announcement_date: '2017-05-06'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 2
+  notes: Phase 2 enrollment completed - announced May 31, 2017. Data updates at ASCO
+    June 5, 2017.
+- id: GH0120
+  drug_name: Lifileucel (LN-144)
+  ticker: IOVA
+  company_name: IOVA
+  indication: Refractory metastatic melanoma
+  announcement_date: '2017-05-06'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 2
+  notes: Phase 2 second cohort commenced enrollment - May 19, 2017. Initial data presented
+    at ASCO June 5, 2017.
+- id: GH0121
+  drug_name: GILENYA (Fingolimod)
+  ticker: NVS
+  company_name: NVS
+  indication: Multiple Sclerosis (MS)
+  announcement_date: '2017-05-09'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Phase 3 trial met primary endpoint.
+- id: GH0122
+  drug_name: GR-MD-02 (belapectin) - NAVIGATE
+  ticker: GALT
+  company_name: GALT
+  indication: Non-alcoholic steatohepatitis (NASH) with cirrhosis
+  announcement_date: '2017-05-12'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 2b
+  notes: Phase 2 top-line data released December 5, 2017 did not meet primary endpoint
+    across all patients - noted subgroup improvement.
+- id: GH0123
+  drug_name: DaxibotulinumtoxinA - DAXI (RT002)
+  ticker: RVNC
+  company_name: RVNC
+  indication: Moderate to severe glabellar (frown) lines
+  announcement_date: '2017-05-12'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Phase 3 data released December 5, 2017 - endpoints met.
+- id: GH0124
+  drug_name: TEGSEDI (inotersen)
+  ticker: IONS
+  company_name: IONS
+  indication: NEURO-TTR - familial amyloid polyneuropathy (FAP).
+  announcement_date: '2017-05-15'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Phase 3 data released May 15, 2017 - primary endpoint met but with safety
+    concerns.
+- id: GH0125
+  drug_name: DAXI (RT002) - (ASPEN-1/ASPEN-OLS)
+  ticker: RVNC
+  company_name: RVNC
+  indication: Cervical dystonia
+  announcement_date: '2017-05-18'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 2
+  notes: Phase 2 additional data released May 18, 2017 with oral presentation June
+    7, 2017 at International Congress of Parkinson's Disease and Movement Disorders.
+- id: GH0126
+  drug_name: EVENITY (Romosozumab)
+  ticker: AMGN
+  company_name: AMGN
+  indication: Osteoporosis
+  announcement_date: '2017-05-22'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: PDUFA date July 19, 2017. However, likely to be delayed due to safety data
+    from ARCH trial released May 22, 2017.
+- id: GH0127
+  drug_name: GIAPREZA (angiotensin II)
+  ticker: LJPC
+  company_name: LJPC
+  indication: Increase blood pressure in adults with septic or other distributive
+    shock
+  announcement_date: '2017-05-22'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Phase 3 data released February 27, 2016 - primary endpoint hit. Secondary
+    endpoints not mentioned. Data released May 22, 2017 confirmed primary endpoint
+    was met but with lack of mortality improvement.
+- id: GH0128
+  drug_name: ZEPOSIA (Ozanimod)
+  ticker: BMY
+  company_name: BMY
+  indication: Relapsing Multiple Sclerosis
+  announcement_date: '2017-05-22'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Phase 3 data due released May 22, 2017 - primary endpoint met, disability
+    endpoint not met.
+- id: GH0129
+  drug_name: INGREZZA - T-Force GOLD
+  ticker: NBIX
+  company_name: NBIX
+  indication: Tourette syndrome - juvenile
+  announcement_date: '2017-05-23'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 2
+  notes: Phase 2 data released May 23 - primary endpoint not met.
+- id: GH0130
+  drug_name: ROCLATAN (netarsudil/latanoprost ophthalmic solution)
+  ticker: AERI
+  company_name: AERI
+  indication: Glaucoma
+  announcement_date: '2017-05-24'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Phase 3 Mercury 1 data released September 14, 2016. Primary endpoint met.
+    Mercury 2 trial data released may 24, 2017 - primary endpoint also hit with NDA
+    filing due 1H 2018.
+- id: GH0131
+  drug_name: ORLADEYO (Berotralstat)
+  ticker: BCRX
+  company_name: BCRX
+  indication: Reduce or eliminate attacks in HAE patients
+  announcement_date: '2017-05-25'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 2
+  notes: Phase 2 interim data released February 27, 2017. Top-line data released May
+    25, 2017.
+- id: GH0132
+  drug_name: Biktarvy
+  ticker: GILD
+  company_name: GILD
+  indication: HIV
+  announcement_date: '2017-05-30'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Phase 3 data released May 30 - primary endpoint met. NDA filing due 2Q 2017.
+- id: GH0133
+  drug_name: Volanesorsen - APPROACH
+  ticker: IONS
+  company_name: IONS
+  indication: Familial chylomicronemia syndrome (FCS)
+  announcement_date: '2017-06-03'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Phase 3 data released March 6, 2017 - primary endpoint met. Relative safety
+    concerns noted.
+- id: GH0134
+  drug_name: TRODELVY (sacituzumab govitecan)
+  ticker: GILD
+  company_name: GILD
+  indication: Triple-negative breast cancer
+  announcement_date: '2017-06-12'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 2
+  notes: Phase 3 trial initiated October 2017. Phase 2 updated data released December
+    6, 2017 - ORR 31%.
+- id: GH0135
+  drug_name: Resmetirom (MGL-3196) - MAESTRO-NASH
+  ticker: MDGL
+  company_name: MDGL
+  indication: Non-alcoholic steatohepatitis (NASH)
+  announcement_date: '2017-06-12'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 2
+  notes: Phase 2 top-line data released December 6, 2017 - primary endpoint met.
+- id: GH0136
+  drug_name: BEKINDA
+  ticker: RDHL
+  company_name: RDHL
+  indication: Gastroenteritis
+  announcement_date: '2017-06-14'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Phase 3 top-line data released June 14, 2017 - primary endpoint met.
+- id: GH0137
+  drug_name: Reproxalap (ADX-102) - (INVIGORATE)
+  ticker: ALDX
+  company_name: ALDX
+  indication: Allergic conjunctivitis
+  announcement_date: '2017-06-14'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 2b
+  notes: Phase 2b data released June 14 2017 - primary endpoint not met. However,
+    Phase 3 trial is planned.
+- id: GH0138
+  drug_name: SEL-212 (COMPARE) - Head to head trial vs Krystexxa
+  ticker: SELB
+  company_name: SELB
+  indication: Tophaceous gout
+  announcement_date: '2017-06-15'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 2
+  notes: Phase 2 dosing commenced late October 2016. Initial data released at EULAR
+    June 15, 2017.
+- id: GH0139
+  drug_name: Vadastuximab Talirine (CASCADE)
+  ticker: SGEN
+  company_name: SGEN
+  indication: Acute myeloid leukemia (AML) - cancer
+  announcement_date: '2017-06-19'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Phase 3 trial discontinued due to higher rate of deaths - June 19, 2017.
+- id: GH0140
+  drug_name: BEOVU (brolucizumab)
+  ticker: NVS
+  company_name: NVS
+  indication: Wet age-related macular degeneration (AMD)
+  announcement_date: '2017-06-20'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Phase 3 data released June 20, 2017 - primary and key secondary endpoints
+    met.
+- id: GH0141
+  drug_name: ACZ885 (canakinumab)
+  ticker: XOMA
+  company_name: XOMA
+  indication: CV risk reduction
+  announcement_date: '2017-06-22'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Phase 3 trial met primary endpoint - data to be presented later in 2017 at
+    a medical congress.
+- id: GH0142
+  drug_name: ACZ885 (canakinumab)
+  ticker: NVS
+  company_name: NVS
+  indication: CV risk reduction
+  announcement_date: '2017-06-22'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Phase 3 trial met primary endpoint - data to be presented later in 2017 at
+    a medical congress.
+- id: GH0143
+  drug_name: Betibeglogene autotemcel (beti-cel) (LentiGlobin) - HGB-207 Northstar-2
+  ticker: BLUE
+  company_name: BLUE
+  indication: non-β0/β0 transfusion-dependent thalassemia (TDT)
+  announcement_date: '2017-06-23'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Phase 3 early data released at EHA June 23, 2017.
+- id: GH0144
+  drug_name: ADCETRIS (brentuximab vedotin)
+  ticker: TAK
+  company_name: TAK
+  indication: Frontline Hodgkin lymphoma
+  announcement_date: '2017-06-26'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Phase 3 data released June 26, 2017 - primary endpoint met.
+- id: GH0145
+  drug_name: TV-45070
+  ticker: XENE
+  company_name: XENE
+  indication: Postherpetic neuralgia
+  announcement_date: '2017-06-27'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 2b
+  notes: Phase 2b data released June 27, 2017. Endpoints not met.
+- id: GH0146
+  drug_name: Gemcabene - COBALT-1
+  ticker: NRBO
+  company_name: NRBO
+  indication: Homozygous Familial Hypercholesterolemia (HoFH)
+  announcement_date: '2017-06-28'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 2b
+  notes: Phase 2b data released June 28, 2017 - primary endpoint met.
+- id: GH0147
+  drug_name: SATIVEX (nabiximols)
+  ticker: JAZZ
+  company_name: JAZZ
+  indication: Spasticity due multiple sclerosis
+  announcement_date: '2017-07-02'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 2
+  notes: Phase 2 trial did not meet primary endpoint - noted February 7, 2017.
+- id: GH0148
+  drug_name: Trabodenoson and latanoprost
+  ticker: RCKT
+  company_name: RCKT
+  indication: Glaucoma
+  announcement_date: '2017-07-07'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 2
+  notes: Phase 2 trial failed - noted July 7, 2017.
+- id: GH0149
+  drug_name: Pamrevlumab - (ZEPHYRUS-1)
+  ticker: FGEN
+  company_name: FGEN
+  indication: Idiopathic pulmonary fibrosis
+  announcement_date: '2017-07-08'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 2
+  notes: Phase 2 data released August 7, 2017 - primary endpoint met.
+- id: GH0150
+  drug_name: Mavacamten (MYK-461)
+  ticker: LIAN
+  company_name: LIAN
+  indication: Hypertrophic cardiomyopathy (HCM)
+  announcement_date: '2017-07-08'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 2
+  notes: Phase 2 data released August 7, 2017 - primary endpoint met.
+- id: GH0151
+  drug_name: Mavacamten (MYK-461)
+  ticker: BMY
+  company_name: BMY
+  indication: Hypertrophic cardiomyopathy (HCM)
+  announcement_date: '2017-07-08'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 2
+  notes: Phase 2 data released August 7, 2017 - primary endpoint met.
+- id: GH0152
+  drug_name: Zygel (ZYN002)
+  ticker: ZYNE
+  company_name: ZYNE
+  indication: Adult Epilepsy Patients with Refractory Focal Seizures
+  announcement_date: '2017-07-08'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 2
+  notes: Phase 2 data released August 7, 2017 - endpoints not met.
+- id: GH0153
+  drug_name: Tezspire (tezepelumab-ekko)
+  ticker: AMGN
+  company_name: AMGN
+  indication: Asthma
+  announcement_date: '2017-07-09'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 2b
+  notes: Phase 2b data released September 7, 2017 - primary endpoint met.
+- id: GH0154
+  drug_name: Tezspire (tezepelumab-ekko)
+  ticker: AZN
+  company_name: AZN
+  indication: Asthma
+  announcement_date: '2017-07-09'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 2b
+  notes: Phase 2b data released September 7, 2017 - primary endpoint met.
+- id: GH0155
+  drug_name: Ensifentrine (RPL554)
+  ticker: VRNA
+  company_name: VRNA
+  indication: COPD
+  announcement_date: '2017-07-09'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 2a
+  notes: Phase 2a positive data released September 7, 2017.
+- id: GH0156
+  drug_name: RINVOQ (Upadacitinib)
+  ticker: ABBV
+  company_name: ABBV
+  indication: Atopic Dermatitis
+  announcement_date: '2017-07-09'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 2b
+  notes: Phase 2b data released September 7, 2017 - primary endpoint met.
+- id: GH0157
+  drug_name: SAGE-217 - MOUNTAIN
+  ticker: SAGE
+  company_name: SAGE
+  indication: Major Depressive Disorder (MDD)
+  announcement_date: '2017-07-12'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 2
+  notes: Phase 2 initiation announced December 19, 2016. Top-line data released December
+    7, 2017 - primary endpoint met.
+- id: GH0158
+  drug_name: Seladelpar (RESPONSE)
+  ticker: CBAY
+  company_name: CBAY
+  indication: Primary biliary cholangitis (PBC)
+  announcement_date: '2017-07-17'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 2
+  notes: Phase 2 top-line data released late May 2016. Positive interim data from
+    second trial data released July 17, 2017.
+- id: GH0159
+  drug_name: NUZYRA (omadacycline) - oral
+  ticker: PRTK
+  company_name: PRTK
+  indication: Acute bacterial skin and skin structure infections (ABSSSI)
+  announcement_date: '2017-07-17'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Phase 3 data released July 17, 2017 - all endpoints met.
+- id: GH0160
+  drug_name: YUPELRI (revefenacin)
+  ticker: TBPH
+  company_name: TBPH
+  indication: COPD
+  announcement_date: '2017-07-19'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: 12 month safety trial data released July 19, 2017 with NDA filing due 4Q
+    2017.
+- id: GH0161
+  drug_name: IW-3718
+  ticker: IRWD
+  company_name: IRWD
+  indication: Gastroesophageal reflux disease (GERD)
+  announcement_date: '2017-07-20'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 2b
+  notes: Phase 2b data released July 20, 2017. Primary endpoint met but data below
+    expectations.
+- id: GH0162
+  drug_name: M-001
+  ticker: BVXV
+  company_name: BVXV
+  indication: Universal flu vaccine
+  announcement_date: '2017-07-20'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 2b
+  notes: Phase 2b data released July 20, 2017 - endpoints met.
+- id: GH0163
+  drug_name: Bardoxolone methyl
+  ticker: RETA
+  company_name: RETA
+  indication: Alport Syndrome
+  announcement_date: '2017-07-24'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 2
+  notes: Phase 2/3 trial initiation announced February 23, 2017. Data from Phase 2
+    part of trial released July 24, 2017.
+- id: GH0164
+  drug_name: XERAVA (eravacycline)
+  ticker: LJPC
+  company_name: LJPC
+  indication: cIAI (complicated intra-abdominal infections)
+  announcement_date: '2017-07-25'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Phase 3 data released July 25, 2017 - primary endpoint met. NDA filing due
+    1Q 2018.
+- id: GH0165
+  drug_name: EXPAREL
+  ticker: PCRX
+  company_name: PCRX
+  indication: Post surgical pain
+  announcement_date: '2017-07-25'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Phase 3 data released July 25, 2017. Upper extremity met primary endpoint,
+    lower extremity trial missed endpoint.
+- id: GH0166
+  drug_name: RHB-104 MAP
+  ticker: RDHL
+  company_name: RDHL
+  indication: Crohn’s disease
+  announcement_date: '2017-07-31'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Phase 3 DSMB safety analysis released December 13, 2016 - trial to continue
+    as planned. Further analysis July 31, 2017 recommended trial continue as planned.
+- id: GH0167
+  drug_name: 'Neuro-Spinal Scaffold: INSPIRE 2.0'
+  ticker: NVIV
+  company_name: NVIV
+  indication: Complete Thoracic AIS A Spinal Cord Injury
+  announcement_date: '2017-07-31'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Noted July 31, 2017 that enrollment has been temporarily halted as it discusses
+    potential changes to patient enrollment criteria due to patient deaths - enrollment
+    now due to be completed 1H 2018 with
+- id: GH0168
+  drug_name: XARELTO (rivaroxaban)
+  ticker: JNJ
+  company_name: JNJ
+  indication: Coronary Artery Disease or Peripheral Artery Disease
+  announcement_date: '2017-08-02'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Phase 3 trial stopped early due to positive efficacy - February 8, 2017.
+- id: GH0169
+  drug_name: NEXLETOL (bempedoic acid) / Ezetimibe
+  ticker: ESPR
+  company_name: ESPR
+  indication: Hypercholesterolemia
+  announcement_date: '2017-08-08'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 2
+  notes: Phase 2 data released August 8, 2017. Primary endpoint met.
+- id: GH0170
+  drug_name: Orenitram
+  ticker: UTHR
+  company_name: UTHR
+  indication: Pulmonary arterial hypertension (PAH)
+  announcement_date: '2017-08-09'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Phase 3 data due 2H 2018. Independent data monitoring committee (DMC) noted
+    September 8, 2017 that the trial should continue following its interim analysis.
+- id: GH0171
+  drug_name: KEYTRUDA (pembrolizumab) + chemo
+  ticker: LLY
+  company_name: LLY
+  indication: First-Line Nonsquamous Non-small cell lung cancer (NSCLC)
+  announcement_date: '2017-08-09'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 2
+  notes: Phase 2 data presented at ESMO 2017 - ORR 57%, PFS 19 months, HR 0.54
+- id: GH0172
+  drug_name: OTIVIDEX
+  ticker: OTIC
+  company_name: OTIC
+  indication: Ménière's disease
+  announcement_date: '2017-08-11'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Company noted that Phase 3 development suspended following failure of AVERTS-1
+    trial - August 30, 2017. However, company announced November 8, 2017 that the
+    trial actually met the primary endpoint.
+- id: GH0173
+  drug_name: Nomacopan
+  ticker: AKTX
+  company_name: AKTX
+  indication: Paroxysmal nocturnal hemoglobinuria (PNH)
+  announcement_date: '2017-08-12'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 2
+  notes: Phase 2 further update December 8, 2017 noted that three additional patients
+    together with earlier five patients met primary endpoint.
+- id: GH0174
+  drug_name: Multikine
+  ticker: CVM
+  company_name: CVM
+  indication: Head and Neck cancer
+  announcement_date: '2017-08-14'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Initiated Dec 2010. Announced partial clinical hold September 27, 2016. Full
+    clinical hold noted May 2017. Clinical hold released - August 14, 2017.
+- id: GH0175
+  drug_name: Fovista
+  ticker: ISEE
+  company_name: ISEE
+  indication: Wet age-related macular degeneration (Wet-AMD)
+  announcement_date: '2017-08-14'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Phase 3 data released December 12, 2016 - primary endpoint not met. Data
+    from third trial released August 14, 2017- primary endpoint not met.
+- id: GH0176
+  drug_name: Zygel (ZYN002) - STOP
+  ticker: ZYNE
+  company_name: ZYNE
+  indication: Osteoarthritis
+  announcement_date: '2017-08-14'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 2
+  notes: Phase 2 data released August 14, 2017 - primary endpoint not met. However,
+    company still intends to initiate Phase 3 trial pending discussions with FDA.
+- id: GH0177
+  drug_name: REGN2222
+  ticker: REGN
+  company_name: REGN
+  indication: Respiratory syncytial virus (RSV)
+  announcement_date: '2017-08-14'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Phase 3 data released August 14, 2017 - primary endpoint not met.
+- id: GH0178
+  drug_name: Aceneuramic acid extended release (Ace-ER)
+  ticker: RARE
+  company_name: RARE
+  indication: GNE Myopathy
+  announcement_date: '2017-08-22'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Phase 3 data released August 22, 2017 - endpoints not met.
+- id: GH0179
+  drug_name: ACZ885 (canakinumab)
+  ticker: XOMA
+  company_name: XOMA
+  indication: CV risk reduction
+  announcement_date: '2017-08-27'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Data presented August 27, 2017 showed a 77% reduction in lung cancer mortality.
+- id: GH0180
+  drug_name: ACZ885 (canakinumab)
+  ticker: NVS
+  company_name: NVS
+  indication: CV risk reduction
+  announcement_date: '2017-08-27'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Data presented August 27, 2017 showed a 77% reduction in lung cancer mortality.
+- id: GH0181
+  drug_name: OTO-104 AVERTS-1
+  ticker: OTIC
+  company_name: OTIC
+  indication: Meniere's disease
+  announcement_date: '2017-08-30'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Phase 3 data released August 30 failed to meet primary and key secondary
+    endpoints.
+- id: GH0182
+  drug_name: OTIVIDEX
+  ticker: OTIC
+  company_name: OTIC
+  indication: Ménière's disease
+  announcement_date: '2017-08-30'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Phase 3 development suspended following failure of AVERTS-1 trial - August
+    30, 2017.
+- id: GH0183
+  drug_name: INBRIJA (CVT-301)
+  ticker: ACOR
+  company_name: ACOR
+  indication: OFF episodes of Parkinson’s disease (PD)
+  announcement_date: '2017-09-02'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Phase 3 data released February 9, 2017 - primary endpoint met.
+- id: GH0184
+  drug_name: OpRegen
+  ticker: LCTX
+  company_name: LCTX
+  indication: Dry age-related macular degeneration (AMD)
+  announcement_date: '2017-09-05'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 2
+  notes: Phase 2 second cohort underway. Interim data presented at May 8, 2017 at
+    ARVO conference.
+- id: GH0185
+  drug_name: Sotagliflozin
+  ticker: LXRX
+  company_name: LXRX
+  indication: Type 1 Diabetes
+  announcement_date: '2017-09-06'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Phase 3 data released September 9, 2016 met primary endpoint. Secondary endpoint
+    data due May 2017. Data from second trial released December 21, 2016 - primary
+    endpoint met. Data from third trial also
+- id: GH0186
+  drug_name: Gencaro
+  ticker: ABIO
+  company_name: ABIO
+  indication: Chronic Heart Failure
+  announcement_date: '2017-09-08'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 2b
+  notes: Phase 2b interim analysis August 9, 2018 - trial to continue to completion.
+    Data 1Q 2018.
+- id: GH0187
+  drug_name: ZULRESSO (brexanolone) - SAGE-547 (202C)
+  ticker: SAGE
+  company_name: SAGE
+  indication: Postpartum Depression - moderate
+  announcement_date: '2017-09-11'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Phase 3 data released November 9, 2017. Primary endpoint met.
+- id: GH0188
+  drug_name: Lifileucel (LN-144)
+  ticker: IOVA
+  company_name: IOVA
+  indication: Refractory metastatic melanoma
+  announcement_date: '2017-09-11'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 2
+  notes: Late breaker at SITC November 10, 2017 showed a DCR of 78%.
+- id: GH0189
+  drug_name: ZULRESSO (brexanolone) - SAGE-547 (202B)
+  ticker: SAGE
+  company_name: SAGE
+  indication: Postpartum Depression (Severe)
+  announcement_date: '2017-09-11'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Phase 3 data released November 9, 2017. Primary endpoint met.
+- id: GH0190
+  drug_name: ZULRESSO (brexanolone) - SAGE-547 (202C)
+  ticker: LGND
+  company_name: LGND
+  indication: Postpartum Depression - moderate
+  announcement_date: '2017-09-11'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Phase 3 data released November 9, 2017. Primary endpoint met.
+- id: GH0191
+  drug_name: SD-101
+  ticker: FOLD
+  company_name: FOLD
+  indication: Epidermolysis Bullosa (EB)
+  announcement_date: '2017-09-13'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Phase 3 top-line data released September 13, 2017 - endpoints not met.
+- id: GH0192
+  drug_name: Tradipitant - EPIONE 1
+  ticker: VNDA
+  company_name: VNDA
+  indication: Atopic dermatitis
+  announcement_date: '2017-09-13'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 2
+  notes: Phase 2 data released September 13, 2017 - primary endpoint not met.
+- id: GH0193
+  drug_name: XTANDI (Enzalutamide) - (PROSPER)
+  ticker: PFE
+  company_name: PFE
+  indication: Non-metastatic high risk hormone-sensitive prostate cancer
+  announcement_date: '2017-09-14'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Phase 3 data released September 14, 2017 - primary endpoint met.
+- id: GH0194
+  drug_name: VENCLEXTA (venetoclax) (MURANO)
+  ticker: RHHBY
+  company_name: RHHBY
+  indication: Relapsed or refractory Chronic Lymphocytic Leukemia (CLL)
+  announcement_date: '2017-09-18'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Phase 3 data released September 18, 2017 - PFS primary endpoint met.
+- id: GH0195
+  drug_name: SPN-810
+  ticker: SUPN
+  company_name: SUPN
+  indication: Impulsive Aggression in ADHD
+  announcement_date: '2017-09-18'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Noted September 18, 2017 that the lower of the two doses will be discontinued
+    following interim analysis.
+- id: GH0196
+  drug_name: XENLETA (lefamulin)
+  ticker: NBRV
+  company_name: NBRV
+  indication: Moderate to severe Community Acquired Bacterial Pneumonia (CABP)
+  announcement_date: '2017-09-18'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Phase 3 data released September 18, 2017 - primary endpoints met.
+- id: GH0197
+  drug_name: ONPATTRO (patisiran)
+  ticker: ALNY
+  company_name: ALNY
+  indication: Familial Amyloidotic Polyneuropathy (FAP) in Patients with ATTR
+  announcement_date: '2017-09-20'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Phase 3 top-line data released September 20, 2017 - all endpoints met. NDA
+    filing due by end of 2017.
+- id: GH0198
+  drug_name: ONPATTRO (patisiran)
+  ticker: SNY
+  company_name: SNY
+  indication: Familial Amyloidotic Polyneuropathy (FAP) in Patients with ATTR
+  announcement_date: '2017-09-20'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Phase 3 top-line data released September 20, 2017 - all endpoints met. NDA
+    filing due by end of 2017.
+- id: GH0199
+  drug_name: XPOVIO (selinexor)
+  ticker: KPTI
+  company_name: KPTI
+  indication: Dedifferentiated liposarcoma
+  announcement_date: '2017-09-20'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 2/3
+  notes: Phase 2/3 trial initiated January 2016.Topline data for the Phase 2 portion
+    released September 20, 2017 - PFS HR 0.60. Phase 3 data due 2019.
+- id: GH0200
+  drug_name: VRS-317 VELOCITY
+  ticker: ARAV
+  company_name: ARAV
+  indication: Growth hormone deficiency, or GHD - pediatric
+  announcement_date: '2017-09-21'
+  announcement_timing: UNKNOWN
+  announcement_source: GITHUB_EVENTS_STOCK_PRICES
+  catalyst_type: PHASE2_READOUT
+  cohort_phase: phase_b
+  github_stage: Phase 3
+  notes: Phase 3 top-line data released September 21, 2017 - primary endpoint not
+    met.
